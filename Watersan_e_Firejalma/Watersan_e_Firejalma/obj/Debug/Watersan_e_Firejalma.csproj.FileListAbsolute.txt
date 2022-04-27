@@ -1,0 +1,11 @@
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe.config
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.AssemblyReference.cache
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Form1.resources
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Resources.resources
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.GenerateResource.cache
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
+C:\Users\Aluno\Documents\a\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
