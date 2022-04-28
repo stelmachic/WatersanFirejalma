@@ -17,9 +17,9 @@ namespace Watersan_e_Firejalma
         private int gravity = 1;
         private int speedX = 15;
         private int speedY = -20;
-        int resolucaox = 32;
-        int resolucaoy = 32;
-        int orientacao = 1;
+        private int resolucaox = 32;
+        private int resolucaoy = 32;
+        private int orientacao = 1;
         private Image spriteSheet;
 
         public int PosX { get => posX; set => posX = value; }
@@ -46,6 +46,16 @@ namespace Watersan_e_Firejalma
         public Personagem(Image spriteSheet) 
         {
             this.spriteSheet = spriteSheet;
+        }
+
+
+        public void MoveRight()
+        {
+            posX += speedX;
+        }
+        public void MoveLeft()
+        {
+            posX += -speedX;
         }
 
 

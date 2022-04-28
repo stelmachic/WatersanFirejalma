@@ -20,8 +20,9 @@ namespace Watersan_e_Firejalma
         Timer anim = new Timer();
         Timer idle = new Timer();
 
+        Personagem edjalma = new Edjalma();
 
-        Image img = new Bitmap(@"C:\Users\Aluno\Documents\a\Arte\Sprite Sheet Edjalma.png");
+       
  
         public Form1()
         {
@@ -32,7 +33,7 @@ namespace Watersan_e_Firejalma
             int sx = 0;
 
 
-            Personagem edjalma = new Edjalma();
+            
 
             
 
@@ -40,24 +41,22 @@ namespace Watersan_e_Firejalma
 
             tm.Tick += delegate // MOVIMENTACAO
             {
-                edjalma.PosX += edjalma.SpeedX;
-                edjalma.SpeedY += edjalma.Gravity;
-                edjalma.PosY += edjalma.SpeedY;
 
-                if (y + 200 > bmp.Height) // chão
+
+                if (edjalma.PosY + 200 > bmp.Height) // chão
                 {
-                    dy = 0;
-                    y = bmp.Height - 200;
+                    edjalma.SpeedY = 0;
+                    edjalma.PosY = bmp.Height - 200;
                 }
-                if (x + 200 > bmp.Width) // parede direita
+                if (edjalma.PosX + 200 > bmp.Width) // parede direita
                 {
-                    dx = 0;
-                    x = bmp.Width - 200;
+                    edjalma.SpeedX = 0;
+                    edjalma.PosX = bmp.Width - 200;
                 }
-                if (x < 0) // parede esquerda
+                if (edjalma.PosX < 0) // parede esquerda
                 {
-                    dx = 0;
-                    x = 0;
+                    edjalma.SpeedX = 0;
+                    edjalma.PosX = 0;
                 }
             };
 
@@ -65,11 +64,11 @@ namespace Watersan_e_Firejalma
             {
                 g.Clear(Color.White);     
 
-                sx += resolucaox;
-                if (sx == resolucaox * 8)
+                sx += edjalma.Resolucaox;
+                if (sx == edjalma.Resolucaox * 8)
                     sx = 0;
                 
-                g.DrawImage(img, new Rectangle(x, y, 200, 200), new Rectangle(sx, 0, resolucaox, resolucaoy), GraphicsUnit.Pixel);
+                g.DrawImage(edjalma.SpriteSheet, new Rectangle(edjalma.PosX, edjalma.PosY, 200, 200), new Rectangle(sx, 0, edjalma.Resolucaox, edjalma.Resolucaoy), GraphicsUnit.Pixel);
                 pb.Image = bmp;
                 
             };
@@ -78,7 +77,7 @@ namespace Watersan_e_Firejalma
             {
                 g.Clear(Color.White);
 
-                g.DrawImage(img, new Rectangle(x, y, 200, 200), new Rectangle(0, 0, resolucaox, resolucaoy), GraphicsUnit.Pixel);
+                g.DrawImage(edjalma.SpriteSheet, new Rectangle(edjalma.PosX, edjalma.PosY, 200, 200), new Rectangle(0, 0, edjalma.Resolucaox, edjalma.Resolucaoy), GraphicsUnit.Pixel);
                 pb.Image = bmp;
             };
         }
@@ -92,33 +91,35 @@ namespace Watersan_e_Firejalma
                 case Keys.Escape:
                     Application.Exit();
                     break;
+
+
                 case Keys.Left:
                     idle.Stop();
                     anim.Start();
-                    if (orientacao == 1)
+                    if (edjalma.Orientacao == 1)
                     {
-                        img.RotateFlip(RotateFlipType.Rotate180FlipY);
+                        edjalma.SpriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
                     }
-                    dx = -15;
-                    orientacao = -1;
+                    edjalma.SpeedX = -15;
+                    edjalma.Orientacao = -1;
                     break;
 
                 case Keys.Right: 
                     idle.Stop();
                     anim.Start();
-                    dx = 15;
-                    if (orientacao == -1)
+                    edjalma.SpeedX = 15;
+                    if (edjalma.Orientacao == -1)
                     {
-                        img.RotateFlip(RotateFlipType.Rotate180FlipY);
+                        edjalma.SpriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
                     }
-                    orientacao = 1;
+                    edjalma.Orientacao = 1;
                     break;
 
                 case Keys.Up:
-                    if (y == bmp.Height - 200)
+                    if (edjalma.PosY == bmp.Height - 200)
                     {
                         idle.Start();
-                        dy = -20;
+                        edjalma.SpeedY = -20;
                     }
                     break;
             }
@@ -128,7 +129,7 @@ namespace Watersan_e_Firejalma
         {
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
-            y = pb.Height-200;
+            edjalma.PosY = pb.Height-200;
             tm.Start();
             idle.Start();
         }
@@ -140,12 +141,12 @@ namespace Watersan_e_Firejalma
                 case Keys.Left:
                     anim.Stop();
                     idle.Start();
-                    dx = 0;
+                    edjalma.SpeedX = 0;
                     break;
                 case Keys.Right:
                     anim.Stop();
                     idle.Start();
-                    dx = 0;
+                    edjalma.SpeedX = 0;
                     break;
             }
         }
