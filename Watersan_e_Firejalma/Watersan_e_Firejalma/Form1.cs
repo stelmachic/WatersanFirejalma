@@ -33,10 +33,7 @@ namespace Watersan_e_Firejalma
             int sx = 0;
 
 
-            
-
-            
-
+    
             
 
             tm.Tick += delegate // MOVIMENTACAO
@@ -96,31 +93,26 @@ namespace Watersan_e_Firejalma
                 case Keys.Left:
                     idle.Stop();
                     anim.Start();
-                    if (edjalma.Orientacao == 1)
-                    {
-                        edjalma.SpriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    }
-                    edjalma.SpeedX = -15;
-                    edjalma.Orientacao = -1;
+                    edjalma.MoveLeft();  
+                   
                     break;
+
+
 
                 case Keys.Right: 
                     idle.Stop();
                     anim.Start();
-                    edjalma.SpeedX = 15;
-                    if (edjalma.Orientacao == -1)
-                    {
-                        edjalma.SpriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
-                    }
-                    edjalma.Orientacao = 1;
+                    edjalma.MoveRight();
+                  
                     break;
 
+
+
                 case Keys.Up:
-                    if (edjalma.PosY == bmp.Height - 200)
-                    {
+                    
                         idle.Start();
-                        edjalma.SpeedY = -20;
-                    }
+                        edjalma.Jump();
+                    
                     break;
             }
         }
@@ -141,12 +133,12 @@ namespace Watersan_e_Firejalma
                 case Keys.Left:
                     anim.Stop();
                     idle.Start();
-                    edjalma.SpeedX = 0;
+             
                     break;
                 case Keys.Right:
                     anim.Stop();
                     idle.Start();
-                    edjalma.SpeedX = 0;
+              
                     break;
             }
         }

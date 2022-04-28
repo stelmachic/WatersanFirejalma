@@ -16,7 +16,8 @@ namespace Watersan_e_Firejalma
         private int posY = 20;
         private int gravity = 1;
         private int speedX = 15;
-        private int speedY = -20;
+        private int speedY = 0;
+        private int jumpForce = -20;
         private int resolucaox = 32;
         private int resolucaoy = 32;
         private int orientacao = 1;
@@ -51,11 +52,32 @@ namespace Watersan_e_Firejalma
 
         public void MoveRight()
         {
+            if (orientacao == -1)
+            {
+                spriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
+            }
+
             posX += speedX;
+            orientacao = 1;
         }
         public void MoveLeft()
         {
+            if (orientacao == 1)
+            {
+                spriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
+            }
+
             posX += -speedX;
+            orientacao = -1;
+        }
+
+        public void Jump()
+        {
+            for(speedY = jumpForce; speedY >= -jumpForce; speedY += gravity)
+            {
+                posY += speedY;
+            }
+            
         }
 
 
