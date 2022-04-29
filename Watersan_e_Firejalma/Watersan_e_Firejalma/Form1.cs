@@ -36,19 +36,20 @@ namespace Watersan_e_Firejalma
     
             
 
-            tm.Tick += delegate // MOVIMENTACAO
+            tm.Tick += delegate 
             {
-
+                PosX.Text = edjalma.PosX.ToString();
+                PosY.Text = edjalma.PosY.ToString();
 
                 if (edjalma.PosY + 200 > bmp.Height) // chão
                 {
                     edjalma.SpeedY = 0;
-                    edjalma.PosY = bmp.Height - 200;
+                    edjalma.PosY = pb.Height - 200;
                 }
-                if (edjalma.PosX + 200 > bmp.Width) // parede direita
+                if (edjalma.PosX + 200 > pb.Width) // parede direita
                 {
                     edjalma.SpeedX = 0;
-                    edjalma.PosX = bmp.Width - 200;
+                    edjalma.PosX = pb.Width - 200;
                 }
                 if (edjalma.PosX < 0) // parede esquerda
                 {
@@ -70,7 +71,7 @@ namespace Watersan_e_Firejalma
                 
             };
 
-            idle.Tick += delegate
+            idle.Tick += delegate // ANIMACAO IDLE
             {
                 g.Clear(Color.White);
 
@@ -79,6 +80,20 @@ namespace Watersan_e_Firejalma
             };
         }
 
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            bmp = new Bitmap(pb.Width, pb.Height);
+            g = Graphics.FromImage(bmp);
+
+
+            edjalma.PosY = pb.Height - 200; // Define a altura inicial do personagem
+
+
+            tm.Start();
+            idle.Start();
+        }
 
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -91,8 +106,8 @@ namespace Watersan_e_Firejalma
 
 
                 case Keys.Left:
-                    idle.Stop();
-                    anim.Start();
+                    //idle.Stop();
+                    //anim.Start();
                     edjalma.MoveLeft();  
                    
                     break;
@@ -100,8 +115,8 @@ namespace Watersan_e_Firejalma
 
 
                 case Keys.Right: 
-                    idle.Stop();
-                    anim.Start();
+                    //idle.Stop();
+                    //anim.Start();
                     edjalma.MoveRight();
                   
                     break;
@@ -110,34 +125,27 @@ namespace Watersan_e_Firejalma
 
                 case Keys.Up:
                     
-                        idle.Start();
+                        //idle.Start();
                         edjalma.Jump();
                     
                     break;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            bmp = new Bitmap(pb.Width, pb.Height);
-            g = Graphics.FromImage(bmp);
-            edjalma.PosY = pb.Height-200;
-            tm.Start();
-            idle.Start();
-        }
+        
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    anim.Stop();
-                    idle.Start();
+                    //anim.Stop();
+                    //idle.Start();
              
                     break;
                 case Keys.Right:
-                    anim.Stop();
-                    idle.Start();
+                    //anim.Stop();
+                    //idle.Start();
               
                     break;
             }
