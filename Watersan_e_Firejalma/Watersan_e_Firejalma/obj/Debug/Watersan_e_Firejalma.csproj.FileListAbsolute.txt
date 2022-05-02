@@ -20,3 +20,14 @@ C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\De
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe.config
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.AssemblyReference.cache
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.SuggestedBindingRedirects.cache
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Form1.resources
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Resources.resources
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.GenerateResource.cache
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
+C:\Users\Aluno\Desktop\Gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb

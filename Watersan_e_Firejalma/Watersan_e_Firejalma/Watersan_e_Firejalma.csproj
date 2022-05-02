@@ -89,5 +89,11 @@
   <ItemGroup>
     <None Include="Resources\Sprite Sheet trevisharp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edjalma-sheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trevisharp-sheet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

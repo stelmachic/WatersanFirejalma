@@ -8,7 +8,7 @@ namespace Watersan_e_Firejalma
 {
     public class Edjalma : Personagem
     {
-        public Edjalma() : base(Properties.Resources.Sprite_Sheet_Edjalma)
+        public Edjalma() : base(Properties.Resources.Edjalma_sheet)
         {
         }
     }

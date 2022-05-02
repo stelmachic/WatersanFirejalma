@@ -63,9 +63,9 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sprite_Sheet_Edjalma {
+        internal static System.Drawing.Bitmap Edjalma_sheet {
             get {
-                object obj = ResourceManager.GetObject("Sprite_Sheet_Edjalma", resourceCulture);
+                object obj = ResourceManager.GetObject("Edjalma_sheet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Sprite_Sheet_trevisharp {
+        internal static System.Drawing.Bitmap Trevisharp_sheet {
             get {
-                object obj = ResourceManager.GetObject("Sprite_Sheet_trevisharp", resourceCulture);
+                object obj = ResourceManager.GetObject("Trevisharp_sheet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

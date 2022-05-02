@@ -13,36 +13,41 @@ namespace Watersan_e_Firejalma
 {
     public partial class Form1 : Form
     {
-
-        Bitmap bmp = null;
-        Graphics g = null;
         Timer tm = new Timer();
-        Timer anim = new Timer();
-        Timer idle = new Timer();
 
         Personagem edjalma = new Edjalma();
 
-       
  
         public Form1()
         {
             InitializeComponent();
             tm.Interval = 25;
-            anim.Interval = 50;
-            idle.Interval = 25;
-            int sx = 0;
-
-
-    
-            
 
             tm.Tick += delegate 
-            {
-                PosX.Text = edjalma.PosX.ToString();
-                PosY.Text = edjalma.PosY.ToString();
-
-                if (edjalma.PosY + 200 > bmp.Height) // chão
+            {          
+                if (edjalma.IsJumping)
                 {
+                    edjalma.Jump();
+                    edjalma.IsGrounded = false;
+                }
+                if (edjalma.IsMoving)
+                {                 
+                    edjalma.Move();
+                }
+
+                pb.Image = edjalma.Animate();
+
+
+
+
+
+
+                // COLISÕES TEMPORARIAS
+                if (edjalma.PosY + 200 > pb.Height) // chão
+                {
+                    edjalma.IsGrounded = true;
+                    edjalma.IsJumping = false;
+
                     edjalma.SpeedY = 0;
                     edjalma.PosY = pb.Height - 200;
                 }
@@ -57,43 +62,22 @@ namespace Watersan_e_Firejalma
                     edjalma.PosX = 0;
                 }
             };
-
-            anim.Tick += delegate // ANIMACAO MOVIMENTO
-            {
-                g.Clear(Color.White);     
-
-                sx += edjalma.Resolucaox;
-                if (sx == edjalma.Resolucaox * 8)
-                    sx = 0;
-                
-                g.DrawImage(edjalma.SpriteSheet, new Rectangle(edjalma.PosX, edjalma.PosY, 200, 200), new Rectangle(sx, 0, edjalma.Resolucaox, edjalma.Resolucaoy), GraphicsUnit.Pixel);
-                pb.Image = bmp;
-                
-            };
-
-            idle.Tick += delegate // ANIMACAO IDLE
-            {
-                g.Clear(Color.White);
-
-                g.DrawImage(edjalma.SpriteSheet, new Rectangle(edjalma.PosX, edjalma.PosY, 200, 200), new Rectangle(0, 0, edjalma.Resolucaox, edjalma.Resolucaoy), GraphicsUnit.Pixel);
-                pb.Image = bmp;
-            };
         }
 
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bmp = new Bitmap(pb.Width, pb.Height);
-            g = Graphics.FromImage(bmp);
 
+            edjalma.Bmp = new Bitmap(pb.Width, pb.Height);
+            edjalma.Graphics = Graphics.FromImage(edjalma.Bmp);
 
             edjalma.PosY = pb.Height - 200; // Define a altura inicial do personagem
-
-
+            edjalma.Fatiar(8,5);
             tm.Start();
-            idle.Start();
+
         }
+
 
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -106,28 +90,25 @@ namespace Watersan_e_Firejalma
 
 
                 case Keys.Left:
-                    //idle.Stop();
-                    //anim.Start();
-                    edjalma.MoveLeft();  
-                   
+
+                    edjalma.Orientar(-1);
+                    edjalma.IsMoving = true;
+                    
                     break;
 
+                case Keys.Right:
 
-
-                case Keys.Right: 
-                    //idle.Stop();
-                    //anim.Start();
-                    edjalma.MoveRight();
-                  
+                    edjalma.Orientar(1);
+                    edjalma.IsMoving = true;
+                    
                     break;
 
 
 
                 case Keys.Up:
-                    
-                        //idle.Start();
-                        edjalma.Jump();
-                    
+
+                    edjalma.IsJumping = true;
+
                     break;
             }
         }
@@ -139,14 +120,14 @@ namespace Watersan_e_Firejalma
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    //anim.Stop();
-                    //idle.Start();
+
+                    edjalma.IsMoving = false;
              
                     break;
                 case Keys.Right:
-                    //anim.Stop();
-                    //idle.Start();
-              
+
+                    edjalma.IsMoving = false;
+
                     break;
             }
         }
