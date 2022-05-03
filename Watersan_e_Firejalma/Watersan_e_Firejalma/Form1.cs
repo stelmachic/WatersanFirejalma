@@ -14,7 +14,8 @@ namespace Watersan_e_Firejalma
     public partial class Form1 : Form
     {
         Timer tm = new Timer();
-
+        int frameRate = 2;
+        int frame = 0;
         Personagem edjalma = new Edjalma();
 
  
@@ -35,7 +36,13 @@ namespace Watersan_e_Firejalma
                     edjalma.Move();
                 }
 
-                pb.Image = edjalma.Animate();
+
+                frame++;
+                if(frame%frameRate == 0)
+                {
+                    pb.Image = edjalma.Animate();
+                }
+                
 
 
 
@@ -47,6 +54,7 @@ namespace Watersan_e_Firejalma
                 {
                     edjalma.IsGrounded = true;
                     edjalma.IsJumping = false;
+                    
 
                     edjalma.SpeedY = 0;
                     edjalma.PosY = pb.Height - 200;

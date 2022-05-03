@@ -30,6 +30,10 @@ namespace Watersan_e_Firejalma
         private int spriteX;
         private int spriteY;
         private Image[,] sprites = new Image[8,5];
+        Random rnd = new Random();
+        private int animChoice;
+        private bool animChosen = false;
+        private int frame;
 
         public int PosX { get => posX; set => posX = value; }
         public int PosY { get => posY; set => posY = value; }
@@ -99,36 +103,70 @@ namespace Watersan_e_Firejalma
         public Bitmap Animate()
         {
             Graphics.Clear(Color.White);
-
+         
             
             if (IsJumping)
             {
                 SpriteY = 4;
-
                 SpriteX = 1;
             }
             else if (IsMoving)
             {
                 SpriteY = 0;
 
-                SpriteX += 1;
+                SpriteX ++;
                 if (SpriteX == 8)
                     SpriteX = 0;
             }
             else
             {
-                SpriteY = 0;
-                SpriteX = 0;
-            }
+                if (!animChosen)
+                {
+                    animChoice = rnd.Next(1, 100);
+                }
+
+                if(animChoice < 80)
+                {
+                    SpriteY = 1;
+                    SpriteX = 0;
+                    animChosen = true;
+
+                    frame++;
+                    if (frame == 8)
+                    {
+                        animChosen = false;
+                        frame = 0;
+                    }
 
 
-            if (Orientacao == -1)
-            {
-                Sprites[SpriteX, SpriteY].RotateFlip(RotateFlipType.Rotate180FlipY);
+                }else if (animChoice < 90)
+                {
+                    SpriteY = 2;
+                    animChosen = true;
+
+                    SpriteX ++;
+                    if (SpriteX == 7)
+                    {
+                        SpriteX = 0;
+                        animChosen = false;
+                    }
+                }
+                else
+                {
+                    SpriteY = 3;
+
+                    animChosen = true;
+
+                    SpriteX ++;
+                    if (SpriteX == 8)
+                    {
+                        SpriteX = 0;
+                        animChosen = false;
+                    }
+                }
             }
 
             Graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, 200, 200));
-
 
             return Bmp;
         }
@@ -138,10 +176,17 @@ namespace Watersan_e_Firejalma
 
         public void Orientar(int direcao)
         {
-            //if (direcao != orientacao)
-            //{
-            //    spriteSheet.RotateFlip(RotateFlipType.Rotate180FlipY);
-            //}
+            if (direcao != orientacao)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        Sprites[i, j].RotateFlip(RotateFlipType.Rotate180FlipY);
+                    }
+                }
+       
+            }
             Orientacao = direcao;
         }
 
