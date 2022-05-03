@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Trevisan.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -84,16 +85,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sprite Sheet Edjalma.png" />
+    <None Include="Resources\Edjalma-Sheet.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sprite Sheet trevisharp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Edjalma-sheet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Trevisharp-sheet.png" />
+    <None Include="Resources\Trevisharp-Sheet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

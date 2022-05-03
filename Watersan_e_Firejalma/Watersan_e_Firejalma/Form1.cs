@@ -17,8 +17,10 @@ namespace Watersan_e_Firejalma
         int frameRate = 2;
         int frame = 0;
         Personagem edjalma = new Edjalma();
+        Personagem trevisan = new Trevisan();
 
- 
+
+
         public Form1()
         {
             InitializeComponent();
@@ -37,24 +39,35 @@ namespace Watersan_e_Firejalma
                 }
 
 
+                if (trevisan.IsJumping)
+                {
+                    trevisan.Jump();
+                    trevisan.IsGrounded = false;
+                }
+                if (trevisan.IsMoving)
+                {
+                    trevisan.Move();
+                }
+
+
                 frame++;
                 if(frame%frameRate == 0)
                 {
                     pb.Image = edjalma.Animate();
+                    //pb.Image = trevisan.Animate();
                 }
                 
 
 
 
 
+                // ---------------------------------------------- GAMBIARRAS ATE CRIAR SISTEMA DE COLISÃO -----------------------------------------------
 
-
-                // COLISÕES TEMPORARIAS
+                // COLISÕES TEMPORARIAS EDJALMA
                 if (edjalma.PosY + 200 > pb.Height) // chão
                 {
                     edjalma.IsGrounded = true;
                     edjalma.IsJumping = false;
-                    
 
                     edjalma.SpeedY = 0;
                     edjalma.PosY = pb.Height - 200;
@@ -69,6 +82,28 @@ namespace Watersan_e_Firejalma
                     edjalma.SpeedX = 0;
                     edjalma.PosX = 0;
                 }
+
+
+
+                // COLISÕES TEMPORARIAS TREVISAN
+                if (trevisan.PosY + 200 > pb.Height) // chão
+                {
+                    trevisan.IsGrounded = true;
+                    trevisan.IsJumping = false;
+
+                    trevisan.SpeedY = 0;
+                    trevisan.PosY = pb.Height - 200;
+                }
+                if (trevisan.PosX + 200 > pb.Width) // parede direita
+                {
+                    trevisan.SpeedX = 0;
+                    trevisan.PosX = pb.Width - 200;
+                }
+                if (trevisan.PosX < 0) // parede esquerda
+                {
+                    trevisan.SpeedX = 0;
+                    trevisan.PosX = 0;
+                }
             };
         }
 
@@ -80,8 +115,20 @@ namespace Watersan_e_Firejalma
             edjalma.Bmp = new Bitmap(pb.Width, pb.Height);
             edjalma.Graphics = Graphics.FromImage(edjalma.Bmp);
 
+
+            trevisan.Bmp = new Bitmap(pb.Width, pb.Height);
+            trevisan.Graphics = Graphics.FromImage(edjalma.Bmp);
+
             edjalma.PosY = pb.Height - 200; // Define a altura inicial do personagem
+
+            trevisan.PosY = pb.Height - 200; // Define a altura inicial do personagem
+            trevisan.PosX = 50;
+
+
             edjalma.Fatiar(8,5);
+            trevisan.Fatiar(8,5);
+
+
             tm.Start();
 
         }
@@ -118,6 +165,30 @@ namespace Watersan_e_Firejalma
                     edjalma.IsJumping = true;
 
                     break;
+
+
+
+                case Keys.A:
+
+                    trevisan.Orientar(-1);
+                    trevisan.IsMoving = true;
+
+                    break;
+
+                case Keys.D:
+
+                    trevisan.Orientar(1);
+                    trevisan.IsMoving = true;
+
+                    break;
+
+
+
+                case Keys.W:
+
+                    trevisan.IsJumping = true;
+
+                    break;
             }
         }
 
@@ -135,6 +206,19 @@ namespace Watersan_e_Firejalma
                 case Keys.Right:
 
                     edjalma.IsMoving = false;
+
+                    break;
+
+
+
+                case Keys.A:
+
+                    trevisan.IsMoving = false;
+
+                    break;
+                case Keys.D:
+
+                    trevisan.IsMoving = false;
 
                     break;
             }

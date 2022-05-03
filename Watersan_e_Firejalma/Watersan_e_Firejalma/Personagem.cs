@@ -145,7 +145,7 @@ namespace Watersan_e_Firejalma
                     animChosen = true;
 
                     SpriteX ++;
-                    if (SpriteX == 7)
+                    if (SpriteX == 8)
                     {
                         SpriteX = 0;
                         animChosen = false;

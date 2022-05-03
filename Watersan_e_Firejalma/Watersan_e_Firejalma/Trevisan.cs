@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Watersan_e_Firejalma
 {
-    public class Edjalma : Personagem
+    public class Trevisan : Personagem
     {
-        public Edjalma() : base(Properties.Resources.Trevisharp_Sheet)
+        public Trevisan() : base(Properties.Resources.Edjalma_Sheet)
         {
         }
     }
