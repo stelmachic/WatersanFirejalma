@@ -50,16 +50,6 @@ namespace Watersan_e_Firejalma
         public int SpriteY { get => spriteY; set => spriteY = value; }
         public Image[,] Sprites { get => sprites; set => sprites = value; }
 
-        public Personagem(int posX, int posY, int gravity, int speedX, int speedY, Image spriteSheet)
-        {
-            this.PosX = posX;
-            this.PosY = posY;
-            this.Gravity = gravity;
-            this.SpeedX = speedX;
-            this.SpeedY = speedY;
-            this.SpriteSheet = spriteSheet;
-        }
-
         public Personagem(Image spriteSheet) 
         {
             this.SpriteSheet = spriteSheet;
@@ -81,7 +71,6 @@ namespace Watersan_e_Firejalma
             }
         }
      
-
         public void Jump()
         {
             if (IsGrounded)
@@ -93,14 +82,9 @@ namespace Watersan_e_Firejalma
             SpeedY += Gravity;
         }
 
-
-
-
         public void Animate(Graphics graphics)
         {
-            graphics.Clear(Color.White);
-         
-            
+
             if (IsJumping)
             {
                 SpriteY = 4;
@@ -165,9 +149,6 @@ namespace Watersan_e_Firejalma
             graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, 200, 200));
         }
 
-
-
-
         public void Orientar(int direcao)
         {
             if (direcao != orientacao)
@@ -184,9 +165,6 @@ namespace Watersan_e_Firejalma
             Orientacao = direcao;
         }
 
-
-
-
         public void Fatiar(int x, int y)
         {
             for(int i = 0; i<x; i++)
@@ -198,84 +176,54 @@ namespace Watersan_e_Firejalma
             }
         }
 
-
-
-
         public void KeyCheck(Keys key, bool moving)
         {
-            switch (key)
+
+            if(key == Keys.Escape)
             {
-                case Keys.Escape:
-                    Application.Exit();
-                    break;
-
-
-                case Keys.Left:
-                    
-                    if (this is Edjalma)
-                    {
-                        Orientar(-1);
-                        IsMoving = moving;
-                    }
-  
-                    break;
-
-                case Keys.Right:
-
-                    if (this is Edjalma)
-                    {
-                        Orientar(1);
-                        IsMoving = moving;
-                    }
-
-                    break;
-
-
-
-                case Keys.Up:
-
-                    if (this is Edjalma)
-                    {
-                        Orientar(-1);
-                        IsJumping = true;
-                    }
-
-                    break;
-
-
-
-                case Keys.A:
-
-                    if (this is Trevisan)
-                    {
-                        Orientar(-1);
-                        IsMoving = moving;
-                    }
-
-                    break;
-
-                case Keys.D:
-
-                    if (this is Trevisan)
-                    {
-                        Orientar(1);
-                        IsMoving = moving;
-                    }
-
-                    break;
-
-
-
-                case Keys.W:
-
-                    if (this is Trevisan)
-                    {
-                        Orientar(-1);
-                        isJumping = true;
-                    }
-
-                    break;
+                Application.Exit();
             }
+
+
+
+            if(this is Edjalma)
+            {
+                switch (key)
+                {
+                    case Keys.Left:
+                            Orientar(-1);
+                            IsMoving = moving;
+                        break;
+
+                    case Keys.Right:
+                            Orientar(1);
+                            IsMoving = moving;
+                        break;
+
+                    case Keys.Up:
+                        IsJumping = true;
+                        break;
+                }
+            }
+            else if(this is Trevisan)
+            {
+                switch (key)
+                {
+                    case Keys.A:
+                            Orientar(-1);
+                            IsMoving = moving;
+                        break;
+
+                    case Keys.D:
+                            Orientar(1);
+                            IsMoving = moving;
+                        break;
+
+                    case Keys.W:
+                            isJumping = true;
+                        break;
+                }
+            } 
         }
     }
 }

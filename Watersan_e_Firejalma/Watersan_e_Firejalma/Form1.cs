@@ -33,6 +33,12 @@ namespace Watersan_e_Firejalma
             tm.Tick += delegate 
             {
                 frame++;
+
+                if (frame % frameRate == 0)
+                {
+                    g.Clear(Color.White);
+                }
+
                 foreach (Personagem personagem in personagens)
                 {
                     if (personagem.IsJumping)
@@ -45,11 +51,11 @@ namespace Watersan_e_Firejalma
                         personagem.Move();
                     }
 
-                    personagem.Animate(g);
+                    
 
                     if (frame % frameRate == 0)
                     {
-                        
+                        personagem.Animate(g);
                     }
 
 
@@ -90,7 +96,7 @@ namespace Watersan_e_Firejalma
             g = Graphics.FromImage(bmp);
 
 
-            //personagens.Add(trevisan);
+            personagens.Add(trevisan);
             personagens.Add(edjalma);
 
             edjalma.PosY = pb.Height - 200;
