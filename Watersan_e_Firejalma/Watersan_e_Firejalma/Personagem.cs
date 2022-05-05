@@ -25,8 +25,6 @@ namespace Watersan_e_Firejalma
         private bool isJumping = false;
         private bool isGrounded = false;
         private Image spriteSheet;
-        private Graphics graphics = null;
-        private Bitmap bmp = null;
         private int spriteX;
         private int spriteY;
         private Image[,] sprites = new Image[8,5];
@@ -48,8 +46,6 @@ namespace Watersan_e_Firejalma
         public bool IsJumping { get => isJumping; set => isJumping = value; }
         public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
         public Image SpriteSheet { get => spriteSheet; set => spriteSheet = value; }
-        public Graphics Graphics { get => graphics; set => graphics = value; }
-        public Bitmap Bmp { get => bmp; set => bmp = value; }
         public int SpriteX { get => spriteX; set => spriteX = value; }
         public int SpriteY { get => spriteY; set => spriteY = value; }
         public Image[,] Sprites { get => sprites; set => sprites = value; }
@@ -100,9 +96,9 @@ namespace Watersan_e_Firejalma
 
 
 
-        public Bitmap Animate()
+        public void Animate(Graphics graphics)
         {
-            Graphics.Clear(Color.White);
+            graphics.Clear(Color.White);
          
             
             if (IsJumping)
@@ -166,9 +162,7 @@ namespace Watersan_e_Firejalma
                 }
             }
 
-            Graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, 200, 200));
-
-            return Bmp;
+            graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, 200, 200));
         }
 
 
@@ -201,6 +195,86 @@ namespace Watersan_e_Firejalma
                 {
                     Sprites[i,j] = (SpriteSheet as Bitmap).Clone(new Rectangle(i * Resolucaox, j * Resolucaoy, Resolucaox, Resolucaoy), SpriteSheet.PixelFormat);
                 }
+            }
+        }
+
+
+
+
+        public void KeyCheck(Keys key, bool moving)
+        {
+            switch (key)
+            {
+                case Keys.Escape:
+                    Application.Exit();
+                    break;
+
+
+                case Keys.Left:
+                    
+                    if (this is Edjalma)
+                    {
+                        Orientar(-1);
+                        IsMoving = moving;
+                    }
+  
+                    break;
+
+                case Keys.Right:
+
+                    if (this is Edjalma)
+                    {
+                        Orientar(1);
+                        IsMoving = moving;
+                    }
+
+                    break;
+
+
+
+                case Keys.Up:
+
+                    if (this is Edjalma)
+                    {
+                        Orientar(-1);
+                        IsJumping = true;
+                    }
+
+                    break;
+
+
+
+                case Keys.A:
+
+                    if (this is Trevisan)
+                    {
+                        Orientar(-1);
+                        IsMoving = moving;
+                    }
+
+                    break;
+
+                case Keys.D:
+
+                    if (this is Trevisan)
+                    {
+                        Orientar(1);
+                        IsMoving = moving;
+                    }
+
+                    break;
+
+
+
+                case Keys.W:
+
+                    if (this is Trevisan)
+                    {
+                        Orientar(-1);
+                        isJumping = true;
+                    }
+
+                    break;
             }
         }
     }

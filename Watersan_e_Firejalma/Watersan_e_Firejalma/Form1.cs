@@ -16,9 +16,11 @@ namespace Watersan_e_Firejalma
         Timer tm = new Timer();
         int frameRate = 2;
         int frame = 0;
+        Bitmap bmp = null;
+        Graphics g = null;
         Personagem edjalma = new Edjalma();
         Personagem trevisan = new Trevisan();
-
+        List<Personagem> personagens = new List<Personagem>();
 
 
         public Form1()
@@ -26,84 +28,56 @@ namespace Watersan_e_Firejalma
             InitializeComponent();
             tm.Interval = 25;
 
+            
+
             tm.Tick += delegate 
-            {          
-                if (edjalma.IsJumping)
-                {
-                    edjalma.Jump();
-                    edjalma.IsGrounded = false;
-                }
-                if (edjalma.IsMoving)
-                {                 
-                    edjalma.Move();
-                }
-
-
-                if (trevisan.IsJumping)
-                {
-                    trevisan.Jump();
-                    trevisan.IsGrounded = false;
-                }
-                if (trevisan.IsMoving)
-                {
-                    trevisan.Move();
-                }
-
-
+            {
                 frame++;
-                if(frame%frameRate == 0)
+                foreach (Personagem personagem in personagens)
                 {
-                    pb.Image = edjalma.Animate();
-                    //pb.Image = trevisan.Animate();
+                    if (personagem.IsJumping)
+                    {
+                        personagem.Jump();
+                        personagem.IsGrounded = false;
+                    }
+                    if (personagem.IsMoving)
+                    {
+                        personagem.Move();
+                    }
+
+                    personagem.Animate(g);
+
+                    if (frame % frameRate == 0)
+                    {
+                        
+                    }
+
+
+                    // ---------------------------------------------- GAMBIARRAS ATE CRIAR SISTEMA DE COLISÃO -----------------------------------------------
+
+                    // COLISÕES TEMPORARIAS EDJALMA
+                    if (personagem.PosY + 200 > pb.Height) // chão
+                    {
+                        personagem.IsGrounded = true;
+                        personagem.IsJumping = false;
+
+                        personagem.SpeedY = 0;
+                        personagem.PosY = pb.Height - 200;
+                    }
+                    if (personagem.PosX + 200 > pb.Width) // parede direita
+                    {
+                        personagem.SpeedX = 0;
+                        personagem.PosX = pb.Width - 200;
+                    }
+                    if (personagem.PosX < 0) // parede esquerda
+                    {
+                        personagem.SpeedX = 0;
+                        personagem.PosX = 0;
+                    }
                 }
-                
 
 
-
-
-                // ---------------------------------------------- GAMBIARRAS ATE CRIAR SISTEMA DE COLISÃO -----------------------------------------------
-
-                // COLISÕES TEMPORARIAS EDJALMA
-                if (edjalma.PosY + 200 > pb.Height) // chão
-                {
-                    edjalma.IsGrounded = true;
-                    edjalma.IsJumping = false;
-
-                    edjalma.SpeedY = 0;
-                    edjalma.PosY = pb.Height - 200;
-                }
-                if (edjalma.PosX + 200 > pb.Width) // parede direita
-                {
-                    edjalma.SpeedX = 0;
-                    edjalma.PosX = pb.Width - 200;
-                }
-                if (edjalma.PosX < 0) // parede esquerda
-                {
-                    edjalma.SpeedX = 0;
-                    edjalma.PosX = 0;
-                }
-
-
-
-                // COLISÕES TEMPORARIAS TREVISAN
-                if (trevisan.PosY + 200 > pb.Height) // chão
-                {
-                    trevisan.IsGrounded = true;
-                    trevisan.IsJumping = false;
-
-                    trevisan.SpeedY = 0;
-                    trevisan.PosY = pb.Height - 200;
-                }
-                if (trevisan.PosX + 200 > pb.Width) // parede direita
-                {
-                    trevisan.SpeedX = 0;
-                    trevisan.PosX = pb.Width - 200;
-                }
-                if (trevisan.PosX < 0) // parede esquerda
-                {
-                    trevisan.SpeedX = 0;
-                    trevisan.PosX = 0;
-                }
+                pb.Image = bmp;
             };
         }
 
@@ -112,22 +86,22 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            edjalma.Bmp = new Bitmap(pb.Width, pb.Height);
-            edjalma.Graphics = Graphics.FromImage(edjalma.Bmp);
+            bmp = new Bitmap(pb.Width, pb.Height);
+            g = Graphics.FromImage(bmp);
 
 
-            trevisan.Bmp = new Bitmap(pb.Width, pb.Height);
-            trevisan.Graphics = Graphics.FromImage(edjalma.Bmp);
+            //personagens.Add(trevisan);
+            personagens.Add(edjalma);
 
-            edjalma.PosY = pb.Height - 200; // Define a altura inicial do personagem
+            edjalma.PosY = pb.Height - 200;
 
-            trevisan.PosY = pb.Height - 200; // Define a altura inicial do personagem
-            trevisan.PosX = 50;
+            trevisan.PosY = pb.Height - 200; 
+            trevisan.PosX = 150;
 
-
-            edjalma.Fatiar(8,5);
-            trevisan.Fatiar(8,5);
-
+            foreach(Personagem personagem in personagens)
+            {
+                personagem.Fatiar(8, 5);
+            }
 
             tm.Start();
 
@@ -137,90 +111,17 @@ namespace Watersan_e_Firejalma
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            foreach (Personagem personagem in personagens)
             {
-                case Keys.Escape:
-                    Application.Exit();
-                    break;
-
-
-                case Keys.Left:
-
-                    edjalma.Orientar(-1);
-                    edjalma.IsMoving = true;
-                    
-                    break;
-
-                case Keys.Right:
-
-                    edjalma.Orientar(1);
-                    edjalma.IsMoving = true;
-                    
-                    break;
-
-
-
-                case Keys.Up:
-
-                    edjalma.IsJumping = true;
-
-                    break;
-
-
-
-                case Keys.A:
-
-                    trevisan.Orientar(-1);
-                    trevisan.IsMoving = true;
-
-                    break;
-
-                case Keys.D:
-
-                    trevisan.Orientar(1);
-                    trevisan.IsMoving = true;
-
-                    break;
-
-
-
-                case Keys.W:
-
-                    trevisan.IsJumping = true;
-
-                    break;
+                personagem.KeyCheck(e.KeyCode, true);
             }
         }
 
-        
-
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            foreach (Personagem personagem in personagens)
             {
-                case Keys.Left:
-
-                    edjalma.IsMoving = false;
-             
-                    break;
-                case Keys.Right:
-
-                    edjalma.IsMoving = false;
-
-                    break;
-
-
-
-                case Keys.A:
-
-                    trevisan.IsMoving = false;
-
-                    break;
-                case Keys.D:
-
-                    trevisan.IsMoving = false;
-
-                    break;
+                personagem.KeyCheck(e.KeyCode, false);
             }
         }
     }
