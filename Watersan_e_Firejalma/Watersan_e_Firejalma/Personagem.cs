@@ -146,7 +146,7 @@ namespace Watersan_e_Firejalma
                 }
             }
 
-            graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, 200, 200));
+            graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, resolucaox, resolucaoy));
         }
 
         public void Orientar(int direcao)
@@ -224,6 +224,30 @@ namespace Watersan_e_Firejalma
                         break;
                 }
             } 
+        }
+
+
+        public bool checkCollission(objeto objeto)
+        {
+
+            if ((PosX+resolucaox) > objeto.pontos[1].X)
+                return true;
+            else
+                return false;
+        }
+
+
+
+        public void drawHitBox(Graphics g)
+        {
+            List<Point> pontos = new List<Point>();
+
+            pontos.Add(new Point(posX, posY));
+            pontos.Add(new Point(posX, posY+resolucaoy));
+            pontos.Add(new Point(posX+resolucaox, posY+resolucaoy));
+            pontos.Add(new Point(posX+resolucaox, posY));
+
+            g.DrawPolygon(new Pen(Color.Black), pontos.ToArray());
         }
     }
 }
