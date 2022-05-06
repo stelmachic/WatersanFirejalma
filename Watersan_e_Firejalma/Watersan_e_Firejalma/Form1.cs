@@ -22,7 +22,12 @@ namespace Watersan_e_Firejalma
         Personagem trevisan = new Trevisan();
         List<Personagem> personagens = new List<Personagem>();
         objeto bloco = new objeto();
+        objeto chao = new objeto();
+        objeto paredeEsquerda = new objeto();
+        objeto paredeDireita = new objeto();
 
+
+        
 
         public Form1()
         {
@@ -43,7 +48,7 @@ namespace Watersan_e_Firejalma
                 }
 
                 bloco.DrawObject(g);
-
+                paredeEsquerda.DrawObject(g);
                 foreach (Personagem personagem in personagens)
                 {
                     label1.Text = personagem.checkCollission(bloco).ToString();
@@ -58,7 +63,7 @@ namespace Watersan_e_Firejalma
                         if (personagem.checkCollission(bloco))
                         {
                             personagem.SpeedX = 0;
-                            personagem.PosX = bloco.pontos[1].X - personagem.Resolucaox;
+                            personagem.PosX = bloco.pontos[1].X - (personagem.HitBoxX1) - (personagem.HitBoxX1/2);
                         }
                         else
                         {
@@ -94,10 +99,10 @@ namespace Watersan_e_Firejalma
                         personagem.SpeedX = 0;
                         personagem.PosX = pb.Width - personagem.Resolucaox;
                     }
-                    else if (personagem.PosX < 0) // parede esquerda
+                    else if (personagem.PosX+(personagem.HitBoxX1/2) < 0) // parede esquerda
                     {
                         personagem.SpeedX = 0;
-                        personagem.PosX = 0;
+                        personagem.PosX = 0-(personagem.HitBoxX1/2);
                     }
                     else
                     {
@@ -134,13 +139,26 @@ namespace Watersan_e_Firejalma
 
 
             List<Point> coordenadasObjeto = new List<Point>();
-
             coordenadasObjeto.Add( new Point(400,200));
             coordenadasObjeto.Add(new Point(400, 250));
             coordenadasObjeto.Add(new Point(450, 250));
             coordenadasObjeto.Add(new Point(450, 200));
-
             bloco.CriarObjeto(coordenadasObjeto);
+
+            coordenadasObjeto.Clear();
+            coordenadasObjeto.Add(new Point(0, pb.Height));
+            coordenadasObjeto.Add(new Point(pb.Width, pb.Height));
+            chao.CriarObjeto(coordenadasObjeto);
+
+            coordenadasObjeto.Clear();
+            coordenadasObjeto.Add(new Point(0, 0));
+            coordenadasObjeto.Add(new Point(0, pb.Height));
+            paredeEsquerda.CriarObjeto(coordenadasObjeto);
+
+            coordenadasObjeto.Clear();
+            coordenadasObjeto.Add(new Point(pb.Width, 0));
+            coordenadasObjeto.Add(new Point(pb.Width, pb.Height));
+            paredeDireita.CriarObjeto(coordenadasObjeto);
 
             tm.Start();
 

@@ -10,6 +10,8 @@ namespace Watersan_e_Firejalma
     public class objeto
     {
 
+
+
         public List<Point> pontos = new List<Point>();
         Pen pen = new Pen(Color.Black);
 
@@ -22,8 +24,11 @@ namespace Watersan_e_Firejalma
 
         public void DrawObject(Graphics g)
         {
-            g.DrawPolygon(pen, pontos.ToArray());
-        } 
 
+            g.DrawPolygon(pen, pontos.ToArray());
+
+        } 
     }
 }
+
+

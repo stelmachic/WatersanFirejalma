@@ -32,6 +32,8 @@ namespace Watersan_e_Firejalma
         private int animChoice;
         private bool animChosen = false;
         private int frame;
+        private int HitBoxX = (16 * 8);
+        private int HitBoxY = (32 * 8);
 
         public int PosX { get => posX; set => posX = value; }
         public int PosY { get => posY; set => posY = value; }
@@ -49,15 +51,13 @@ namespace Watersan_e_Firejalma
         public int SpriteX { get => spriteX; set => spriteX = value; }
         public int SpriteY { get => spriteY; set => spriteY = value; }
         public Image[,] Sprites { get => sprites; set => sprites = value; }
+        public int HitBoxX1 { get => HitBoxX; set => HitBoxX = value; }
+        public int HitBoxY1 { get => HitBoxY; set => HitBoxY = value; }
 
         public Personagem(Image spriteSheet) 
         {
             this.SpriteSheet = spriteSheet;
         }
-
-
-
-
 
         public void Move()
         {
@@ -226,26 +226,23 @@ namespace Watersan_e_Firejalma
             } 
         }
 
-
         public bool checkCollission(objeto objeto)
         {
 
-            if ((PosX+resolucaox) > objeto.pontos[1].X)
+            if ((PosX+HitBoxX1 + (HitBoxX1 / 2)) > objeto.pontos[1].X)
                 return true;
             else
                 return false;
         }
 
-
-
         public void drawHitBox(Graphics g)
         {
             List<Point> pontos = new List<Point>();
 
-            pontos.Add(new Point(posX, posY));
-            pontos.Add(new Point(posX, posY+resolucaoy));
-            pontos.Add(new Point(posX+resolucaox, posY+resolucaoy));
-            pontos.Add(new Point(posX+resolucaox, posY));
+            pontos.Add(new Point(posX+(HitBoxX1/2), posY));
+            pontos.Add(new Point(posX+(HitBoxX1 / 2), posY+HitBoxY1));
+            pontos.Add(new Point(posX+ HitBoxX1+(HitBoxX1 / 2), posY+ HitBoxY1));
+            pontos.Add(new Point(posX+ HitBoxX1 + (HitBoxX1 / 2), posY));
 
             g.DrawPolygon(new Pen(Color.Black), pontos.ToArray());
         }
