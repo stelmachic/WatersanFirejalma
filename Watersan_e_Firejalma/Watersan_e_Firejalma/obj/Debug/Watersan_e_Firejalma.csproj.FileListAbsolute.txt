@@ -42,3 +42,14 @@ C:\Users\Allan\Desktop\GameJam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Deb
 C:\Users\Allan\Desktop\GameJam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
 C:\Users\Allan\Desktop\GameJam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\Allan\Desktop\GameJam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.AssemblyReference.cache
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.SuggestedBindingRedirects.cache
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe.config
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Form1.resources
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Resources.resources
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.GenerateResource.cache
+C:\Users\Allan\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache

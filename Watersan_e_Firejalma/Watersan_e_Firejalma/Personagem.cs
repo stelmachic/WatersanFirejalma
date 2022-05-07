@@ -226,13 +226,81 @@ namespace Watersan_e_Firejalma
             } 
         }
 
-        public bool checkCollission(objeto objeto)
+        public void checkCollission(objeto objeto)
         {
 
-            if ((PosX+HitBoxX1 + (HitBoxX1 / 2)) > objeto.pontos[1].X)
-                return true;
+            bool direita = false;
+            bool esquerda = false;
+            bool emCima = false;
+            bool emBaixo = false;
+
+            List<List<Point>> listaRetas = new List<List<Point>>
+            {
+                new List<Point>
+                {
+                    objeto.pontos[0],
+                    objeto.pontos[1]
+                },
+                new List<Point>
+                {
+                    objeto.pontos[1],
+                    objeto.pontos[2]
+                },
+                new List<Point>
+                {
+                    objeto.pontos[2],
+                    objeto.pontos[3]
+                },
+                new List<Point>
+                {
+                    objeto.pontos[3],
+                    objeto.pontos[0]
+                }
+            };
+
+
+            if(listaRetas[0][0].X > posX)
+            {
+                esquerda = true;
+            }
+            if(listaRetas[2][0].X < posX + (PosX + HitBoxX))
+            {
+                direita = true;
+            }
+            if(listaRetas[3][0].Y > (posY+HitBoxY))
+            {
+                emCima = true;
+            }
+            if(listaRetas[1][0].Y < posY)
+            {
+                emBaixo = true;
+            }
+
+
+
+
+            if(!emCima && !emBaixo && esquerda)
+            {
+                if ((PosX + HitBoxX1 + (HitBoxX1 / 2)) > listaRetas[0][0].X)
+                {
+                    SpeedX = 0;
+                    PosX = listaRetas[0][0].X - (HitBoxX1) - (HitBoxX1 / 2);
+                }
+                    
+            }else if(!emCima && !emBaixo && direita)
+            {
+                if ((PosX + (HitBoxX/2)) < listaRetas[2][0].X)
+                {
+                    SpeedX = 0;
+                    PosX = listaRetas[2][0].X -  (HitBoxX/2);
+                }
+            }
             else
-                return false;
+            {
+                SpeedX = 20;
+            }
+
+              
         }
 
         public void drawHitBox(Graphics g)
