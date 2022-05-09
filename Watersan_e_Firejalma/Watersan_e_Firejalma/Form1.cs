@@ -53,12 +53,12 @@ namespace Watersan_e_Firejalma
                 {
            
 
-                    if (personagem.IsJumping)
+                    if (personagem.isJumping)
                     {
                         personagem.Jump();
-                        personagem.IsGrounded = false;
+                        personagem.isGrounded = false;
                     }
-                    if (personagem.IsMoving)
+                    if (personagem.isMoving)
                     {
                         personagem.checkCollission(bloco);
                         
@@ -79,27 +79,27 @@ namespace Watersan_e_Firejalma
                     // ---------------------------------------------- GAMBIARRAS ATE CRIAR SISTEMA DE COLISÃO -----------------------------------------------
 
                     // COLISÕES TEMPORARIAS EDJALMA
-                    if (personagem.PosY + personagem.Resolucaoy > pb.Height) // chão
+                    if (personagem.posY + personagem.resolucaoy > pb.Height) // chão
                     {
-                        personagem.IsGrounded = true;
-                        personagem.IsJumping = false;
+                        personagem.isGrounded = true;
+                        personagem.isJumping = false;
 
-                        personagem.SpeedY = 0;
-                        personagem.PosY = pb.Height - personagem.Resolucaoy;
+                        personagem.speedY = 0;
+                        personagem.posY = pb.Height - personagem.resolucaoy;
                     }
-                    if (personagem.PosX + personagem.Resolucaox > pb.Width) // parede direita
+                    if (personagem.posX + personagem.resolucaox > pb.Width) // parede direita
                     {
-                        personagem.SpeedX = 0;
-                        personagem.PosX = pb.Width - personagem.Resolucaox;
+                        personagem.speedX = 0;
+                        personagem.posX = pb.Width - personagem.resolucaox;
                     }
-                    else if (personagem.PosX+(personagem.HitBoxX1/2) < 0) // parede esquerda
+                    else if (personagem.posX+(personagem.width/2) < 0) // parede esquerda
                     {
-                        personagem.SpeedX = 0;
-                        personagem.PosX = 0-(personagem.HitBoxX1/2);
+                        personagem.speedX = 0;
+                        personagem.posX = 0-(personagem.width/2);
                     }
                     else
                     {
-                        personagem.SpeedX = 20;
+                        personagem.speedX = 20;
                     }
                 }
 
@@ -120,10 +120,10 @@ namespace Watersan_e_Firejalma
             //personagens.Add(trevisan);
             personagens.Add(edjalma);
 
-            edjalma.PosY = pb.Height - 200;
+            edjalma.posY = pb.Height - 200;
 
-            trevisan.PosY = pb.Height - 200; 
-            trevisan.PosX = 150;
+            trevisan.posY = pb.Height - 200; 
+            trevisan.posX = 150;
 
             foreach(Personagem personagem in personagens)
             {
@@ -131,12 +131,7 @@ namespace Watersan_e_Firejalma
             }
 
 
-            List<Point> coordenadasObjeto = new List<Point>();
-            coordenadasObjeto.Add( new Point(400, 300));
-            coordenadasObjeto.Add(new Point(400, 450));
-            coordenadasObjeto.Add(new Point(550, 450));
-            coordenadasObjeto.Add(new Point(550, 300));
-            bloco = new Box(coordenadasObjeto);
+            bloco = new Box(400,300, 150, 150);
 
             //coordenadasObjeto.Clear();
             //coordenadasObjeto.Add(new Point(0, pb.Height));

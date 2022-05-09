@@ -12,91 +12,75 @@ namespace Watersan_e_Firejalma
 {
     public class Personagem : Entity
     {
-        private int posX = 20;
-        private int posY = 20;
-        private int gravity = 1;
-        private int speedX = 15;
-        private int speedY = 0;
-        private int jumpForce = -20;
-        private int resolucaox = (32 * 8);
-        private int resolucaoy = (32 * 8);
-        private int orientacao = 1;
-        private bool isMoving = false;
-        private bool isJumping = false;
-        private bool isGrounded = false;
-        private Image spriteSheet;
-        private int spriteX;
-        private int spriteY;
-        private Image[,] sprites = new Image[8,5];
+        public int posX { get;  set; } = 20;
+        public int posY { get;  set; } = 20;
+        public int gravity { get;  set; } = 1;
+        public int speedX { get;  set; } = 15;
+        public int speedY { get;  set; } = 0;
+        public int jumpForce { get;  set; } = -20;
+        public int resolucaox { get;  set; } = (32 * 8);
+        public int resolucaoy { get;  set; } = (32 * 8);
+        public int orientacao { get;  set; } = 1;
+        public bool isMoving { get;  set; } = false;
+        public bool isJumping { get;  set; } = false;
+        public bool isGrounded { get;  set; } = false;
+        public Image spriteSheet;
+        public int spriteX { get;  set; }
+        public int spriteY { get;  set; }
+        public Image[,] sprites = new Image[8,5];
         Random rnd = new Random();
-        private int animChoice;
-        private bool animChosen = false;
-        private int frame;
-        private int HitBoxX = (16 * 8);
-        private int HitBoxY = (32 * 8);
-
-        public int PosX { get => posX; set => posX = value; }
-        public int PosY { get => posY; set => posY = value; }
-        public int Gravity { get => gravity; set => gravity = value; }
-        public int SpeedX { get => speedX; set => speedX = value; }
-        public int SpeedY { get => speedY; set => speedY = value; }
-        public int JumpForce { get => jumpForce; set => jumpForce = value; }
-        public int Resolucaox { get => resolucaox; set => resolucaox = value; }
-        public int Resolucaoy { get => resolucaoy; set => resolucaoy = value; }
-        public int Orientacao { get => orientacao; set => orientacao = value; }
-        public bool IsMoving { get => isMoving; set => isMoving = value; }
-        public bool IsJumping { get => isJumping; set => isJumping = value; }
-        public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
-        public Image SpriteSheet { get => spriteSheet; set => spriteSheet = value; }
-        public int SpriteX { get => spriteX; set => spriteX = value; }
-        public int SpriteY { get => spriteY; set => spriteY = value; }
-        public Image[,] Sprites { get => sprites; set => sprites = value; }
-        public int HitBoxX1 { get => HitBoxX; set => HitBoxX = value; }
-        public int HitBoxY1 { get => HitBoxY; set => HitBoxY = value; }
+        public int animChoice { get;  set; }
+        public bool animChosen = false;
+        public int frame { get;  set; }
+        public int width { get;  set; } = (16 * 8);
+        public int height { get;  set; } = (32 * 8);
+        public Rectangle hitbox { get; set; }
 
         public Personagem(Image spriteSheet) 
         {
-            this.SpriteSheet = spriteSheet;
+            this.spriteSheet = spriteSheet;
         }
+
+
 
         public void Move()
         {
-            if(Orientacao == 1)
+            if(orientacao == 1)
             {
-                PosX += SpeedX;
+                posX += speedX;
             }
             else
             {
-                PosX -= SpeedX;
+                posX -= speedX;
             }
         }
      
         public void Jump()
         {
-            if (IsGrounded)
+            if (isGrounded)
             {
-                SpeedY = JumpForce;
+                speedY = jumpForce;
             }
             
-            PosY += SpeedY;
-            SpeedY += Gravity;
+            posY += speedY;
+            speedY += gravity;
         }
 
         public override void Draw(Graphics graphics)
         {
 
-            if (IsJumping)
+            if (isJumping)
             {
-                SpriteY = 4;
-                SpriteX = 1;
+                spriteY = 4;
+                spriteX = 1;
             }
-            else if (IsMoving)
+            else if (isMoving)
             {
-                SpriteY = 0;
+                spriteY = 0;
 
-                SpriteX ++;
-                if (SpriteX == 8)
-                    SpriteX = 0;
+                spriteX ++;
+                if (spriteX == 8)
+                    spriteX = 0;
             }
             else
             {
@@ -107,8 +91,8 @@ namespace Watersan_e_Firejalma
 
                 if(animChoice < 80)
                 {
-                    SpriteY = 1;
-                    SpriteX = 0;
+                    spriteY = 1;
+                    spriteX = 0;
                     animChosen = true;
 
                     frame++;
@@ -121,32 +105,32 @@ namespace Watersan_e_Firejalma
 
                 }else if (animChoice < 90)
                 {
-                    SpriteY = 2;
+                    spriteY = 2;
                     animChosen = true;
 
-                    SpriteX ++;
-                    if (SpriteX == 8)
+                    spriteX ++;
+                    if (spriteX == 8)
                     {
-                        SpriteX = 0;
+                        spriteX = 0;
                         animChosen = false;
                     }
                 }
                 else
                 {
-                    SpriteY = 3;
+                    spriteY = 3;
 
                     animChosen = true;
 
-                    SpriteX ++;
-                    if (SpriteX == 8)
+                    spriteX ++;
+                    if (spriteX == 8)
                     {
-                        SpriteX = 0;
+                        spriteX = 0;
                         animChosen = false;
                     }
                 }
             }
 
-            graphics.DrawImage(Sprites[SpriteX, SpriteY], new Rectangle(PosX, PosY, resolucaox, resolucaoy));
+            graphics.DrawImage(sprites[spriteX, spriteY], new Rectangle(posX, posY, resolucaox, resolucaoy));
         }
 
         public void Orientar(int direcao)
@@ -157,12 +141,12 @@ namespace Watersan_e_Firejalma
                 {
                     for (int j = 0; j < 5; j++)
                     {
-                        Sprites[i, j].RotateFlip(RotateFlipType.Rotate180FlipY);
+                        sprites[i, j].RotateFlip(RotateFlipType.Rotate180FlipY);
                     }
                 }
        
             }
-            Orientacao = direcao;
+            orientacao = direcao;
         }
 
         public void Fatiar(int x, int y)
@@ -171,7 +155,7 @@ namespace Watersan_e_Firejalma
             {
                 for(int j = 0; j < y; j++)
                 {
-                    Sprites[i,j] = (SpriteSheet as Bitmap).Clone(new Rectangle(i * Resolucaox, j * Resolucaoy, Resolucaox, Resolucaoy), SpriteSheet.PixelFormat);
+                    sprites[i,j] = (spriteSheet as Bitmap).Clone(new Rectangle(i * resolucaox, j * resolucaoy, resolucaox, resolucaoy), spriteSheet.PixelFormat);
                 }
             }
         }
@@ -191,17 +175,17 @@ namespace Watersan_e_Firejalma
                 switch (key)
                 {
                     case Keys.Left:
-                            Orientar(-1);
-                            IsMoving = moving;
+                        Orientar(-1);
+                        isMoving = moving;
                         break;
 
                     case Keys.Right:
-                            Orientar(1);
-                            IsMoving = moving;
+                        Orientar(1);
+                        isMoving = moving;
                         break;
 
                     case Keys.Up:
-                        IsJumping = true;
+                        isJumping = true;
                         break;
                 }
             }
@@ -211,12 +195,12 @@ namespace Watersan_e_Firejalma
                 {
                     case Keys.A:
                             Orientar(-1);
-                            IsMoving = moving;
+                            isMoving = moving;
                         break;
 
                     case Keys.D:
                             Orientar(1);
-                            IsMoving = moving;
+                            isMoving = moving;
                         break;
 
                     case Keys.W:
@@ -229,88 +213,100 @@ namespace Watersan_e_Firejalma
         public void DrawHitBox(Graphics g)
         {
             List<Point> pontos = new List<Point>();
+            
+            hitbox = new Rectangle(posX + (width / 2), posY, width, height);
 
-            pontos.Add(new Point(posX + (HitBoxX1 / 2), posY));
-            pontos.Add(new Point(posX + (HitBoxX1 / 2), posY + HitBoxY1));
-            pontos.Add(new Point(posX + HitBoxX1 + (HitBoxX1 / 2), posY + HitBoxY1));
-            pontos.Add(new Point(posX + HitBoxX1 + (HitBoxX1 / 2), posY));
-
-            g.DrawPolygon(new Pen(Color.Black), pontos.ToArray());
+            g.DrawRectangle(Pens.Black, hitbox);
         }
 
-        public void checkCollission(Box objeto)
+        public void checkCollission(Box entity)
         {
+
+            Rectangle box = entity.box; 
+
 
             bool direita = false;
             bool esquerda = false;
             bool emCima = false;
             bool emBaixo = false;
+            bool collided = false;
 
-            List<List<Point>> listaRetas = new List<List<Point>>
+
+
+
+            if ((hitbox.X >= box.X) && (hitbox.X <= (box.X + box.Width)) && (hitbox.Y >= box.Y) && (hitbox.Y <= (box.Y + box.Height)))
+                collided = true;
+
+            if((((hitbox.X + width) >= box.X) && ((hitbox.X + width) <= (box.X + box.Width)) && (hitbox.Y >= box.Y) && (hitbox.Y <= (box.Y + box.Height))))
+                collided = true;
+
+            if ((((hitbox.X + width) >= box.X) && ((hitbox.X + width) <= (box.X + box.Width)) && ((hitbox.Y + width) >= box.Y) && ((hitbox.Y + width) <= (box.Y + box.Height))))
+                collided = true;
+
+            if ((hitbox.X >= box.X) && (posX <= (box.X + box.Width)) && ((hitbox.Y + width) >= box.Y) && ((hitbox.Y + width) <= (box.Y + box.Height)))
+                collided = true;
+
+
+
+
+
+            if (collided)
             {
-                new List<Point>
+                if (box.X > posX)
                 {
-                    objeto.Points[0],
-                    objeto.Points[1]
-                },
-                new List<Point>
-                {
-                    objeto.Points[1],
-                    objeto.Points[2]
-                },
-                new List<Point>
-                {
-                    objeto.Points[2],
-                    objeto.Points[3]
-                },
-                new List<Point>
-                {
-                    objeto.Points[3],
-                    objeto.Points[0]
+                    esquerda = true;
                 }
-            };
+                if (box.X < posX + (posX + width))
+                {
+                    direita = true;
+                }
+                if (box.Y > (posY + height))
+                {
+                    emCima = true;
+                }
+                if (box.Y < posY)
+                {
+                    emBaixo = true;
+                }
+
+
+
+                if (emCima && !isGrounded)
+                {
+                    if (posY + height > box.Y)
+                    {
+                        isGrounded = true;
+                        isJumping = false;
+
+                        speedY = 0;
+                        posY = box.Y - height;
+                    }
+                }
+                else if (!emCima && !emBaixo && esquerda)
+                {
+                    if ((posX + width + (width / 2)) > box.X)
+                    {
+                        speedX = 0;
+                        posX = box.X - (width) - (width / 2);
+                    }
+
+                }
+                else if (!emCima && !emBaixo && direita)
+                {
+                    if ((posX + (width / 2)) < box.X)
+                    {
+                        speedX = 0;
+                        posX = box.X - (width / 2);
+                    }
+                }
+                else
+                {
+                    speedX = 20;
+                }
+            }
+
+
             
-
-            if(listaRetas[0][0].X > posX)
-            {
-                esquerda = true;
-            }
-            if(listaRetas[2][0].X < posX + (PosX + HitBoxX))
-            {
-                direita = true;
-            }
-            if(listaRetas[3][0].Y > (posY+HitBoxY))
-            {
-                emCima = true;
-            }
-            if(listaRetas[1][0].Y < posY)
-            {
-                emBaixo = true;
-            }
-
-
-
-            if (!emCima && !emBaixo && esquerda)
-            {
-                if ((PosX + HitBoxX1 + (HitBoxX1 / 2)) > listaRetas[0][0].X)
-                {
-                    SpeedX = 0;
-                    PosX = listaRetas[0][0].X - (HitBoxX1) - (HitBoxX1 / 2);
-                }
-
-            }
-            else if (!emCima && !emBaixo && direita)
-            {
-                if ((PosX + (HitBoxX / 2)) < listaRetas[2][0].X)
-                {
-                    SpeedX = 0;
-                    PosX = listaRetas[2][0].X - (HitBoxX / 2);
-                }
-            }
-            else
-            {
-                SpeedX = 20;
-            }     
         }
     }
 }

@@ -9,17 +9,19 @@ namespace Watersan_e_Firejalma
 {
     public class Box : Entity
     {
-        public List<Point> Points { get; private set; } = new List<Point>();
-        public Pen Pen { get; set; } = Pens.Black;
+        public Rectangle box;
 
-        public Box(List<Point> points)
-            => this.Points = points;
+
+
+        public Box(int X, int Y, int width, int height)
+            => this.box = new Rectangle(X, Y, width, height);
         
-        public override void Draw(Graphics g)
-        {
-            g.DrawPolygon(Pen, Points.ToArray());
 
-        } 
+        public override void Draw(Graphics g)
+            => g.DrawRectangle(Pens.Black, box);
+
+
+
     }
 }
 
