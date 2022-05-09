@@ -21,7 +21,7 @@ namespace Watersan_e_Firejalma
         Personagem edjalma = new Edjalma();
         Personagem trevisan = new Trevisan();
         List<Personagem> personagens = new List<Personagem>();
-        objeto bloco = new objeto();
+        Box bloco = null;
         //objeto chao = new objeto();
         //objeto paredeEsquerda = new objeto();
         //objeto paredeDireita = new objeto();
@@ -47,7 +47,7 @@ namespace Watersan_e_Firejalma
                     g.Clear(Color.White);
                 }
 
-                bloco.DrawObject(g);
+                bloco.Draw(g);
               
                 foreach (Personagem personagem in personagens)
                 {
@@ -69,10 +69,10 @@ namespace Watersan_e_Firejalma
 
                     if (frame % frameRate == 0)
                     {
-                        personagem.Animate(g);
+                        personagem.Draw(g);
                     }
 
-                    personagem.drawHitBox(g);
+                    personagem.DrawHitBox(g);
 
 
 
@@ -136,7 +136,7 @@ namespace Watersan_e_Firejalma
             coordenadasObjeto.Add(new Point(400, 450));
             coordenadasObjeto.Add(new Point(550, 450));
             coordenadasObjeto.Add(new Point(550, 300));
-            bloco.CriarObjeto(coordenadasObjeto);
+            bloco = new Box(coordenadasObjeto);
 
             //coordenadasObjeto.Clear();
             //coordenadasObjeto.Add(new Point(0, pb.Height));

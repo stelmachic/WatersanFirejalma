@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Watersan_e_Firejalma
 {
-    public class Personagem
+    public class Personagem : Entity
     {
         private int posX = 20;
         private int posY = 20;
@@ -82,7 +82,7 @@ namespace Watersan_e_Firejalma
             SpeedY += Gravity;
         }
 
-        public void Animate(Graphics graphics)
+        public override void Draw(Graphics graphics)
         {
 
             if (IsJumping)
@@ -226,7 +226,19 @@ namespace Watersan_e_Firejalma
             } 
         }
 
-        public void checkCollission(objeto objeto)
+        public void DrawHitBox(Graphics g)
+        {
+            List<Point> pontos = new List<Point>();
+
+            pontos.Add(new Point(posX + (HitBoxX1 / 2), posY));
+            pontos.Add(new Point(posX + (HitBoxX1 / 2), posY + HitBoxY1));
+            pontos.Add(new Point(posX + HitBoxX1 + (HitBoxX1 / 2), posY + HitBoxY1));
+            pontos.Add(new Point(posX + HitBoxX1 + (HitBoxX1 / 2), posY));
+
+            g.DrawPolygon(new Pen(Color.Black), pontos.ToArray());
+        }
+
+        public void checkCollission(Box objeto)
         {
 
             bool direita = false;
@@ -238,26 +250,26 @@ namespace Watersan_e_Firejalma
             {
                 new List<Point>
                 {
-                    objeto.pontos[0],
-                    objeto.pontos[1]
+                    objeto.Points[0],
+                    objeto.Points[1]
                 },
                 new List<Point>
                 {
-                    objeto.pontos[1],
-                    objeto.pontos[2]
+                    objeto.Points[1],
+                    objeto.Points[2]
                 },
                 new List<Point>
                 {
-                    objeto.pontos[2],
-                    objeto.pontos[3]
+                    objeto.Points[2],
+                    objeto.Points[3]
                 },
                 new List<Point>
                 {
-                    objeto.pontos[3],
-                    objeto.pontos[0]
+                    objeto.Points[3],
+                    objeto.Points[0]
                 }
             };
-
+            
 
             if(listaRetas[0][0].X > posX)
             {
@@ -278,41 +290,27 @@ namespace Watersan_e_Firejalma
 
 
 
-
-            if(!emCima && !emBaixo && esquerda)
+            if (!emCima && !emBaixo && esquerda)
             {
                 if ((PosX + HitBoxX1 + (HitBoxX1 / 2)) > listaRetas[0][0].X)
                 {
                     SpeedX = 0;
                     PosX = listaRetas[0][0].X - (HitBoxX1) - (HitBoxX1 / 2);
                 }
-                    
-            }else if(!emCima && !emBaixo && direita)
+
+            }
+            else if (!emCima && !emBaixo && direita)
             {
-                if ((PosX + (HitBoxX/2)) < listaRetas[2][0].X)
+                if ((PosX + (HitBoxX / 2)) < listaRetas[2][0].X)
                 {
                     SpeedX = 0;
-                    PosX = listaRetas[2][0].X -  (HitBoxX/2);
+                    PosX = listaRetas[2][0].X - (HitBoxX / 2);
                 }
             }
             else
             {
                 SpeedX = 20;
-            }
-
-              
-        }
-
-        public void drawHitBox(Graphics g)
-        {
-            List<Point> pontos = new List<Point>();
-
-            pontos.Add(new Point(posX+(HitBoxX1/2), posY));
-            pontos.Add(new Point(posX+(HitBoxX1 / 2), posY+HitBoxY1));
-            pontos.Add(new Point(posX+ HitBoxX1+(HitBoxX1 / 2), posY+ HitBoxY1));
-            pontos.Add(new Point(posX+ HitBoxX1 + (HitBoxX1 / 2), posY));
-
-            g.DrawPolygon(new Pen(Color.Black), pontos.ToArray());
+            }     
         }
     }
 }
