@@ -18,15 +18,11 @@ namespace Watersan_e_Firejalma
         int frame = 0;
         Bitmap bmp = null;
         Graphics g = null;
-        Personagem edjalma = new Edjalma();
-        Personagem trevisan = new Trevisan();
-        List<Personagem> personagens = new List<Personagem>();
-        Box bloco = null;
-        //objeto chao = new objeto();
-        //objeto paredeEsquerda = new objeto();
-        //objeto paredeDireita = new objeto();
-
-
+        Character edjalma = new Edjalma();
+        Character trevisan = new Trevisan();
+        List<Character> characters = new List<Character>();
+        List<Box> boxes = new List<Box>();
+        List<Entity> entities = new List<Entity>();
         
 
         public Form1()
@@ -35,75 +31,61 @@ namespace Watersan_e_Firejalma
             tm.Interval = 25;
 
             
-
+            
             tm.Tick += delegate 
             {
                 frame++;
 
-               
 
                 if (frame % frameRate == 0)
                 {
                     g.Clear(Color.White);
+
+                    foreach (Entity entity in entities)
+                    {             
+                        entity.Draw(g);
+                        entity.DrawHitBox(g);  
+                    }
                 }
-
-                bloco.Draw(g);
               
-                foreach (Personagem personagem in personagens)
+
+
+
+
+                foreach (Character character in characters)
                 {
-           
-
-                    if (personagem.isJumping)
+                    if (character.isJumping)
                     {
-                        personagem.Jump();
-                        personagem.isGrounded = false;
-                    }
-                    if (personagem.isMoving)
-                    {
-                        personagem.checkCollission(bloco);
-                        
-                        personagem.Move();
+                        character.Jump();
                     }
 
+                    if (character.isMoving)
+                    {   
+                        character.Move();
+                    }
+
+
+                    if (!character.isGrounded)
+                    {
+                        character.Gravity();
+                    }
+
+                    character.isCollided = false;
+                    foreach (Box box in boxes)
+                    {
+                        character.CheckCollission(box);
+            
+                    }
+                    if (!character.isCollided)
+                    {
+                        character.isGrounded = false;
+                    }
+
+                    label2.Text = character.speedY.ToString() ;
+                    label1.Text = character.isGrounded.ToString();
                     
 
-                    if (frame % frameRate == 0)
-                    {
-                        personagem.Draw(g);
-                    }
-
-                    personagem.DrawHitBox(g);
-
-
-
-                    // ---------------------------------------------- GAMBIARRAS ATE CRIAR SISTEMA DE COLISÃO -----------------------------------------------
-
-                    // COLISÕES TEMPORARIAS EDJALMA
-                    if (personagem.posY + personagem.resolucaoy > pb.Height) // chão
-                    {
-                        personagem.isGrounded = true;
-                        personagem.isJumping = false;
-
-                        personagem.speedY = 0;
-                        personagem.posY = pb.Height - personagem.resolucaoy;
-                    }
-                    if (personagem.posX + personagem.resolucaox > pb.Width) // parede direita
-                    {
-                        personagem.speedX = 0;
-                        personagem.posX = pb.Width - personagem.resolucaox;
-                    }
-                    else if (personagem.posX+(personagem.width/2) < 0) // parede esquerda
-                    {
-                        personagem.speedX = 0;
-                        personagem.posX = 0-(personagem.width/2);
-                    }
-                    else
-                    {
-                        personagem.speedX = 20;
-                    }
                 }
-
-
                 pb.Image = bmp;
             };
         }
@@ -117,56 +99,47 @@ namespace Watersan_e_Firejalma
             g = Graphics.FromImage(bmp);
 
 
-            //personagens.Add(trevisan);
-            personagens.Add(edjalma);
-
-            edjalma.posY = pb.Height - 200;
-
-            trevisan.posY = pb.Height - 200; 
-            trevisan.posX = 150;
-
-            foreach(Personagem personagem in personagens)
+            characters.Add(edjalma);
+            edjalma.posY = pb.Height - edjalma.height - 30;
+            foreach (Character character in characters)
             {
-                personagem.Fatiar(8, 5);
+                character.SplitSprites(8, 5);
             }
 
 
-            bloco = new Box(400,300, 150, 150);
+            boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor
+            boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
+            boxes.Add(new Box(0, 0, 20,pb.Height)); // left wall
+            boxes.Add(new Box((pb.Width - 20), 0, 20, pb.Height)); // right wall
 
-            //coordenadasObjeto.Clear();
-            //coordenadasObjeto.Add(new Point(0, pb.Height));
-            //coordenadasObjeto.Add(new Point(pb.Width, pb.Height));
-            //chao.CriarObjeto(coordenadasObjeto);
 
-            //coordenadasObjeto.Clear();
-            //coordenadasObjeto.Add(new Point(0, 0));
-            //coordenadasObjeto.Add(new Point(0, pb.Height));
-            //paredeEsquerda.CriarObjeto(coordenadasObjeto);
-
-            //coordenadasObjeto.Clear();
-            //coordenadasObjeto.Add(new Point(pb.Width, 0));
-            //coordenadasObjeto.Add(new Point(pb.Width, pb.Height));
-            //paredeDireita.CriarObjeto(coordenadasObjeto);
+            
+            foreach (Box box in boxes)
+            {
+                entities.Add(box);
+            }
+            foreach(Character character in characters)
+            {
+                entities.Add(character);
+            }
 
             tm.Start();
 
         }
 
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            foreach (Personagem personagem in personagens)
+            foreach (Character character in characters)
             {
-                personagem.KeyCheck(e.KeyCode, true);
+                character.KeyCheck(e.KeyCode, true);
             }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            foreach (Personagem personagem in personagens)
+            foreach (Character character in characters)
             {
-                personagem.KeyCheck(e.KeyCode, false);
+                character.KeyCheck(e.KeyCode, false);
             }
         }
     }

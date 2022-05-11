@@ -18,9 +18,12 @@ namespace Watersan_e_Firejalma
         
 
         public override void Draw(Graphics g)
-            => g.DrawRectangle(Pens.Black, box);
+            => g.FillRectangle(Brushes.Black, box);
 
-
+        public override void DrawHitBox(Graphics g)
+        {
+            g.DrawRectangle(Pens.Red, box);
+        }
 
     }
 }

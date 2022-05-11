@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Watersan_e_Firejalma
 {
-    public class Edjalma : Personagem
+    public class Edjalma : Character
     {
         public Edjalma() : base(Properties.Resources.Edjalma_Sheet)
         {

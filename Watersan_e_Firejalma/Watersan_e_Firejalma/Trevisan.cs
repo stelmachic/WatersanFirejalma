@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Watersan_e_Firejalma
 {
-    public class Trevisan : Personagem
+    public class Trevisan : Character
     {
         public Trevisan() : base(Properties.Resources.Trevisharp_Sheet)
         {

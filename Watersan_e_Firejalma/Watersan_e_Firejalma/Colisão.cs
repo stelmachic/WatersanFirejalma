@@ -10,7 +10,7 @@ namespace Watersan_e_Firejalma
     public class Colisão
     {
 
-        public void CheckCollission(Personagem entity, Box collider)
+        public void CheckCollission(Character entity, Box collider)
         {
 
            

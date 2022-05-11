@@ -14,5 +14,7 @@ namespace Watersan_e_Firejalma
 
 
         public abstract void Draw(Graphics g);
+        public abstract void DrawHitBox(Graphics g);
+        
     }
 }
