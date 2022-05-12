@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +24,8 @@ namespace Watersan_e_Firejalma
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
-        
+        SoundPlayer edWalk = new SoundPlayer(Properties.Resources.EdWalk);
+
 
         public Form1()
         {
@@ -44,7 +46,7 @@ namespace Watersan_e_Firejalma
                     foreach (Entity entity in entities)
                     {             
                         entity.Draw(g);
-                        entity.DrawHitBox(g);  
+                        entity.DrawHitBox(g);
                     }
                 }
               
@@ -54,36 +56,40 @@ namespace Watersan_e_Firejalma
 
                 foreach (Character character in characters)
                 {
+                    
+
                     if (character.isJumping)
                     {
                         character.Jump();
                     }
 
+
                     if (character.isMoving)
-                    {   
+                    {
+                        
                         character.Move();
                     }
 
+                    character.Gravity();
 
-                    if (!character.isGrounded)
+                    label1.Text = character.speedY.ToString();
+
+
+
+
+                    if (!character.isJumping)
                     {
-                        character.Gravity();
+                        foreach (Box box in boxes)
+                        {
+                            character.CheckCollission(box);
+                        }
                     }
 
-                    character.isCollided = false;
-                    foreach (Box box in boxes)
-                    {
-                        character.CheckCollission(box);
-            
-                    }
-                    if (!character.isCollided)
-                    {
-                        character.isGrounded = false;
-                    }
 
-                    label2.Text = character.speedY.ToString() ;
-                    label1.Text = character.isGrounded.ToString();
-                    
+
+                    character.isJumping = false;
+
+
 
                 }
                 pb.Image = bmp;
@@ -95,12 +101,16 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            edWalk.PlayLooping();
+
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
 
             characters.Add(edjalma);
-            edjalma.posY = pb.Height - edjalma.height - 30;
+            edjalma.posY = pb.Height - edjalma.height - 50;
+
+
             foreach (Character character in characters)
             {
                 character.SplitSprites(8, 5);
@@ -108,8 +118,8 @@ namespace Watersan_e_Firejalma
 
 
             boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor
-            boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
-            boxes.Add(new Box(0, 0, 20,pb.Height)); // left wall
+            //boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
+            boxes.Add(new Box(-60, 0, 80,pb.Height)); // left wall
             boxes.Add(new Box((pb.Width - 20), 0, 20, pb.Height)); // right wall
 
 
@@ -142,6 +152,7 @@ namespace Watersan_e_Firejalma
                 character.KeyCheck(e.KeyCode, false);
             }
         }
+
     }
 
 }

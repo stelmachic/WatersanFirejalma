@@ -71,6 +71,15 @@ namespace Watersan_e_Firejalma.Properties {
         }
         
         /// <summary>
+        ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream EdWalk {
+            get {
+                return ResourceManager.GetStream("EdWalk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Trevisharp_Sheet {

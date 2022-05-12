@@ -22,9 +22,6 @@ namespace Watersan_e_Firejalma
         public int resolutionY { get;  set; } = (32 * 8);
         public int orientation { get;  set; } = 1;
 
-
-
-        public bool isCollided { get; set; } = false;
         public bool isMoving { get;  set; } = false;
         public bool isJumping { get;  set; } = false;
         public bool isGrounded { get;  set; } = false;
@@ -58,13 +55,16 @@ namespace Watersan_e_Firejalma
      
         public void Jump()
         {
-            speedY = jumpForce * -1;
+            if(isGrounded)
+                speedY = jumpForce * -1;
+            
+            isGrounded = false;
         }
 
         public void Gravity()
         {
-            posY += speedY;
             speedY += mass;
+            posY += speedY;
         }
 
         public override void Draw(Graphics graphics)
@@ -75,6 +75,7 @@ namespace Watersan_e_Firejalma
                 spriteY = 4;
                 spriteX = 1;
             }
+
             else if (isMoving)
             {
                 spriteY = 0;
@@ -83,6 +84,7 @@ namespace Watersan_e_Firejalma
                 if (spriteX == 8)
                     spriteX = 0;
             }
+
             else
             {
                 if (!animChosen)
@@ -236,6 +238,7 @@ namespace Watersan_e_Firejalma
 
             bool collided = false;
 
+
             if((x >= box.X) && (x <= (box.X + box.Width)) && (hitbox.Y >= box.Y) && (hitbox.Y <= (box.Y + box.Height)))
             {
                 collided = true;
@@ -247,10 +250,7 @@ namespace Watersan_e_Firejalma
 
             
 
-            if (collided)
-            {
-                isCollided = true;
-            }
+       
 
             if (collided)
             {
@@ -264,24 +264,20 @@ namespace Watersan_e_Firejalma
                 if ((distYT < distXL) && (distYT < distXR))
                 {
                     isGrounded = true;
-                    isJumping = false;
-                    speedX = 20;
                     speedY = 0;
                     posY = box.Y - height;
                 }
                 else if ((distXL<distYT) && (distXL<distXR))
                 {
-                    speedX = 0;
+                    isGrounded = false;
+                    isMoving = false;
                     posX = box.X - (width) - (width / 2);
                 }
                 else if((distXR < distYT) && (distXR < distXL))
                 {
-                    speedX = 0;
+                    isGrounded = false;
+                    isMoving = false;
                     posX = (box.X + box.Width) - (width / 2);
-                }
-                else
-                {
-                    speedX = 20;
                 }
             }
         }
