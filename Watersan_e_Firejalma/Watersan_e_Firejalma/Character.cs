@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Watersan_e_Firejalma
 {
-    public class Character : Entity
+    public abstract class Character : Entity
     {
         public int posX { get;  set; } = 100;
         public int posY { get;  set; }
@@ -27,7 +27,6 @@ namespace Watersan_e_Firejalma
         public bool isGrounded { get;  set; } = false;
         public int width { get; set; } = (16 * 8);
         public int height { get; set; } = (32 * 8);
-        public Rectangle hitbox { get; set; }
 
 
 
@@ -40,13 +39,11 @@ namespace Watersan_e_Firejalma
         public bool animChosen = false;
         public int frame { get;  set; }
 
-
         public Character(Image spriteSheet) 
         {
             this.spriteSheet = spriteSheet;
+            this.HitBox = HitBox.FromCharacter(this);
         }
-
-
 
         public void Move()
         {
@@ -163,123 +160,6 @@ namespace Watersan_e_Firejalma
             }
         }
 
-        public void KeyCheck(Keys key, bool moving)
-        {
-
-            if(key == Keys.Escape)
-            {
-                Application.Exit();
-            }
-
-
-
-            if(this is Edjalma)
-            {
-                switch (key)
-                {
-                    case Keys.Left:
-                        Orientate(-1);
-                        isMoving = moving;
-                        break;
-
-                    case Keys.Right:
-                        Orientate(1);
-                        isMoving = moving;
-                        break;
-
-                    case Keys.Up:
-                        isJumping = true;
-                        break;
-                }
-            }
-            else if(this is Trevisan)
-            {
-                switch (key)
-                {
-                    case Keys.A:
-                            Orientate(-1);
-                            isMoving = moving;
-                        break;
-
-                    case Keys.D:
-                            Orientate(1);
-                            isMoving = moving;
-                        break;
-
-                    case Keys.W:
-                            isJumping = true;
-                        break;
-                }
-            } 
-        }
-
-        public override void DrawHitBox(Graphics g)
-        {
-            List<Point> pontos = new List<Point>();
-            
-            hitbox = new Rectangle(posX + (width / 2), posY, width, height);
-
-            g.DrawRectangle(Pens.Black, hitbox);
-        }
-
-        public void CheckCollission(Box entity)
-        {
-
-            Rectangle box = entity.box;
-            float x;
-
-            if(orientation < 0)
-                x = hitbox.X;
-            else
-                x = (hitbox.X + width);
-
-
-
-
-            bool collided = false;
-
-
-            if((x >= box.X) && (x <= (box.X + box.Width)) && (hitbox.Y >= box.Y) && (hitbox.Y <= (box.Y + box.Height)))
-            {
-                collided = true;
-            }
-            else if((x >= box.X) && (x <= (box.X + box.Width)) && ((hitbox.Y + height) >= box.Y) && ((hitbox.Y + height) <= (box.Y + box.Height)))
-            {
-                collided = true;
-            }
-
-            
-
-       
-
-            if (collided)
-            {
-
-                float distXL, distXR, distYT, distYB;
-                
-                distXL = x - box.X;
-                distXR = (box.X + box.Width) - x;
-                distYT = (posY + height) - box.Y;
-
-                if ((distYT < distXL) && (distYT < distXR))
-                {
-                    isGrounded = true;
-                    speedY = 0;
-                    posY = box.Y - height;
-                }
-                else if ((distXL<distYT) && (distXL<distXR))
-                {
-                    isGrounded = false;
-                    isMoving = false;
-                    posX = box.X - (width) - (width / 2);
-                }
-                else if((distXR < distYT) && (distXR < distXL))
-                {
-                    isGrounded = false;
-                    isMoving = false;
-                    posX = (box.X + box.Width) - (width / 2);
-                }
-            }
-        }
+        public abstract void KeyCheck(Keys key, bool moving);
     }
 }

@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterHitBox.cs" />
     <Compile Include="Colisão.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="HitBox.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

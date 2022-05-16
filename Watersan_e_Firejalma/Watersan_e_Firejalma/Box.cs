@@ -11,21 +11,14 @@ namespace Watersan_e_Firejalma
     {
         public Rectangle box;
 
-
-
         public Box(int X, int Y, int width, int height)
-            => this.box = new Rectangle(X, Y, width, height);
-        
+        {
+            this.box = new Rectangle(X, Y, width, height);
+            this.HitBox = HitBox.FromRectangle(box);
+        }
 
         public override void Draw(Graphics g)
             => g.FillRectangle(Brushes.Black, box);
 
-        public override void DrawHitBox(Graphics g)
-        {
-            g.DrawRectangle(Pens.Red, box);
-        }
-
     }
 }
-
-

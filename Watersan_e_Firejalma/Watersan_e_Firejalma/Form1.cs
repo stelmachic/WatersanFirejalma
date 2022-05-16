@@ -25,7 +25,7 @@ namespace Watersan_e_Firejalma
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
         SoundPlayer edWalk = new SoundPlayer(Properties.Resources.EdWalk);
-
+       
 
         public Form1()
         {
@@ -65,12 +65,15 @@ namespace Watersan_e_Firejalma
 
 
                     if (character.isMoving)
-                    {
-                        
+                    {       
                         character.Move();
                     }
-
+                   
+                    
+                    
                     character.Gravity();
+
+
 
                     label1.Text = character.speedY.ToString();
 
@@ -101,8 +104,6 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            edWalk.PlayLooping();
-
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
@@ -118,7 +119,7 @@ namespace Watersan_e_Firejalma
 
 
             boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor
-            //boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
+            boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
             boxes.Add(new Box(-60, 0, 80,pb.Height)); // left wall
             boxes.Add(new Box((pb.Width - 20), 0, 20, pb.Height)); // right wall
 
