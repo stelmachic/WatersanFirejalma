@@ -57,27 +57,9 @@ namespace Watersan_e_Firejalma
                 foreach (Character character in characters)
                 {
                     
-
-                    if (character.isJumping)
-                    {
-                        character.Jump();
-                    }
-
-
-                    if (character.isMoving)
-                    {       
-                        character.Move();
-                    }
-                   
+      
+                    character.Move();
                     
-                    
-                    character.Gravity();
-
-
-
-                    label1.Text = character.speedY.ToString();
-
-
 
 
                     if (!character.isJumping)
@@ -88,11 +70,7 @@ namespace Watersan_e_Firejalma
                         }
                     }
 
-
-
                     character.isJumping = false;
-
-
 
                 }
                 pb.Image = bmp;

@@ -22,6 +22,7 @@ namespace Watersan_e_Firejalma
         public int resolutionY { get;  set; } = (32 * 8);
         public int orientation { get;  set; } = 1;
 
+        public bool gravityOn { get; set; } = true;
         public bool isMoving { get;  set; } = false;
         public bool isJumping { get;  set; } = false;
         public bool isGrounded { get;  set; } = false;
@@ -47,22 +48,22 @@ namespace Watersan_e_Firejalma
 
         public void Move()
         {
-            posX += speedX * orientation;
+            if(isMoving)
+                posX += speedX * orientation;
+            if (isJumping)
+            {
+                if (isGrounded)
+                    speedY = jumpForce * -1;
+
+                isGrounded = false;
+            }
+            if (gravityOn)
+            {
+                speedY += mass;
+                posY += speedY;
+            }
         }
      
-        public void Jump()
-        {
-            if(isGrounded)
-                speedY = jumpForce * -1;
-            
-            isGrounded = false;
-        }
-
-        public void Gravity()
-        {
-            speedY += mass;
-            posY += speedY;
-        }
 
         public override void Draw(Graphics graphics)
         {
