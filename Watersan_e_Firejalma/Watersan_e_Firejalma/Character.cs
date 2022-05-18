@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Watersan_e_Firejalma
 {
@@ -21,6 +16,8 @@ namespace Watersan_e_Firejalma
         public int resolutionX { get;  set; } = (32 * 8);
         public int resolutionY { get;  set; } = (32 * 8);
         public int orientation { get;  set; } = 1;
+
+
 
         public bool gravityOn { get; set; } = true;
         public bool isMoving { get;  set; } = false;
@@ -40,16 +37,36 @@ namespace Watersan_e_Firejalma
         public bool animChosen = false;
         public int frame { get;  set; }
 
-        public Character(Image spriteSheet) 
+        public SoundPlayer walkSound; 
+
+
+
+        public Character(Image spriteSheet, SoundPlayer walkSound) : base(null)
         {
-            this.spriteSheet = spriteSheet;
             this.HitBox = HitBox.FromCharacter(this);
+            this.spriteSheet = spriteSheet;
+            this.walkSound = walkSound;
+
+
+            for (int i = 0; i < (spriteSheet.Width/resolutionX); i++)
+            {
+                for (int j = 0; j < (spriteSheet.Height/resolutionY); j++)
+                {
+                    sprites[i, j] = (spriteSheet as Bitmap).Clone(new Rectangle(i * resolutionX, j * resolutionY, resolutionX, resolutionY), spriteSheet.PixelFormat);
+                }
+            }
+
         }
+
+
+
+
 
         public void Move()
         {
             if(isMoving)
                 posX += speedX * orientation;
+
             if (isJumping)
             {
                 if (isGrounded)
@@ -57,13 +74,13 @@ namespace Watersan_e_Firejalma
 
                 isGrounded = false;
             }
-            if (gravityOn)
+
+            if (!gravityOn)
             {
                 speedY += mass;
                 posY += speedY;
             }
         }
-     
 
         public override void Draw(Graphics graphics)
         {
@@ -150,16 +167,7 @@ namespace Watersan_e_Firejalma
             orientation = direcao;
         }
 
-        public void SplitSprites(int x, int y)
-        {
-            for(int i = 0; i<x; i++)
-            {
-                for(int j = 0; j < y; j++)
-                {
-                    sprites[i,j] = (spriteSheet as Bitmap).Clone(new Rectangle(i * resolutionX, j * resolutionY, resolutionX, resolutionY), spriteSheet.PixelFormat);
-                }
-            }
-        }
+
 
         public abstract void KeyCheck(Keys key, bool moving);
     }

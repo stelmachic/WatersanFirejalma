@@ -47,8 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterHitBox.cs" />
-    <Compile Include="Colisão.cs" />
     <Compile Include="Box.cs" />
+    <Compile Include="CollisionInfo.cs" />
+    <Compile Include="CollisionManager.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="HitBox.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -56,6 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RectangleHitbox.cs" />
     <Compile Include="Trevisan.cs" />
     <Compile Include="Jogo.cs" />
     <Compile Include="Form1.cs">

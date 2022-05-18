@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System.Media;
 
 namespace Watersan_e_Firejalma
 {
     public class Edjalma : Character
     {
-        public Edjalma() : base(Properties.Resources.Edjalma_Sheet)
+        public Edjalma() : base(Properties.Resources.Edjalma_Sheet, new System.Media.SoundPlayer(Properties.Resources.EdWalk))
         {
         }
 
@@ -35,6 +31,12 @@ namespace Watersan_e_Firejalma
                     Application.Exit();
                     break;
             }
+
+            if (moving)
+                walkSound.Play();
+            else
+                walkSound.Stop();
+            
         }
     }
 }

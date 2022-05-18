@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -24,15 +19,14 @@ namespace Watersan_e_Firejalma
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
-        SoundPlayer edWalk = new SoundPlayer(Properties.Resources.EdWalk);
-       
+        
+   
 
         public Form1()
         {
             InitializeComponent();
             tm.Interval = 25;
 
-            
             
             tm.Tick += delegate 
             {
@@ -49,30 +43,12 @@ namespace Watersan_e_Firejalma
                         entity.DrawHitBox(g);
                     }
                 }
-              
-
-
-
 
                 foreach (Character character in characters)
-                {
-                    
-      
                     character.Move();
-                    
 
 
-                    if (!character.isJumping)
-                    {
-                        foreach (Box box in boxes)
-                        {
-                            character.CheckCollission(box);
-                        }
-                    }
 
-                    character.isJumping = false;
-
-                }
                 pb.Image = bmp;
             };
         }
@@ -90,11 +66,6 @@ namespace Watersan_e_Firejalma
             edjalma.posY = pb.Height - edjalma.height - 50;
 
 
-            foreach (Character character in characters)
-            {
-                character.SplitSprites(8, 5);
-            }
-
 
             boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor
             boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
@@ -104,13 +75,11 @@ namespace Watersan_e_Firejalma
 
             
             foreach (Box box in boxes)
-            {
                 entities.Add(box);
-            }
+            
             foreach(Character character in characters)
-            {
                 entities.Add(character);
-            }
+            
 
             tm.Start();
 

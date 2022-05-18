@@ -1,26 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+
 
 namespace Watersan_e_Firejalma
 {
     public class CharacterHitBox : HitBox
     {
-        public Character Character { get; set; }
+        public CharacterHitBox(Character character)
+            => this.Character = character;
+        public Character Character {get;}
 
-        protected override PointF[] pts
+        public override PointF[] Points
         {
             get => new PointF[]
             {
                 new PointF(Character.posX + Character.width / 2, Character.posY),
                 new PointF(Character.posX + Character.width / 2 + Character.width, Character.posY),
                 new PointF(Character.posX + Character.width / 2 + Character.width, Character.posY + Character.height),
-                new PointF(Character.posX + Character.width / 2, Character.posY + Character.height)
+                new PointF(Character.posX + Character.width / 2, Character.posY + Character.height),
+                new PointF(Character.posX + Character.width / 2, Character.posY)
             };
-            set => throw new InvalidOperationException();
+           
         }
     }
 }
+
+
