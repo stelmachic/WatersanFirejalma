@@ -5,7 +5,8 @@ namespace Watersan_e_Firejalma
     public class CollisionInfo
     {
         public bool IsColliding { get; set; } = false;
-        public PointF SideA { get; set; }
-        public PointF SideB { get; set; }
+        public PointF PointA { get; set; }
+        public PointF PointB { get; set; }
+        public float distMin { get; set; } 
     }
 }

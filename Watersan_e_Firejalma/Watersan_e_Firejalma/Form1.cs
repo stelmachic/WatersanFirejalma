@@ -19,7 +19,7 @@ namespace Watersan_e_Firejalma
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
-        
+        CollisionManager collisionManager = new CollisionManager();
    
 
         public Form1()
@@ -45,7 +45,19 @@ namespace Watersan_e_Firejalma
                 }
 
                 foreach (Character character in characters)
+                {
                     character.Move();
+
+
+                    foreach(Box box in boxes)
+                    {
+                        //character.CheckCollision(box, g);
+                    }
+                }
+
+
+                collisionManager.HandleCollisions(g);
+                
 
 
 
@@ -80,7 +92,7 @@ namespace Watersan_e_Firejalma
             foreach(Character character in characters)
                 entities.Add(character);
             
-
+            collisionManager.Entities = entities;
             tm.Start();
 
         }

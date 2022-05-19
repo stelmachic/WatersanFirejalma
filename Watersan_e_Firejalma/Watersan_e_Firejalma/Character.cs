@@ -58,14 +58,24 @@ namespace Watersan_e_Firejalma
 
         }
 
+        public override void OnCollision(CollisionInfo info, Graphics g)
+        {
+            g.DrawLine(new Pen(Color.Yellow), info.PointA, info.PointB);
 
+            posY -= 20;
+
+
+
+        }
 
 
 
         public void Move()
         {
-            if(isMoving)
-                posX += speedX * orientation;
+            if (isMoving)
+            {
+                posX += speedX * orientation; 
+            } 
 
             if (isJumping)
             {

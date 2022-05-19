@@ -32,10 +32,7 @@ namespace Watersan_e_Firejalma
                     break;
             }
 
-            if (moving)
-                walkSound.Play();
-            else
-                walkSound.Stop();
+            
             
         }
     }

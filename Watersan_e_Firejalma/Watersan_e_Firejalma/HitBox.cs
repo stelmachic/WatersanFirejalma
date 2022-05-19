@@ -29,7 +29,10 @@ namespace Watersan_e_Firejalma
                 if (inpolygon(p, this.Points))
                 {
                     info.IsColliding = true;
-                    (info.SideA, info.SideB) = bestside(this.Points, p);
+                    (info.PointA, info.PointB) = bestside(this.Points, p);
+
+                    
+
                     return info;
                 }
             }

@@ -9,7 +9,7 @@ namespace Watersan_e_Firejalma
 {
     public class Trevisan : Character
     {
-        public Trevisan() : base(Properties.Resources.Trevisharp_Sheet)
+        public Trevisan() : base(Properties.Resources.Trevisharp_Sheet, new System.Media.SoundPlayer(Properties.Resources.EdWalk))
         {
         }
 
