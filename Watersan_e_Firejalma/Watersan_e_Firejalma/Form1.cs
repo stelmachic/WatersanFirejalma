@@ -20,7 +20,7 @@ namespace Watersan_e_Firejalma
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
         CollisionManager collisionManager = new CollisionManager();
-   
+        MapManager mapManager;
 
         public Form1()
         {
@@ -32,16 +32,17 @@ namespace Watersan_e_Firejalma
             {
                 frame++;
 
-
+                
                 if (frame % frameRate == 0)
                 {
                     g.Clear(Color.White);
-
+                    mapManager.GerarMapa();
                     foreach (Entity entity in entities)
                     {             
                         entity.Draw(g);
                         entity.DrawHitBox(g);
                     }
+                    
                 }
 
                 foreach (Character character in characters)
@@ -56,7 +57,7 @@ namespace Watersan_e_Firejalma
                 }
 
 
-                collisionManager.HandleCollisions(g);
+                //collisionManager.HandleCollisions(g);
                 
 
 
@@ -73,10 +74,16 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
+            mapManager = new MapManager(g);
+
+
 
             characters.Add(edjalma);
             edjalma.posY = pb.Height - edjalma.height - 50;
 
+            //characters.Add(trevisan);
+            //trevisan.posY = pb.Height - trevisan.height - 50;
+            //trevisan.posX += 200;
 
 
             boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor

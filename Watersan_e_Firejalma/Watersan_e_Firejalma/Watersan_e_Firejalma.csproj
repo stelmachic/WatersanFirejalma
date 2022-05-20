@@ -52,6 +52,7 @@
     <Compile Include="CollisionManager.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="HitBox.cs" />
+    <Compile Include="MapManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,7 +99,28 @@
     <None Include="Resources\Trevisharp-Sheet.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\EdWalk.wav" />
+    <None Include="Resources\trev_walk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edWalk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trevWalk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mapa1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Destructible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lakeFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Diagonal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

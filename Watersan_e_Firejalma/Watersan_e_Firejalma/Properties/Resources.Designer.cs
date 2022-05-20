@@ -63,6 +63,36 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Blank {
+            get {
+                object obj = ResourceManager.GetObject("Blank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Destructible {
+            get {
+                object obj = ResourceManager.GetObject("Destructible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Diagonal {
+            get {
+                object obj = ResourceManager.GetObject("Diagonal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edjalma_Sheet {
             get {
                 object obj = ResourceManager.GetObject("Edjalma_Sheet", resourceCulture);
@@ -73,9 +103,44 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream EdWalk {
+        internal static System.IO.UnmanagedMemoryStream edWalk {
             get {
-                return ResourceManager.GetStream("EdWalk", resourceCulture);
+                return ResourceManager.GetStream("edWalk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lakeDiagonal {
+            get {
+                object obj = ResourceManager.GetObject("lakeDiagonal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lakeFull {
+            get {
+                object obj = ResourceManager.GetObject("lakeFull", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a w w w w w w w w w
+        ///w b b b b b b b b w
+        ///w b b b b b b b b w
+        ///w w w b b b b b b w
+        ///w b b b b b b d w w
+        ///w b b b b b d w w w
+        ///w w w l l w w w w w.
+        /// </summary>
+        internal static string Mapa1 {
+            get {
+                return ResourceManager.GetString("Mapa1", resourceCulture);
             }
         }
         
@@ -86,6 +151,15 @@ namespace Watersan_e_Firejalma.Properties {
             get {
                 object obj = ResourceManager.GetObject("Trevisharp_Sheet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.IO.UnmanagedMemoryStream semelhante a System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream trevWalk {
+            get {
+                return ResourceManager.GetStream("trevWalk", resourceCulture);
             }
         }
     }

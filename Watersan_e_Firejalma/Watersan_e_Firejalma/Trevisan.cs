@@ -9,12 +9,25 @@ namespace Watersan_e_Firejalma
 {
     public class Trevisan : Character
     {
-        public Trevisan() : base(Properties.Resources.Trevisharp_Sheet, new System.Media.SoundPlayer(Properties.Resources.EdWalk))
+        public Trevisan() : base(Properties.Resources.Trevisharp_Sheet, new System.Media.SoundPlayer(Properties.Resources.trevWalk))
         {
         }
 
         public override void KeyCheck(Keys key, bool moving)
         {
+
+            if (!moving)
+            {
+                walkSound.Stop();
+            }
+            else
+            {
+                if (!isMoving)
+                {
+                    walkSound.PlayLooping();
+                }
+            }
+
             switch (key)
             {
                 case Keys.A:

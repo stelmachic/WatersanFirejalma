@@ -5,12 +5,24 @@ namespace Watersan_e_Firejalma
 {
     public class Edjalma : Character
     {
-        public Edjalma() : base(Properties.Resources.Edjalma_Sheet, new System.Media.SoundPlayer(Properties.Resources.EdWalk))
+        public Edjalma() : base(Properties.Resources.Edjalma_Sheet, new System.Media.SoundPlayer(Properties.Resources.edWalk))
         {
         }
 
         public override void KeyCheck(Keys key, bool moving)
         {
+
+            if (!moving)
+            {
+                walkSound.Stop();
+            }
+            else
+            {
+                if (!isMoving)
+                {
+                    walkSound.PlayLooping();
+                }
+            }
             switch (key)
             {
                 case Keys.Left:

@@ -65,7 +65,6 @@ namespace Watersan_e_Firejalma
             posY -= 20;
 
 
-
         }
 
 
