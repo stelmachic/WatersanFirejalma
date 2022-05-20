@@ -111,10 +111,7 @@
     <None Include="Resources\Mapa1.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Destructible.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Blank.png" />
+    <None Include="Resources\Floor.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lakeFull.png" />

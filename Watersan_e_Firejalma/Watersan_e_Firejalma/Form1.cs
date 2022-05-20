@@ -20,7 +20,7 @@ namespace Watersan_e_Firejalma
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
         CollisionManager collisionManager = new CollisionManager();
-        MapManager mapManager;
+        MapManager map1;
 
         public Form1()
         {
@@ -36,7 +36,7 @@ namespace Watersan_e_Firejalma
                 if (frame % frameRate == 0)
                 {
                     g.Clear(Color.White);
-                    mapManager.GerarMapa();
+               
                     foreach (Entity entity in entities)
                     {             
                         entity.Draw(g);
@@ -50,10 +50,10 @@ namespace Watersan_e_Firejalma
                     character.Move();
 
 
-                    foreach(Box box in boxes)
-                    {
-                        //character.CheckCollision(box, g);
-                    }
+                    //foreach(Box box in boxes)
+                    //{
+                    //    //character.CheckCollision(box, g);
+                    //}
                 }
 
 
@@ -70,11 +70,14 @@ namespace Watersan_e_Firejalma
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            map1 = new MapManager(Properties.Resources.Mapa1);
+
+
+            label1.Text = map1.mapHeight.ToString();
 
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
-
-            mapManager = new MapManager(g);
 
 
 
@@ -86,17 +89,14 @@ namespace Watersan_e_Firejalma
             //trevisan.posX += 200;
 
 
-            boxes.Add(new Box(0, pb.Height - 20, pb.Width, 100)); // floor
-            boxes.Add(new Box((pb.Width/2), pb.Height-150, 150, 150)); // center cube
-            boxes.Add(new Box(-60, 0, 80,pb.Height)); // left wall
-            boxes.Add(new Box((pb.Width - 20), 0, 20, pb.Height)); // right wall
 
 
-            
-            foreach (Box box in boxes)
-                entities.Add(box);
-            
-            foreach(Character character in characters)
+
+
+            foreach (var block in map1.blocks)
+                entities.Add(block);
+
+            foreach (Character character in characters)
                 entities.Add(character);
             
             collisionManager.Entities = entities;

@@ -12,68 +12,103 @@ namespace Watersan_e_Firejalma
     public class MapManager
     {
 
-        Graphics g;
+        
+        public List<Box> blocks { get; set; } = new List<Box>();
+        public string mapLayout;
 
-        public MapManager(Graphics g)
+
+        public Image floor = Properties.Resources.Floor;
+        public Image lake = Properties.Resources.lakeFull;
+        public Image diagonal = Properties.Resources.Diagonal;
+
+        
+
+        
+
+        Image sprite = null;
+
+        Rectangle rec = new Rectangle();
+
+        int currentPosX = 0;
+        int currentPosY = 0;
+        int blockWidth = (16 * 8);
+        int blockHeight = (16 * 8);
+        int initialPosX = 0;
+
+        public int mapHeight;
+        public int mapWidth;
+        public int lines=0;
+        public int columns=0;
+        string strLine = string.Empty;
+
+
+
+        public MapManager(string mapLayout)
         {
-            this.g = g;
-        }
-
-
-        public void GerarMapa()
-        {
-            string mapLayout = Properties.Resources.Mapa1;
-            var block = Properties.Resources.Destructible;
-            var blank = Properties.Resources.Blank;
-            var lake = Properties.Resources.lakeFull;
-            var diagonal = Properties.Resources.Diagonal;
-
-            Rectangle rec = new Rectangle();
-            int currentPosX = 0;
-            int currentPosY = 0;
-            int blockWidth = (16 * 8);
-            int blockHeight = (16 * 8);
-            int initialPosX = 0;
-
+            this.mapLayout = mapLayout;
+            
 
 
 
             using (System.IO.StringReader strReader = new System.IO.StringReader(mapLayout))
             {
+                while ((strLine = strReader.ReadLine()) != null)
+                {
+                    lines++;
+                    string[] strLineArray = strLine.Split(' ');
+                    foreach (string strBlockChar in strLineArray)
+                    { 
+                        columns++;
+                    }
+                }
+            }
 
-                //Generate Map with the txt
-                g.InterpolationMode = InterpolationMode.NearestNeighbor;
-                ImageAttributes attributes = new ImageAttributes();
-                attributes.SetWrapMode(WrapMode.TileFlipY);
 
-                string strLine = string.Empty;
 
+
+            GenerateMap();
+        }
+
+
+        public void GenerateMap()
+        {
+            using (System.IO.StringReader strReader = new System.IO.StringReader(mapLayout))
+            {
+                
                 while ((strLine = strReader.ReadLine()) != null)
                 {
                     string[] strLineArray = strLine.Split(' ');
+                    
+                    
                     foreach (string strBlockChar in strLineArray)
                     {
+                     
                         rec.Location = new Point(currentPosX, currentPosY);
 
                         switch (strBlockChar)
                         {
                             //Teste
                             case "w":
-                                g.DrawImage(block, new Rectangle(currentPosX, currentPosY, blockWidth, blockHeight), 0, 0, (16 * 8), (16 * 8), GraphicsUnit.Pixel, attributes);
+                                sprite = floor;
                                 break;
                             case "b":
-                                g.DrawImage(blank, new Rectangle(currentPosX, currentPosY, blockWidth, blockHeight), 0, 0, (16 * 8), (16 * 8), GraphicsUnit.Pixel, attributes);
+                                sprite = null;
                                 break;
                             case "l":
-                                g.DrawImage(lake, new Rectangle(currentPosX, currentPosY, blockWidth, blockHeight), 0, 0, (16 * 8), (16 * 8), GraphicsUnit.Pixel, attributes);
+                                sprite = lake;
                                 break;
                             case "d":
-                                g.DrawImage(diagonal, new Rectangle(currentPosX, currentPosY, blockWidth, blockHeight), 0, 0, (16 * 8), (16 * 8), GraphicsUnit.Pixel, attributes);
+                                sprite = diagonal;
                                 break;
-
-
+                        
                         }
 
+                        if(sprite!= null)
+                        {
+                            Box block = new Box(currentPosX, currentPosY, blockWidth, blockHeight, sprite);
+                            blocks.Add(block);
+                        }
+                        
                         currentPosX += blockWidth;
                     }
 
@@ -81,6 +116,7 @@ namespace Watersan_e_Firejalma
                     currentPosY += blockHeight;
                 }
             }
+         
 
         }
     }
