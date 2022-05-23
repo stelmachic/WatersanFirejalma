@@ -24,7 +24,6 @@ namespace Watersan_e_Firejalma
 
         public virtual void OnCollision(CollisionInfo info, Graphics g) 
         {
-            g.DrawLine(new Pen(Color.Green), info.PointA, info.PointB);
         }
 
         public virtual void OnFrame() { }

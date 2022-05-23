@@ -7,8 +7,8 @@ namespace Watersan_e_Firejalma
 {
     public abstract class Character : Entity
     {
-        public int posX { get;  set; } = 100;
-        public int posY { get;  set; }
+        public float posX { get;  set; } = 100;
+        public float posY { get;  set; }
         public int mass { get;  set; } = 1;
         public int speedX { get;  set; } = 15;
         public int speedY { get;  set; } = 0;
@@ -60,11 +60,38 @@ namespace Watersan_e_Firejalma
 
         public override void OnCollision(CollisionInfo info, Graphics g)
         {
-            g.DrawLine(new Pen(Color.Yellow), info.PointA, info.PointB);
 
-            posY -= 20;
+            bool isHorizontal = false;
+            bool isVertical = false;
+            bool isAbove = false;
+            bool isBelow = false;
+    
 
+            g.DrawLine(new Pen(Color.Cyan, 10f), info.PointA, info.PointB);
 
+            if (info.PointA.X == info.PointB.X)
+            {
+                isHorizontal = true;
+            }
+            if (info.PointA.Y == info.PointB.Y)
+            {
+                isVertical = true;
+            }
+        
+            
+
+            if (isVertical)
+            {
+                speedX *= -1;
+                Move();
+                speedX *= -1;
+            }
+            if (isHorizontal)
+            {
+                speedY *= -1;
+                Move();
+                speedY *= -1;
+            }
         }
 
 
@@ -157,7 +184,7 @@ namespace Watersan_e_Firejalma
                 }
             }
 
-            graphics.DrawImage(sprites[spriteX, spriteY], new Rectangle(posX, posY, resolutionX, resolutionY));
+            graphics.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
         }
 
         public void Orientate(int direcao)

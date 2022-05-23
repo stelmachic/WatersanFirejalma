@@ -37,6 +37,8 @@ namespace Watersan_e_Firejalma
 
         public int mapHeight;
         public int mapWidth;
+
+
         public int lines=0;
         public int columns=0;
         string strLine = string.Empty;
@@ -63,6 +65,8 @@ namespace Watersan_e_Firejalma
                 }
             }
 
+            mapHeight = lines * blockHeight;
+            mapWidth = (columns/lines) * blockWidth;
 
 
 

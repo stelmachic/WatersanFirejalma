@@ -50,15 +50,15 @@ namespace Watersan_e_Firejalma
                     character.Move();
 
 
-                    //foreach(Box box in boxes)
-                    //{
-                    //    //character.CheckCollision(box, g);
-                    //}
+                    foreach (Box box in map1.blocks)
+                    {
+                        character.CheckCollision(box, g);
+                    }
                 }
 
 
                 //collisionManager.HandleCollisions(g);
-                
+
 
 
 
@@ -66,6 +66,37 @@ namespace Watersan_e_Firejalma
             };
         }
 
+        private void transformMap(MapManager mm, Graphics g)
+        {
+            float aw = this.Width / (float)mm.mapWidth,
+                  ah = this.Height / (float)mm.mapHeight;
+            if (aw > ah)
+            {
+                g.ScaleTransform(ah, ah);
+                g.TranslateTransform((this.Width - ah * mm.mapWidth) / 2, 0);
+            }
+            else
+            {
+                g.ScaleTransform(aw, aw);
+                g.TranslateTransform(0, (this.Height - aw * mm.mapHeight) / 2);
+            }
+        }
+
+        private void untransformMap(MapManager mm, Graphics g)
+        {
+            float aw = this.Width / (float)mm.mapWidth,
+                  ah = this.Height / (float)mm.mapHeight;
+            if (aw > ah)
+            {
+                g.TranslateTransform(-(this.Width - ah * mm.mapWidth) / 2, 0);
+                g.ScaleTransform(1 / ah, 1 / ah);
+            }
+            else
+            {
+                g.TranslateTransform(0, -(this.Height - aw * mm.mapHeight) / 2);
+                g.ScaleTransform(1 / aw, 1 / aw);
+            }
+        }
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,23 +105,20 @@ namespace Watersan_e_Firejalma
             map1 = new MapManager(Properties.Resources.Mapa1);
 
 
-            label1.Text = map1.mapHeight.ToString();
-
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
-
+            transformMap(map1, g);
 
 
             characters.Add(edjalma);
-            edjalma.posY = pb.Height - edjalma.height - 50;
 
             //characters.Add(trevisan);
             //trevisan.posY = pb.Height - trevisan.height - 50;
             //trevisan.posX += 200;
 
-
-
-
+            //edjalma.posX = -200;
+            edjalma.posX = +1300;
+            edjalma.posY = map1.mapHeight - edjalma.height - 128;
 
 
             foreach (var block in map1.blocks)

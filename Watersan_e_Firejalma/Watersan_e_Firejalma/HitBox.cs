@@ -31,8 +31,6 @@ namespace Watersan_e_Firejalma
                     info.IsColliding = true;
                     (info.PointA, info.PointB) = bestside(this.Points, p);
 
-                    
-
                     return info;
                 }
             }
@@ -49,7 +47,8 @@ namespace Watersan_e_Firejalma
             float x = 0, y = 0;
             x = -(b1 - b2) / (a1 - a2);
             y = a1 * x + b1;
-
+            if (a1 - a2 >= -float.Epsilon && a1 - a2 <= float.Epsilon)
+                return false;
             if (float.IsNaN(x))
             {
                 if (float.IsInfinity(a1))
