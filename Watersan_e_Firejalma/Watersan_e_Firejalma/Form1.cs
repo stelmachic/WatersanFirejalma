@@ -109,16 +109,13 @@ namespace Watersan_e_Firejalma
             g = Graphics.FromImage(bmp);
             transformMap(map1, g);
 
+            characters.Add(trevisan);
+            trevisan.posX = 1300;
+            trevisan.posY = map1.mapHeight - edjalma.height - 128;
 
-            characters.Add(edjalma);
-
-            //characters.Add(trevisan);
-            //trevisan.posY = pb.Height - trevisan.height - 50;
-            //trevisan.posX += 200;
-
-            //edjalma.posX = -200;
-            edjalma.posX = +1300;
-            edjalma.posY = map1.mapHeight - edjalma.height - 128;
+            //characters.Add(edjalma);
+            //edjalma.posX = +1300;
+            //edjalma.posY = map1.mapHeight - edjalma.height - 128;
 
 
             foreach (var block in map1.blocks)

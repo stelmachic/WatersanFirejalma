@@ -14,6 +14,7 @@ namespace Watersan_e_Firejalma
             get => new PointF[]
             {
                 new PointF(rect.X, rect.Y),
+                new PointF(rect.X + rect.Width / 2, rect.Y),
                 new PointF(rect.X + rect.Width, rect.Y),
                 new PointF(rect.X + rect.Width, rect.Y + rect.Height),
                 new PointF(rect.X, rect.Y + rect.Height),

@@ -8,17 +8,12 @@ namespace Watersan_e_Firejalma
     {
         public abstract PointF[] Points { get;}
         
-        
-
         public static HitBox FromRectangle(Rectangle rect)
             => new RectangleHitbox(rect);
         
         public static HitBox FromCharacter(Character character)
             => new CharacterHitBox(character);
         
-
-
-
         public virtual CollisionInfo IsColliding(HitBox hitBox)
         {
             CollisionInfo info = new CollisionInfo();
@@ -30,8 +25,7 @@ namespace Watersan_e_Firejalma
                 {
                     info.IsColliding = true;
                     (info.PointA, info.PointB) = bestside(this.Points, p);
-
-                    return info;
+                    info.CollisionPoints.Add(p);
                 }
             }
 
