@@ -1,0 +1,46 @@
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v i a a a h v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v k a a a h v v v v v v v v v v v i a a a h v v v v v v v v a 
+a v v v v v v v v v v a a a a a a a a a a a a a a a a a a a a a a a a a a a a a 
+a a a a a a v v v v v a a a a a a v v v v v v v v v v v v v v v v v v v v v v a
+a a a a a a v v v v v a a a a a a v v v v v v v v v v v v v v v v v v v v v v a 
+a a a a a a v v v v v v v v v v v v a a a a a a a h v v v v v v v v v v v v v a 
+a a a a a a v v v v v v v v v v v v a a a a a a a a h v v v v v v v v v v v v a
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a a v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v a a a a a a a a a a a a a a h v v v v v v v v v v v v v v v v v v a 
+a v v v v v v v v v v v v v v v v v v k a a a a a a a a a a a a a a a a a a a a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a a a a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a a 
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a
+a a a a a a a a a a a a a a a a a h v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v k a h v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v v k a a a a a a a l m m m n a a a a h v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v k a j v v v v v v v v v v v v a
+a a a a a a a a a a a a a v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v i a a a a a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a a a a a a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a a a a a a
+a a a a a a a a a a a a a a a a a b c c c d a a a e f f f g a a a a a a a a a a
+
+
+a-bloco inteiro
+b-bloco esq lava
+c-bloco cent lava
+d-bloco dir lava
+e-bloco esq agua
+f-bloco cent agua
+g-bloco dir agua
+h-bloco pe diag esq
+i-bloco pe diag dir
+j-bloco cabç diag esq
+k-bloco cabç diag dir
+l-bloco esq morte
+m-bloco cent morte
+n-bloco dir morte
+v-vazio
