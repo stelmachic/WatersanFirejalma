@@ -73,25 +73,13 @@ namespace Watersan_e_Firejalma
             if (aw > ah)
             {
                 g.ScaleTransform(ah, ah);
-                g.TranslateTransform((this.Width - (mm.mapWidth * ah))/(ah*ah), 0);
-                Console.WriteLine(ah);
-
-
-
-                //this.widht = 1920;
-                //mm.mapWidht = 608;
-
-                //(this.Width - mm.mapWidht) / 2 = 656;
-
-
-                //ah = 2,8125;
-
-                //Result = 35;
+                g.TranslateTransform((this.Width - (mm.mapWidth * ah))/2, 0, System.Drawing.Drawing2D.MatrixOrder.Append);
+           
             }
             else
             {
                 g.ScaleTransform(aw, aw);
-                g.TranslateTransform(0, (this.Height - aw * mm.mapHeight) / 2);
+                g.TranslateTransform(0, (this.Height - aw * mm.mapHeight) / 2, System.Drawing.Drawing2D.MatrixOrder.Append);
             }
         }
 
@@ -101,12 +89,12 @@ namespace Watersan_e_Firejalma
                   ah = this.Height / (float)mm.mapHeight;
             if (aw > ah)
             {
-                g.TranslateTransform(-(this.Width - ah * mm.mapWidth) / 2, 0);
+                g.TranslateTransform(-(this.Width - ah * mm.mapWidth) / 2, 0, System.Drawing.Drawing2D.MatrixOrder.Append);
                 g.ScaleTransform(1 / ah, 1 / ah);
             }
             else
             {
-                g.TranslateTransform(0, -(this.Height - aw * mm.mapHeight) / 2);
+                g.TranslateTransform(0, -(this.Height - aw * mm.mapHeight) / 2, System.Drawing.Drawing2D.MatrixOrder.Append);
                 g.ScaleTransform(1 / aw, 1 / aw);
             }
         }
@@ -123,7 +111,7 @@ namespace Watersan_e_Firejalma
             transformMap(map1, g);
 
             characters.Add(trevisan);
-            trevisan.posX = 1300;
+            trevisan.posX = 0;
             trevisan.posY = map1.mapHeight - edjalma.height - 128;
 
             //characters.Add(edjalma);

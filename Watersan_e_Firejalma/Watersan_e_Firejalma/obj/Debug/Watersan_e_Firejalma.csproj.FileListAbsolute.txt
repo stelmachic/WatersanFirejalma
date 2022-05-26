@@ -15,7 +15,6 @@ C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\De
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.AssemblyReference.cache
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.SuggestedBindingRedirects.cache
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Form1.resources
-C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Resources.resources
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.GenerateResource.cache
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
@@ -56,3 +55,7 @@ C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Deb
 C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Maps.resources
 C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Blocks.resources
 C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Audios.resources
+C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Characters.resources
+C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Maps.resources
+C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Blocks.resources
+C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Audios.resources
