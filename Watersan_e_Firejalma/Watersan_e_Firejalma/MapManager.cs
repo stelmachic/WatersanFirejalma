@@ -16,14 +16,16 @@ namespace Watersan_e_Firejalma
         public List<Box> blocks { get; set; } = new List<Box>();
         public string mapLayout;
 
-
-        public Image floor = Properties.Resources.Floor;
-        public Image lake = Properties.Resources.lakeFull;
-        public Image diagonal = Properties.Resources.Diagonal;
-
         
+        public Image floor = Properties.Blocks.BlocoInteiro;
+        public Image lake = Properties.Blocks.BlocoAgua;
+        public Image diagonalDir = Properties.Blocks.DiagonalDir;
+        public Image diagonalEsq = null;
 
-        
+
+
+
+
 
         Image sprite = null;
 
@@ -31,8 +33,8 @@ namespace Watersan_e_Firejalma
 
         int currentPosX = 0;
         int currentPosY = 0;
-        int blockWidth = (16 * 8);
-        int blockHeight = (16 * 8);
+        int blockWidth = 32;
+        int blockHeight = 32;
         int initialPosX = 0;
 
         public int mapHeight;
@@ -47,10 +49,9 @@ namespace Watersan_e_Firejalma
 
         public MapManager(string mapLayout)
         {
+        
+
             this.mapLayout = mapLayout;
-            
-
-
 
             using (System.IO.StringReader strReader = new System.IO.StringReader(mapLayout))
             {
@@ -102,7 +103,7 @@ namespace Watersan_e_Firejalma
                                 sprite = lake;
                                 break;
                             case "d":
-                                sprite = diagonal;
+                                sprite = diagonalDir;
                                 break;
                         
                         }

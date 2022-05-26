@@ -53,10 +53,25 @@
     <Compile Include="Entity.cs" />
     <Compile Include="HitBox.cs" />
     <Compile Include="MapManager.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Properties\Blocks.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Blocks.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Characters.Designer.cs">
+      <DependentUpon>Characters.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Maps.Designer.cs">
+      <DependentUpon>Maps.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Audios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Audios.resx</DependentUpon>
     </Compile>
     <Compile Include="RectangleHitbox.cs" />
     <Compile Include="Trevisan.cs" />
@@ -74,11 +89,28 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Properties\Characters.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Characters.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Maps.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Maps.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Blocks.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Blocks.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Audios.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Audios.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Arte\Characters\Edjalma.ase" />
+    <None Include="Arte\Characters\Trevisharp.ase" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,31 +125,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Edjalma-Sheet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Trevisharp-Sheet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\trev_walk.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edWalk.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\trevWalk.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Mapa1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Floor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lakeFull.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Diagonal.png" />
+    <Content Include="Arte\Blocos\BlocoAgua.png" />
+    <Content Include="Arte\Blocos\BlocoInteiro.png" />
+    <Content Include="Arte\Blocos\BlocoLava.png" />
+    <Content Include="Arte\Assets\BrownieMove.png" />
+    <Content Include="Arte\Blocos\CantoDirAgua.png" />
+    <Content Include="Arte\Blocos\CantoDirLava.png" />
+    <Content Include="Arte\Blocos\CantoEsqAgua.png" />
+    <Content Include="Arte\Blocos\CantoEsqLava.png" />
+    <Content Include="Arte\Blocos\DiagonalDir.png" />
+    <Content Include="Arte\Blocos\DiagonalEsq.png" />
+    <Content Include="Arte\Characters\Edjalma-sheet.png" />
+    <Content Include="Arte\Characters\EdWalk.wav" />
+    <Content Include="Arte\Characters\trevWalk.wav" />
+    <Content Include="Arte\Maps\Map1.txt" />
+    <Content Include="Arte\Maps\senairio.png" />
+    <Content Include="Arte\Maps\Senairio2.0.png" />
+    <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
+    <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
+    <Content Include="Arte\Characters\Trevisharp-sheet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,11 +9,19 @@ namespace Watersan_e_Firejalma
         public Rectangle box;
         Image sprite;
         ImageAttributes attributes;
+        int blockWidht;
+        int blockHeight;
 
-        public Box(int X, int Y, int width, int height, Image sprite) 
-            : base(HitBox.FromRectangle(new Rectangle(X, Y, width, height)))
+        public Box(int X, int Y, int blockWidht, int blockHeight, Image sprite) 
+            : base(HitBox.FromRectangle(new Rectangle(X, Y, blockWidht, blockHeight)))
         {
-            this.box = new Rectangle(X, Y, width, height);
+            this.blockWidht = blockWidht;
+            this.blockHeight = blockHeight;
+
+
+
+            this.box = new Rectangle(X, Y, 32, 32);
+
             this.sprite = sprite;
 
             //Generate Map with the txt
@@ -25,7 +33,7 @@ namespace Watersan_e_Firejalma
         public override void Draw(Graphics g)
         {
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
-            g.DrawImage(sprite, box, 0, 0, (16 * 8), (16 * 8), GraphicsUnit.Pixel, attributes);
+            g.DrawImage(sprite, box, 0, 0, blockWidht, blockHeight, GraphicsUnit.Pixel, attributes);
         }
           
 

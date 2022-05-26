@@ -5,7 +5,7 @@ namespace Watersan_e_Firejalma
 {
     public class Edjalma : Character
     {
-        public Edjalma() : base(Properties.Resources.Edjalma_Sheet, new System.Media.SoundPlayer(Properties.Resources.edWalk))
+        public Edjalma() : base(Properties.Characters.Edjalma_sheet, new System.Media.SoundPlayer(Properties.Audios.EdWalk))
         {
         }
 

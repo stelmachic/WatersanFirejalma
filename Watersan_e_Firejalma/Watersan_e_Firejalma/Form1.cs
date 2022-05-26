@@ -73,7 +73,20 @@ namespace Watersan_e_Firejalma
             if (aw > ah)
             {
                 g.ScaleTransform(ah, ah);
-                g.TranslateTransform((this.Width - ah * mm.mapWidth) / 2, 0);
+                g.TranslateTransform((this.Width - (mm.mapWidth * ah))/(ah*ah), 0);
+                Console.WriteLine(ah);
+
+
+
+                //this.widht = 1920;
+                //mm.mapWidht = 608;
+
+                //(this.Width - mm.mapWidht) / 2 = 656;
+
+
+                //ah = 2,8125;
+
+                //Result = 35;
             }
             else
             {
@@ -102,7 +115,7 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            map1 = new MapManager(Properties.Resources.Mapa1);
+            map1 = new MapManager(Properties.Maps.Map1);
 
 
             bmp = new Bitmap(pb.Width, pb.Height);
@@ -119,6 +132,9 @@ namespace Watersan_e_Firejalma
 
 
             foreach (var block in map1.blocks)
+                boxes.Add(block);
+
+            foreach (var block in boxes)
                 entities.Add(block);
 
             foreach (Character character in characters)
