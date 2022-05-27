@@ -21,6 +21,7 @@ namespace Watersan_e_Firejalma
         List<Entity> entities = new List<Entity>();
         CollisionManager collisionManager = new CollisionManager();
         MapManager map1;
+        Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
         public Form1()
         {
@@ -97,12 +98,14 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            map1 = new MapManager(Properties.Maps.Map1);
+            map1 = new MapManager(Properties.Maps.Mapateste);
 
 
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
             transformMap(map1, g);
+
+            //pb.BackgroundImage = background;
 
             //characters.Add(trevisan);
             //trevisan.posX = 0;

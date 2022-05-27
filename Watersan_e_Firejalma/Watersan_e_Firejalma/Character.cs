@@ -53,17 +53,30 @@ namespace Watersan_e_Firejalma
 
         public override void OnCollision(CollisionInfo info, Graphics g)
         {
-            bool isHorizontal = info.PointA.Y == info.PointB.Y;
-            bool isVertical = info.PointA.X == info.PointB.X;
+            bool isHorizontal = false;
+            bool isVertical = false;
             PointF center = this.Center;
             PointF collision = info.CollisionPoints[0];
 
-            g.DrawLine(new Pen(Color.Cyan, 1f), info.PointA, info.PointB);
+            g.DrawLine(new Pen(Color.Cyan, 1f), info.PointA, info.PointB); //LINHA CHAO
+
+
             foreach (var coll in info.CollisionPoints)
                 g.FillEllipse(Brushes.DarkGreen, coll.X - 1, coll.Y - 1, 2, 2);
-            g.FillEllipse(Brushes.Pink, center.X - 2, center.Y - 2, 4, 4);
-
             
+            for(int i = 1; i < info.CollisionPoints.Count; i++)
+            {
+                if(info.CollisionPoints[i].X == info.CollisionPoints[i - 1].X)
+                {
+                    isVertical = true;
+                }
+            }
+            //g.FillEllipse(Brushes.Pink, center.X - 2, center.Y - 2, 4, 4); // PONTO CENTRAL
+
+            if (isVertical && !isGrounded)
+            {
+
+            }
 
 
 
@@ -78,7 +91,11 @@ namespace Watersan_e_Firejalma
                     speedX = 0;
             }
             
-           
+           if(center.Y > collision.Y)
+            {
+                speedY = 0;
+                posY = collision.Y - 5;
+            }
             
             if (center.Y < collision.Y)
             {
@@ -99,9 +116,11 @@ namespace Watersan_e_Firejalma
             {
                 if (isGrounded)
                 {
+                    
                     speedY = jumpForce * -1;
                 }
                 isJumping = false;
+
             }
 
             if (gravityOn && !isGrounded)
@@ -109,8 +128,10 @@ namespace Watersan_e_Firejalma
                 speedY += mass;
             }
             posY += speedY;
-            isGrounded = false;
+            
             speedX = 5;
+
+            isGrounded=false;
         }
 
         public void SplitSprites()

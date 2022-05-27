@@ -34,6 +34,7 @@
             // 
             // pb
             // 
+            this.pb.BackColor = System.Drawing.Color.Transparent;
             this.pb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pb.Location = new System.Drawing.Point(0, 0);
             this.pb.Name = "pb";
@@ -45,7 +46,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Watersan_e_Firejalma.Properties.Resources.SenairiodeFundoGame2_0;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
