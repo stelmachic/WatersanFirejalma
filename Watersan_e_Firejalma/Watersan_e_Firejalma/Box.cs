@@ -33,6 +33,8 @@ namespace Watersan_e_Firejalma
         public override void Draw(Graphics g)
         {
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
+            ImageAttributes attributes = new ImageAttributes();
+            attributes.SetWrapMode(WrapMode.TileFlipY);
             g.DrawImage(sprite, box, 0, 0, blockWidht, blockHeight, GraphicsUnit.Pixel, attributes);
         }
           

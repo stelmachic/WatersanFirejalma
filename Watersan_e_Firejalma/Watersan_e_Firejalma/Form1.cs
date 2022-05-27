@@ -15,7 +15,7 @@ namespace Watersan_e_Firejalma
         Bitmap bmp = null;
         Graphics g = null;
         Character edjalma = new Edjalma();
-        Character trevisan = new Trevisan();
+        //Character trevisan = new Trevisan();
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
@@ -35,8 +35,8 @@ namespace Watersan_e_Firejalma
                 
                 if (frame % frameRate == 0)
                 {
-                    g.Clear(Color.White);
-               
+                    g.Clear(Color.Transparent);
+                    
                     foreach (Entity entity in entities)
                     {             
                         entity.Draw(g);
@@ -55,12 +55,6 @@ namespace Watersan_e_Firejalma
                         character.CheckCollision(box, g);
                     }
                 }
-
-
-                //collisionManager.HandleCollisions(g);
-
-
-
 
                 pb.Image = bmp;
             };
@@ -110,13 +104,13 @@ namespace Watersan_e_Firejalma
             g = Graphics.FromImage(bmp);
             transformMap(map1, g);
 
-            characters.Add(trevisan);
-            trevisan.posX = 0;
-            trevisan.posY = map1.mapHeight - edjalma.height - 128;
+            //characters.Add(trevisan);
+            //trevisan.posX = 0;
+            //trevisan.posY = map1.mapHeight - edjalma.height - 128;
 
-            //characters.Add(edjalma);
-            //edjalma.posX = +1300;
-            //edjalma.posY = map1.mapHeight - edjalma.height - 128;
+            characters.Add(edjalma);
+            edjalma.posX = edjalma.width;
+            edjalma.posY = map1.mapHeight - edjalma.height - 32;
 
 
             foreach (var block in map1.blocks)

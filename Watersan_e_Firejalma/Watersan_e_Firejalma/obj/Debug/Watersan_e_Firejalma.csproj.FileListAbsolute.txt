@@ -59,3 +59,4 @@ C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\De
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Maps.resources
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Blocks.resources
 C:\Users\disrct\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Audios.resources
+C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.Properties.Resources.resources

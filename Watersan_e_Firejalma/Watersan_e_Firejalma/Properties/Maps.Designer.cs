@@ -61,15 +61,31 @@ namespace Watersan_e_Firejalma.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a w w w w w w w 
-        ///w b b b b b w
-        ///w b b b b b w
-        ///w b b b b b w
-        ///w w w w w w w.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v h a a a i v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v k a a a i v v v v v v v v v v v h a a a i v v v v v v v v a
+        ///a v v v v v v v v v v a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string Map1 {
             get {
                 return ResourceManager.GetString("Map1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a
+        ///a v v v v v v v v v a
+        ///a v v v v v v v v v a
+        ///a v v v v v v v v v a
+        ///a v v v v v v v v v a
+        ///a a a a a a a a a a a.
+        /// </summary>
+        internal static string Mapateste {
+            get {
+                return ResourceManager.GetString("Mapateste", resourceCulture);
             }
         }
         

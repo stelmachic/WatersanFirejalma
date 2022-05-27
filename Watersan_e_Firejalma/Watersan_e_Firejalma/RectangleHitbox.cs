@@ -16,9 +16,14 @@ namespace Watersan_e_Firejalma
                 new PointF(rect.X, rect.Y),
                 new PointF(rect.X + rect.Width / 2, rect.Y),
                 new PointF(rect.X + rect.Width, rect.Y),
+                new PointF(rect.X + rect.Width, rect.Y + rect.Height/2),
                 new PointF(rect.X + rect.Width, rect.Y + rect.Height),
+                new PointF(rect.X + rect.Width/2, rect.Y + rect.Height),
                 new PointF(rect.X, rect.Y + rect.Height),
+                new PointF(rect.X, rect.Y + rect.Height/2),
                 new PointF(rect.X, rect.Y)
+
+        
             };
 
         }

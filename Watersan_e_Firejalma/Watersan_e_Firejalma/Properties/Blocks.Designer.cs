@@ -73,6 +73,26 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlocoDiagInvDir {
+            get {
+                object obj = ResourceManager.GetObject("BlocoDiagInvDir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlocoDiagInvEsq {
+            get {
+                object obj = ResourceManager.GetObject("BlocoDiagInvEsq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlocoInteiro {
             get {
                 object obj = ResourceManager.GetObject("BlocoInteiro", resourceCulture);
@@ -86,6 +106,16 @@ namespace Watersan_e_Firejalma.Properties {
         internal static System.Drawing.Bitmap BlocoLava {
             get {
                 object obj = ResourceManager.GetObject("BlocoLava", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlocoMorte {
+            get {
+                object obj = ResourceManager.GetObject("BlocoMorte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +143,16 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CantoDirMorte {
+            get {
+                object obj = ResourceManager.GetObject("CantoDirMorte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CantoEsqAgua {
             get {
                 object obj = ResourceManager.GetObject("CantoEsqAgua", resourceCulture);
@@ -126,6 +166,16 @@ namespace Watersan_e_Firejalma.Properties {
         internal static System.Drawing.Bitmap CantoEsqLava {
             get {
                 object obj = ResourceManager.GetObject("CantoEsqLava", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CantoEsqMorte {
+            get {
+                object obj = ResourceManager.GetObject("CantoEsqMorte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

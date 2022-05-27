@@ -121,11 +121,20 @@
   <data name="BlocoAgua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\blocoagua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BlocoDiagInvDir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\blocodiaginvdir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlocoDiagInvEsq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\blocodiaginvesq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BlocoInteiro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\blocointeiro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlocoLava" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\blocolava.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlocoMorte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\blocomorte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CantoDirAgua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\cantodiragua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,11 +142,17 @@
   <data name="CantoDirLava" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\cantodirlava.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CantoDirMorte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\cantodirmorte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CantoEsqAgua" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\cantoesqagua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CantoEsqLava" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\cantoesqlava.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CantoEsqMorte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\cantoesqmorte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DiagonalDir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\diagonaldir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

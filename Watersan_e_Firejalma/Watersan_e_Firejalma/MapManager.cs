@@ -17,10 +17,25 @@ namespace Watersan_e_Firejalma
         public string mapLayout;
 
         
-        public Image floor = Properties.Blocks.BlocoInteiro;
-        public Image lake = Properties.Blocks.BlocoAgua;
-        public Image diagonalDir = Properties.Blocks.DiagonalDir;
-        public Image diagonalEsq = null;
+        public Image FullBlock = Properties.Blocks.BlocoInteiro;            // a
+        public Image FullWaterBlock = Properties.Blocks.BlocoAgua;          // c
+        public Image FullLavaBlock = Properties.Blocks.BlocoLava;           // f
+        public Image FullDeathBlock = Properties.Blocks.BlocoMorte;         // m
+
+        public Image RightDiagonal = Properties.Blocks.DiagonalDir;         // i
+        public Image RightDiagonalWater = Properties.Blocks.CantoDirAgua;   // g
+        public Image RightDiagonalLava = Properties.Blocks.CantoDirLava;    // d
+        public Image RightDiagonalDeath = Properties.Blocks.CantoDirMorte;  // n
+
+        public Image LeftDiagonal = Properties.Blocks.DiagonalEsq;          // h
+        public Image LeftDiagonalWater = Properties.Blocks.CantoEsqAgua;    // e
+        public Image LeftDiagonalLava = Properties.Blocks.CantoEsqLava;     // b
+        public Image LeftDiagonalDeath = Properties.Blocks.CantoEsqMorte;   // l
+
+        public Image TopRightDiagonal = Properties.Blocks.BlocoDiagInvDir;  // k
+        public Image TopLeftDiagonal = Properties.Blocks.BlocoDiagInvEsq;   // j 
+
+
 
 
 
@@ -92,23 +107,54 @@ namespace Watersan_e_Firejalma
 
                         switch (strBlockChar)
                         {
-                            //Teste
-                            case "w":
-                                sprite = floor;
+                            case "a":
+                                sprite = FullBlock;
                                 break;
                             case "b":
-                                sprite = null;
+                                sprite = LeftDiagonalLava;
                                 break;
-                            case "l":
-                                sprite = lake;
+                            case "c":
+                                sprite = FullLavaBlock;
                                 break;
                             case "d":
-                                sprite = diagonalDir;
+                                sprite = RightDiagonalLava;
                                 break;
-                        
+                            case "e":
+                                sprite = LeftDiagonalWater;
+                                break;
+                            case "f":
+                                sprite = FullWaterBlock;
+                                break;
+                            case "g":
+                                sprite = RightDiagonalWater;
+                                break;
+                            case "h":
+                                sprite = LeftDiagonal;
+                                break;
+                            case "i":
+                                sprite = RightDiagonal;
+                                break;
+                            case "j":
+                                sprite = TopLeftDiagonal;
+                                break;
+                            case "k":
+                                sprite = TopRightDiagonal;
+                                break;
+                            case "l":
+                                sprite = LeftDiagonalDeath;
+                                break;
+                            case "m":
+                                sprite = FullDeathBlock;
+                                break;
+                            case "n":
+                                sprite =RightDiagonalDeath ;
+                                break;
+                            case "v":
+                                sprite = null;
+                                break;
                         }
 
-                        if(sprite!= null)
+                        if (sprite!= null)
                         {
                             Box block = new Box(currentPosX, currentPosY, blockWidth, blockHeight, sprite);
                             blocks.Add(block);
