@@ -7,6 +7,7 @@ namespace Watersan_e_Firejalma
     public abstract class HitBox
     {
         public abstract PointF[] Points { get;}
+        public int blockType;
         
         public static HitBox FromRectangle(Rectangle rect)
             => new RectangleHitbox(rect);
@@ -26,6 +27,7 @@ namespace Watersan_e_Firejalma
                     info.IsColliding = true;
                     (info.PointA, info.PointB) = bestside(this.Points, p);
                     info.CollisionPoints.Add(p);
+                    info.blockType = hitBox.blockType;
                 }
             }
 

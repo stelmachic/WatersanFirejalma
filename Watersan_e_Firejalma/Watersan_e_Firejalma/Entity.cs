@@ -15,15 +15,17 @@ namespace Watersan_e_Firejalma
         public virtual void DrawHitBox(Graphics g)
             => HitBox.Draw(g);
 
-        public void CheckCollision(Entity entity, Graphics g)
+        public void CheckCollision(Box box, Graphics g)
         {
-            var info = HitBox.IsColliding(entity.HitBox);
+            var info = HitBox.IsColliding(box.HitBox);
             if (info.IsColliding)
-                OnCollision(info, g);
+                OnCollision(info, g, box.blockType);
+  
         }
 
-        public virtual void OnCollision(CollisionInfo info, Graphics g) 
+        public virtual void OnCollision(CollisionInfo info, Graphics g, int blockType) 
         {
+     
         }
 
         public virtual void OnFrame() { }

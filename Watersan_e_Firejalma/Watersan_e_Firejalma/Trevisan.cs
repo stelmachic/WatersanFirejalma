@@ -12,7 +12,16 @@ namespace Watersan_e_Firejalma
         public Trevisan() : base(Properties.Characters.Trevisharp_sheet, new System.Media.SoundPlayer(Properties.Audios.trevWalk))
         {
         }
+        public override bool Kill(int blockType)
+        {
+            if (blockType == 1)
+                return true;
 
+            if (blockType == 3)
+                return true;
+
+            return false;
+        }
         public override void KeyCheck(Keys key, bool moving)
         {
 
@@ -44,9 +53,7 @@ namespace Watersan_e_Firejalma
                     isJumping = true;
                     break;
 
-                case Keys.Escape:
-                    Application.Exit();
-                    break;
+    
             }
         }
     }

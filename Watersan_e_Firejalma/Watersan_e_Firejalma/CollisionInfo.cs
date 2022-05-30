@@ -9,6 +9,8 @@ namespace Watersan_e_Firejalma
         public PointF PointA { get; set; }
         public PointF PointB { get; set; }
         public List<PointF> CollisionPoints { get; private set; } = new List<PointF>();
-        public float distMin { get; set; } 
+
+        public int blockType;
+        
     }
 }

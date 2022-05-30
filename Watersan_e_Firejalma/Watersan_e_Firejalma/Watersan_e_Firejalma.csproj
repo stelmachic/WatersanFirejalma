@@ -49,7 +49,6 @@
     <Compile Include="CharacterHitBox.cs" />
     <Compile Include="Box.cs" />
     <Compile Include="CollisionInfo.cs" />
-    <Compile Include="CollisionManager.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="HitBox.cs" />
     <Compile Include="MapManager.cs" />

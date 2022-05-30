@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
-
+using System.Linq;
 
 namespace Watersan_e_Firejalma
 {
@@ -15,12 +15,11 @@ namespace Watersan_e_Firejalma
         Bitmap bmp = null;
         Graphics g = null;
         Character edjalma = new Edjalma();
-        //Character trevisan = new Trevisan();
+        Character trevisan = new Trevisan();
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
-        CollisionManager collisionManager = new CollisionManager();
-        MapManager map1;
+        MapManager level1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
         public Form1()
@@ -32,26 +31,41 @@ namespace Watersan_e_Firejalma
             tm.Tick += delegate 
             {
                 frame++;
+                for (int i = 0; i<characters.Count; i++)
+                {
+                    if (!characters[i].alive)
+                    {
+                        characters[i].walkSound.Stop();
+                        entities.Remove(characters[i]);
+                        characters.Remove(characters[i]);
+                        i--;
+                    }
+                }
 
-                
                 if (frame % frameRate == 0)
                 {
                     g.Clear(Color.Transparent);
-                    
+
+                    drawBackground(g, background);
+
                     foreach (Entity entity in entities)
                     {             
+                        
                         entity.Draw(g);
                         entity.DrawHitBox(g);
+                        
+                            
                     }
-                    
                 }
+                
+                
 
                 foreach (Character character in characters)
                 {
                     character.Move();
 
 
-                    foreach (Box box in map1.blocks)
+                    foreach (Box box in level1.blocks)
                     {
                         character.CheckCollision(box, g);
                     }
@@ -94,29 +108,21 @@ namespace Watersan_e_Firejalma
             }
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void drawBackground(Graphics g, Image back)
         {
-            
-            map1 = new MapManager(Properties.Maps.Mapateste);
+            g.DrawImage(back,0,0,this.Width, this.Height);
+        }
 
+        private void loadCharacter(Character character)
+        {
+            characters.Add(character);
+            character.posX = 0 + character.width;
+            character.posY = level1.mapHeight - character.height - 32;
+        }
 
-            bmp = new Bitmap(pb.Width, pb.Height);
-            g = Graphics.FromImage(bmp);
-            transformMap(map1, g);
-
-            //pb.BackgroundImage = background;
-
-            //characters.Add(trevisan);
-            //trevisan.posX = 0;
-            //trevisan.posY = map1.mapHeight - edjalma.height - 128;
-
-            characters.Add(edjalma);
-            edjalma.posX = edjalma.width;
-            edjalma.posY = map1.mapHeight - edjalma.height - 32;
-
-
-            foreach (var block in map1.blocks)
+        private void loadLists(MapManager mm, List<Character> characters)
+        {
+            foreach (var block in mm.blocks)
                 boxes.Add(block);
 
             foreach (var block in boxes)
@@ -124,8 +130,23 @@ namespace Watersan_e_Firejalma
 
             foreach (Character character in characters)
                 entities.Add(character);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             
-            collisionManager.Entities = entities;
+            level1 = new MapManager(Properties.Maps.Map1);
+
+
+            bmp = new Bitmap(pb.Width, pb.Height);
+            g = Graphics.FromImage(bmp);
+            transformMap(level1, g);
+
+
+            loadCharacter(edjalma);
+            loadCharacter(trevisan);
+            loadLists(level1, characters);
             tm.Start();
 
         }
@@ -140,6 +161,13 @@ namespace Watersan_e_Firejalma
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+            switch (e.KeyCode)
+            {
+             
+                case Keys.Escape:
+                    Application.Exit();
+                    break;
+            }
             foreach (Character character in characters)
             {
                 character.KeyCheck(e.KeyCode, false);

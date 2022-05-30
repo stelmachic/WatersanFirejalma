@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
+using System.Linq;
 
 namespace Watersan_e_Firejalma
 {
@@ -10,7 +11,7 @@ namespace Watersan_e_Firejalma
         public float posX { get; set; } = 100;
         public float posY { get; set; }
         public int mass { get; set; } = 1;
-        public int speedX { get; set; } = 5;
+        public int speedX { get; set; } = 8;
         public int speedY { get; set; } = 0;
         public int jumpForce { get; set; } = 16;
         public int resolutionX { get; set; } = 32 * 2;
@@ -18,7 +19,7 @@ namespace Watersan_e_Firejalma
         public int orientation { get; set; } = 1;
         public PointF Center => new PointF(posX, posY) + new SizeF(resolutionX / 2f, resolutionY / 2f);
 
-
+        public bool alive { get; set; } = true;
         public bool gravityOn { get; set; } = true;
         public bool isMoving { get; set; } = false;
         public bool isJumping { get; set; } = false;
@@ -32,7 +33,9 @@ namespace Watersan_e_Firejalma
         public Image spriteSheet;
         public int spriteX { get; set; }
         public int spriteY { get; set; }
+
         public Image[,] sprites = new Image[8, 5];
+
         Random rnd = new Random();
         public int animChoice { get; set; }
         public bool animChosen = false;
@@ -42,7 +45,8 @@ namespace Watersan_e_Firejalma
 
 
 
-        public Character(Image spriteSheet, SoundPlayer walkSound) : base(null)
+        public Character(Image spriteSheet, SoundPlayer walkSound) : 
+            base(null)
         {
             this.HitBox = HitBox.FromCharacter(this);
             this.spriteSheet = spriteSheet;
@@ -51,58 +55,69 @@ namespace Watersan_e_Firejalma
             SplitSprites();
         }
 
-        public override void OnCollision(CollisionInfo info, Graphics g)
+        public virtual bool Kill(int blockType)
+        {
+            return false;
+        }
+
+        public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
         {
             bool isHorizontal = false;
             bool isVertical = false;
             PointF center = this.Center;
             PointF collision = info.CollisionPoints[0];
+          
 
-            g.DrawLine(new Pen(Color.Cyan, 1f), info.PointA, info.PointB); //LINHA CHAO
+            var colllist = info.CollisionPoints.Distinct().ToList();
 
-
-            foreach (var coll in info.CollisionPoints)
-                g.FillEllipse(Brushes.DarkGreen, coll.X - 1, coll.Y - 1, 2, 2);
-            
-            for(int i = 1; i < info.CollisionPoints.Count; i++)
+            if (Kill(blockType))
             {
-                if(info.CollisionPoints[i].X == info.CollisionPoints[i - 1].X)
+                alive = false;
+            }
+ 
+           
+            for (int i = 1; i < colllist.Count; i++)
+            {
+                if(colllist[i].X == colllist[i - 1].X)
                 {
                     isVertical = true;
                 }
-            }
-            //g.FillEllipse(Brushes.Pink, center.X - 2, center.Y - 2, 4, 4); // PONTO CENTRAL
 
-            if (isVertical && !isGrounded)
-            {
-
+                if(colllist[i].Y == colllist[i - 1].Y)
+                {
+                    isHorizontal = true;
+                }
             }
 
+            if (isVertical)
+            {
+                if (center.X < collision.X)
+                {
+                    if (orientation > 0)
+                        speedX = 0;
+                }
+                else
+                {
+                    if (orientation < 0)
+                        speedX = 0;
+                }
+            }
+            if (isHorizontal)
+            {
+                if (center.Y > collision.Y)
+                {
+                    speedY = 0;
+                    posY = collision.Y - 5;
+                }
+                else
+                {
+                    speedY = 0;
+                    posY = collision.Y - height;
+                    isGrounded = true;
+                }
+            }
 
-
-            if (center.X < collision.X && center.Y > collision.Y)
-            {
-                if (orientation > 0)
-                    speedX = 0;
-            }
-            if (center.X > collision.X && center.Y > collision.Y)
-            {
-                if (orientation < 0)
-                    speedX = 0;
-            }
-            
-           if(center.Y > collision.Y)
-            {
-                speedY = 0;
-                posY = collision.Y - 5;
-            }
-            
-            if (center.Y < collision.Y)
-            {
-                speedY = 0;
-                posY = collision.Y - height;
-                isGrounded = true;
-            }
+        
         }
 
         public void Move()
@@ -129,7 +144,7 @@ namespace Watersan_e_Firejalma
             }
             posY += speedY;
             
-            speedX = 5;
+            speedX = 8;
 
             isGrounded=false;
         }
@@ -143,6 +158,7 @@ namespace Watersan_e_Firejalma
             {
                 for (int j = 0; j < lines; j++)
                 {
+                    Console.WriteLine($"{i}, {j}");
                     sprites[i, j] = (spriteSheet as Bitmap).Clone(new Rectangle(i * resolutionX, j * resolutionY, resolutionX, resolutionY), spriteSheet.PixelFormat);
                 }
             }

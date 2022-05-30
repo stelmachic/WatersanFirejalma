@@ -9,6 +9,17 @@ namespace Watersan_e_Firejalma
         {
         }
 
+
+        public override bool Kill(int blockType)
+        { 
+            if (blockType == 2)
+                return true;
+            
+            if (blockType == 3)
+                return true;
+
+            return false;
+        }
         public override void KeyCheck(Keys key, bool moving)
         {
 
@@ -23,6 +34,8 @@ namespace Watersan_e_Firejalma
                     walkSound.PlayLooping();
                 }
             }
+
+
             switch (key)
             {
                 case Keys.Left:
@@ -37,10 +50,6 @@ namespace Watersan_e_Firejalma
 
                 case Keys.Up:
                     isJumping = true;
-                    break;
-
-                case Keys.Escape:
-                    Application.Exit();
                     break;
             }
 

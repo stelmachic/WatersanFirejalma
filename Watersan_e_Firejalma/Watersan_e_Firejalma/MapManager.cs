@@ -37,7 +37,7 @@ namespace Watersan_e_Firejalma
 
 
 
-
+        private int BlockType;
 
 
 
@@ -84,8 +84,6 @@ namespace Watersan_e_Firejalma
             mapHeight = lines * blockHeight;
             mapWidth = (columns/lines) * blockWidth;
 
-
-
             GenerateMap();
         }
 
@@ -109,45 +107,59 @@ namespace Watersan_e_Firejalma
                         {
                             case "a":
                                 sprite = FullBlock;
+                                BlockType = 0;
                                 break;
                             case "b":
                                 sprite = LeftDiagonalLava;
+                                BlockType = 0;
                                 break;
                             case "c":
                                 sprite = FullLavaBlock;
+                                BlockType = 1;
                                 break;
                             case "d":
                                 sprite = RightDiagonalLava;
+                                BlockType = 0;
                                 break;
                             case "e":
                                 sprite = LeftDiagonalWater;
+                                BlockType = 0;
                                 break;
                             case "f":
                                 sprite = FullWaterBlock;
+                                BlockType = 2;
                                 break;
                             case "g":
                                 sprite = RightDiagonalWater;
+                                BlockType = 0;
                                 break;
                             case "h":
                                 sprite = LeftDiagonal;
+                                BlockType = 0;
                                 break;
                             case "i":
                                 sprite = RightDiagonal;
+                                BlockType = 0;
                                 break;
                             case "j":
                                 sprite = TopLeftDiagonal;
+                                BlockType = 0;
                                 break;
                             case "k":
                                 sprite = TopRightDiagonal;
+                                BlockType = 0;
                                 break;
                             case "l":
                                 sprite = LeftDiagonalDeath;
+                                BlockType = 0;
                                 break;
                             case "m":
                                 sprite = FullDeathBlock;
+                                BlockType = 3;
                                 break;
                             case "n":
                                 sprite =RightDiagonalDeath ;
+                                BlockType = 0;
                                 break;
                             case "v":
                                 sprite = null;
@@ -156,7 +168,7 @@ namespace Watersan_e_Firejalma
 
                         if (sprite!= null)
                         {
-                            Box block = new Box(currentPosX, currentPosY, blockWidth, blockHeight, sprite);
+                            Box block = new Box(currentPosX, currentPosY, blockWidth, blockHeight, sprite, BlockType);
                             blocks.Add(block);
                         }
                         
