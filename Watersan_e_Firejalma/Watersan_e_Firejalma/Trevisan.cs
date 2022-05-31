@@ -9,7 +9,7 @@ namespace Watersan_e_Firejalma
 {
     public class Trevisan : Character
     {
-        public Trevisan() : base(Properties.Characters.Trevisharp_sheet, new System.Media.SoundPlayer(Properties.Audios.trevWalk))
+        public Trevisan(int posX, int posY) : base(Properties.Characters.Trevisharp_sheet, new System.Media.SoundPlayer(Properties.Audios.trevWalk), posX, posY)
         {
         }
         public override bool Kill(int blockType)

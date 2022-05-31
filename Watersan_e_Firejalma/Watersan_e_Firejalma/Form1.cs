@@ -14,8 +14,8 @@ namespace Watersan_e_Firejalma
         int frame = 0;
         Bitmap bmp = null;
         Graphics g = null;
-        Character edjalma = new Edjalma();
-        Character trevisan = new Trevisan();
+        //Character edjalma = new Edjalma();
+        //Character trevisan = new Trevisan();
         List<Character> characters = new List<Character>();
         List<Box> boxes = new List<Box>();
         List<Entity> entities = new List<Entity>();
@@ -27,11 +27,10 @@ namespace Watersan_e_Firejalma
             InitializeComponent();
             tm.Interval = 25;
 
-            
             tm.Tick += delegate 
             {
                 frame++;
-                for (int i = 0; i<characters.Count; i++)
+                for (int i = 0; i < characters.Count; i++)
                 {
                     if (!characters[i].alive)
                     {
@@ -49,25 +48,25 @@ namespace Watersan_e_Firejalma
                     drawBackground(g, background);
 
                     foreach (Entity entity in entities)
-                    {             
-                        
+                    {
+
                         entity.Draw(g);
                         entity.DrawHitBox(g);
-                        
-                            
+
+
                     }
                 }
-                
-                
 
                 foreach (Character character in characters)
                 {
                     character.Move();
-
-
+                    
                     foreach (Box box in level1.blocks)
                     {
-                        character.CheckCollision(box, g);
+                        float dx = box.box.X - character.posX;
+                        float dy = box.box.Y - character.posY;
+                        if (dx * dx + dy * dy <= 128*128)
+                            character.CheckCollision(box, g);
                     }
                 }
 
@@ -113,15 +112,12 @@ namespace Watersan_e_Firejalma
             g.DrawImage(back,0,0,this.Width, this.Height);
         }
 
-        private void loadCharacter(Character character)
+  
+        private void loadLists(MapManager mm)
         {
-            characters.Add(character);
-            character.posX = 0 + character.width;
-            character.posY = level1.mapHeight - character.height - 32;
-        }
+            foreach (Character character in mm.characters)
+                characters.Add(character);
 
-        private void loadLists(MapManager mm, List<Character> characters)
-        {
             foreach (var block in mm.blocks)
                 boxes.Add(block);
 
@@ -134,19 +130,15 @@ namespace Watersan_e_Firejalma
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            
-            level1 = new MapManager(Properties.Maps.Map1);
-
-
+        {  
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
+
+            level1 = new MapManager(Properties.Maps.Map1);
             transformMap(level1, g);
+            loadLists(level1);
 
 
-            loadCharacter(edjalma);
-            loadCharacter(trevisan);
-            loadLists(level1, characters);
             tm.Start();
 
         }
