@@ -14,6 +14,9 @@ namespace Watersan_e_Firejalma
 
         
         public List<Box> blocks { get; set; } = new List<Box>();
+        public List<Character> characters { get; set; } = new List<Character>();
+        public List<Asset> assets { get; set; } = new List<Asset>();
+
         public string mapLayout;
 
         
@@ -35,11 +38,12 @@ namespace Watersan_e_Firejalma
         public Image TopRightDiagonal = Properties.Blocks.BlocoDiagInvDir;  // k
         public Image TopLeftDiagonal = Properties.Blocks.BlocoDiagInvEsq;   // j 
 
-
+        private Character character;
+        private Asset asset;
 
         private int BlockType;
 
-
+      
 
 
         Image sprite = null;
@@ -111,7 +115,7 @@ namespace Watersan_e_Firejalma
                                 break;
                             case "b":
                                 sprite = LeftDiagonalLava;
-                                BlockType = 0;
+                                BlockType = 1;
                                 break;
                             case "c":
                                 sprite = FullLavaBlock;
@@ -119,11 +123,11 @@ namespace Watersan_e_Firejalma
                                 break;
                             case "d":
                                 sprite = RightDiagonalLava;
-                                BlockType = 0;
+                                BlockType = 1;
                                 break;
                             case "e":
                                 sprite = LeftDiagonalWater;
-                                BlockType = 0;
+                                BlockType = 2;
                                 break;
                             case "f":
                                 sprite = FullWaterBlock;
@@ -131,27 +135,27 @@ namespace Watersan_e_Firejalma
                                 break;
                             case "g":
                                 sprite = RightDiagonalWater;
-                                BlockType = 0;
+                                BlockType = 2;
                                 break;
                             case "h":
                                 sprite = LeftDiagonal;
-                                BlockType = 0;
+                                BlockType = 4;
                                 break;
                             case "i":
                                 sprite = RightDiagonal;
-                                BlockType = 0;
+                                BlockType = 4;
                                 break;
                             case "j":
                                 sprite = TopLeftDiagonal;
-                                BlockType = 0;
+                                BlockType = 4;
                                 break;
                             case "k":
                                 sprite = TopRightDiagonal;
-                                BlockType = 0;
+                                BlockType = 4;
                                 break;
                             case "l":
                                 sprite = LeftDiagonalDeath;
-                                BlockType = 0;
+                                BlockType = 3;
                                 break;
                             case "m":
                                 sprite = FullDeathBlock;
@@ -159,8 +163,26 @@ namespace Watersan_e_Firejalma
                                 break;
                             case "n":
                                 sprite =RightDiagonalDeath ;
-                                BlockType = 0;
+                                BlockType = 3;
                                 break;
+
+                            case "o":
+                                sprite = null;
+                                character = new Edjalma(currentPosX, currentPosY);
+                                characters.Add(character);
+                                break;
+
+                            case "p":
+                                sprite = null;
+                                character = new Trevisan(currentPosX, currentPosY);
+                                characters.Add(character);
+                                break;
+                            case "q":
+                                sprite = null;
+                                asset = new Brownie(currentPosX, currentPosY);
+                                characters.Add(character);
+                                break;
+
                             case "v":
                                 sprite = null;
                                 break;
@@ -179,8 +201,6 @@ namespace Watersan_e_Firejalma
                     currentPosY += blockHeight;
                 }
             }
-         
-
         }
     }
 }

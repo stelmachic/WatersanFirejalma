@@ -14,7 +14,7 @@ namespace Watersan_e_Firejalma
         public int blockType;
 
         public Box(int X, int Y, int blockWidht, int blockHeight, Image sprite, int blockType) 
-            : base(HitBox.FromRectangle(new Rectangle(X, Y, blockWidht, blockHeight)))
+            : base(HitBox.FromBlock(new Rectangle(X, Y, blockWidht, blockHeight), blockType))
         {
             this.blockWidht = blockWidht;
             this.blockHeight = blockHeight;

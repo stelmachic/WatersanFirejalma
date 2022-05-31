@@ -8,12 +8,13 @@ namespace Watersan_e_Firejalma
 {
     public abstract class Character : Entity
     {
-        public float posX { get; set; } = 100;
+        public float posX { get; set; } 
         public float posY { get; set; }
         public int mass { get; set; } = 1;
-        public int speedX { get; set; } = 8;
+        public int speedX { get; set; } = 0;
+        public int maxspeedX { get; set; } = 7;
         public int speedY { get; set; } = 0;
-        public int jumpForce { get; set; } = 16;
+        public int jumpForce { get; set; } = 15;
         public int resolutionX { get; set; } = 32 * 2;
         public int resolutionY { get; set; } = 32 * 2;
         public int orientation { get; set; } = 1;
@@ -45,12 +46,15 @@ namespace Watersan_e_Firejalma
 
 
 
-        public Character(Image spriteSheet, SoundPlayer walkSound) : 
+        public Character(Image spriteSheet, SoundPlayer walkSound, int posX, int posY) : 
             base(null)
         {
             this.HitBox = HitBox.FromCharacter(this);
             this.spriteSheet = spriteSheet;
             this.walkSound = walkSound;
+            this.posX = posX;
+            this.posY = posY;
+
             
             SplitSprites();
         }
@@ -65,8 +69,9 @@ namespace Watersan_e_Firejalma
             bool isHorizontal = false;
             bool isVertical = false;
             PointF center = this.Center;
-            PointF collision = info.CollisionPoints[0];
-          
+            PointF verticalColl = new PointF();
+            PointF horizontalColl = new PointF();
+
 
             var colllist = info.CollisionPoints.Distinct().ToList();
 
@@ -81,17 +86,19 @@ namespace Watersan_e_Firejalma
                 if(colllist[i].X == colllist[i - 1].X)
                 {
                     isVertical = true;
+                    verticalColl = new PointF(colllist[i].X, colllist[i].Y);
                 }
 
                 if(colllist[i].Y == colllist[i - 1].Y)
                 {
                     isHorizontal = true;
+                    horizontalColl = new PointF(colllist[i].X, colllist[i].Y);
                 }
             }
 
             if (isVertical)
             {
-                if (center.X < collision.X)
+                if (center.X < verticalColl.X)
                 {
                     if (orientation > 0)
                         speedX = 0;
@@ -104,15 +111,15 @@ namespace Watersan_e_Firejalma
             }
             if (isHorizontal)
             {
-                if (center.Y > collision.Y)
+                if (center.Y > horizontalColl.Y)
                 {
                     speedY = 0;
-                    posY = collision.Y - 5;
+                    posY = horizontalColl.Y - 5;
                 }
                 else
                 {
                     speedY = 0;
-                    posY = collision.Y - height;
+                    posY = horizontalColl.Y - height;
                     isGrounded = true;
                 }
             }
@@ -144,7 +151,7 @@ namespace Watersan_e_Firejalma
             }
             posY += speedY;
             
-            speedX = 8;
+            speedX = maxspeedX;
 
             isGrounded=false;
         }
@@ -158,7 +165,6 @@ namespace Watersan_e_Firejalma
             {
                 for (int j = 0; j < lines; j++)
                 {
-                    Console.WriteLine($"{i}, {j}");
                     sprites[i, j] = (spriteSheet as Bitmap).Clone(new Rectangle(i * resolutionX, j * resolutionY, resolutionX, resolutionY), spriteSheet.PixelFormat);
                 }
             }

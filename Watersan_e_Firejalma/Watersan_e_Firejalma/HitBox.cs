@@ -9,9 +9,30 @@ namespace Watersan_e_Firejalma
         public abstract PointF[] Points { get;}
         public int blockType;
         
-        public static HitBox FromRectangle(Rectangle rect)
-            => new RectangleHitbox(rect);
-        
+        public static HitBox FromBlock(Rectangle rect, int blocktype)
+        {
+            switch (blocktype)
+            {
+                case 1:
+                    return new LiquidHitbox(rect);
+                case 2:
+                    return new LiquidHitbox(rect);
+                case 3:
+                    return new LiquidHitbox(rect);
+                default:
+                    return new RectangleHitbox(rect);
+            }
+
+            return null;
+        }
+
+        public static HitBox FromAsset(Rectangle rect)
+        {
+            
+            return new RectangleHitbox(rect);
+           
+        }
+
         public static HitBox FromCharacter(Character character)
             => new CharacterHitBox(character);
         
