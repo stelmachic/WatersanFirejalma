@@ -21,8 +21,9 @@ namespace Watersan_e_Firejalma
         public int collumns;
         public int lines;
 
+        public int blockType;
 
-        public Asset(Image spriteSheet, int posX, int posY) 
+        public Asset(Image spriteSheet, int posX, int posY, int BlockType) 
             : base(null)
         {
 
@@ -32,7 +33,7 @@ namespace Watersan_e_Firejalma
             this.spriteSheet = spriteSheet;
             this.posX = posX;
             this.posY = posY;
-
+            this.blockType = blockType;
             this.collumns = (spriteSheet.Width / resolutionX);
             this.lines = (spriteSheet.Height / resolutionY);
 

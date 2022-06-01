@@ -20,7 +20,13 @@ namespace Watersan_e_Firejalma
             var info = HitBox.IsColliding(box.HitBox);
             if (info.IsColliding)
                 OnCollision(info, g, box.blockType);
-  
+        }
+
+        public void CheckCollision(Asset asset, Graphics g)
+        {
+            var info = HitBox.IsColliding(asset.HitBox);
+            if (info.IsColliding)
+                OnCollision(info, g, asset.blockType);
         }
 
         public virtual void OnCollision(CollisionInfo info, Graphics g, int blockType) 

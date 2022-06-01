@@ -62,12 +62,20 @@ namespace Watersan_e_Firejalma
                 {
                     character.Move();
                     
-                    foreach (Block box in level1.blocks)
+                    foreach (Block box in boxes)
                     {
                         float dx = box.box.X - character.posX;
                         float dy = box.box.Y - character.posY;
-                        if (dx * dx + dy * dy <= 128*128)
+                        if (dx * dx + dy * dy <= 128 * 128)
                             character.CheckCollision(box, g);
+                    }
+
+                    foreach (Asset asset in assets)
+                    {
+                        float dx = asset.posX - character.posX;
+                        float dy = asset.posY - character.posY;
+                        if (dx * dx + dy * dy <= 128 * 128)
+                            character.CheckCollision(asset, g);
                     }
                 }
 
