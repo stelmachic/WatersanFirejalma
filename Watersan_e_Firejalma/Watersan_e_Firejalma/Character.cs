@@ -79,7 +79,8 @@ namespace Watersan_e_Firejalma
             {
                 alive = false;
             }
- 
+            
+         
            
             for (int i = 1; i < colllist.Count; i++)
             {

@@ -22,6 +22,7 @@ namespace Watersan_e_Firejalma
         public int lines;
 
         public int blockType;
+        public bool disappear = false;
 
         public Asset(Image spriteSheet, int posX, int posY, int BlockType) 
             : base(null)
@@ -57,7 +58,13 @@ namespace Watersan_e_Firejalma
             g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
         }
 
-
+        public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
+        {
+            if(blockType == 0)
+                disappear = true;
+            else if(blockType == 1)
+                disappear = false;
+        }
 
 
 

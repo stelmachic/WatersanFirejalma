@@ -42,6 +42,16 @@ namespace Watersan_e_Firejalma
                     }
                 }
 
+                for (int i = 0; i < assets.Count; i++)
+                {
+                    if (assets[i].disappear)
+                    {
+                        entities.Remove(assets[i]);
+                        assets.Remove(assets[i]);
+                        i--;
+                    }
+                }
+
                 if (frame % frameRate == 0)
                 {
                     g.Clear(Color.Transparent);
@@ -69,13 +79,16 @@ namespace Watersan_e_Firejalma
                         if (dx * dx + dy * dy <= 128 * 128)
                             character.CheckCollision(box, g);
                     }
+                }
 
-                    foreach (Asset asset in assets)
+                foreach (Asset asset in assets)
+                {
+                    foreach (Character character in characters)
                     {
                         float dx = asset.posX - character.posX;
                         float dy = asset.posY - character.posY;
                         if (dx * dx + dy * dy <= 128 * 128)
-                            character.CheckCollision(asset, g);
+                            asset.CheckCollision(character, g);
                     }
                 }
 
@@ -121,7 +134,6 @@ namespace Watersan_e_Firejalma
             g.DrawImage(back,0,0,this.Width, this.Height);
         }
 
-  
         private void loadLists(MapManager mm)
         {
             foreach (Character character in mm.characters)
@@ -153,7 +165,7 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            level1 = new MapManager(Properties.Maps.MapaFase3);
+            level1 = new MapManager(Properties.Maps.Mapateste);
             transformMap(level1, g);
             loadLists(level1);
 

@@ -22,11 +22,14 @@ namespace Watersan_e_Firejalma
                 OnCollision(info, g, box.blockType);
         }
 
-        public void CheckCollision(Asset asset, Graphics g)
+        public void CheckCollision(Character character, Graphics g)
         {
-            var info = HitBox.IsColliding(asset.HitBox);
+            var info = HitBox.IsColliding(character.HitBox);
             if (info.IsColliding)
-                OnCollision(info, g, asset.blockType);
+                if(character is Edjalma)
+                    OnCollision(info, g, 0);
+                else if (character is Trevisan)
+                    OnCollision(info, g, 1);
         }
 
         public virtual void OnCollision(CollisionInfo info, Graphics g, int blockType) 
