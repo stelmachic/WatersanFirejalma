@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 
 namespace Watersan_e_Firejalma
 {
-    public class Box : Entity
+    public class Block : Entity
     {
         public Rectangle box;
         Image sprite;
@@ -13,7 +13,7 @@ namespace Watersan_e_Firejalma
         int blockHeight;
         public int blockType;
 
-        public Box(int X, int Y, int blockWidht, int blockHeight, Image sprite, int blockType) 
+        public Block(int X, int Y, int blockWidht, int blockHeight, Image sprite, int blockType) 
             : base(HitBox.FromBlock(new Rectangle(X, Y, blockWidht, blockHeight), blockType))
         {
             this.blockWidht = blockWidht;

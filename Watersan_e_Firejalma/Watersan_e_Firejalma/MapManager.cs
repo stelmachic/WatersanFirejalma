@@ -13,7 +13,7 @@ namespace Watersan_e_Firejalma
     {
 
         
-        public List<Box> blocks { get; set; } = new List<Box>();
+        public List<Block> blocks { get; set; } = new List<Block>();
         public List<Character> characters { get; set; } = new List<Character>();
         public List<Asset> assets { get; set; } = new List<Asset>();
 
@@ -180,7 +180,7 @@ namespace Watersan_e_Firejalma
                             case "q":
                                 sprite = null;
                                 asset = new Brownie(currentPosX, currentPosY);
-                                characters.Add(character);
+                                assets.Add(asset);
                                 break;
 
                             case "v":
@@ -190,7 +190,7 @@ namespace Watersan_e_Firejalma
 
                         if (sprite!= null)
                         {
-                            Box block = new Box(currentPosX, currentPosY, blockWidth, blockHeight, sprite, BlockType);
+                            Block block = new Block(currentPosX, currentPosY, blockWidth, blockHeight, sprite, BlockType);
                             blocks.Add(block);
                         }
                         

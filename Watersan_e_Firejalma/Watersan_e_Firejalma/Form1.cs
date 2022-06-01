@@ -17,8 +17,9 @@ namespace Watersan_e_Firejalma
         //Character edjalma = new Edjalma();
         //Character trevisan = new Trevisan();
         List<Character> characters = new List<Character>();
-        List<Box> boxes = new List<Box>();
+        List<Block> boxes = new List<Block>();
         List<Entity> entities = new List<Entity>();
+        List<Asset> assets = new List<Asset>();
         MapManager level1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
@@ -51,7 +52,7 @@ namespace Watersan_e_Firejalma
                     {
 
                         entity.Draw(g);
-                        entity.DrawHitBox(g);
+                        //entity.DrawHitBox(g);
 
 
                     }
@@ -61,7 +62,7 @@ namespace Watersan_e_Firejalma
                 {
                     character.Move();
                     
-                    foreach (Box box in level1.blocks)
+                    foreach (Block box in level1.blocks)
                     {
                         float dx = box.box.X - character.posX;
                         float dy = box.box.Y - character.posY;
@@ -118,14 +119,24 @@ namespace Watersan_e_Firejalma
             foreach (Character character in mm.characters)
                 characters.Add(character);
 
-            foreach (var block in mm.blocks)
+            foreach (Block block in mm.blocks)
                 boxes.Add(block);
+
+            foreach (Asset asset in mm.assets)
+                assets.Add(asset);
+
+
+
+
+
+            foreach (Character character in characters)
+                entities.Add(character);
 
             foreach (var block in boxes)
                 entities.Add(block);
 
-            foreach (Character character in characters)
-                entities.Add(character);
+            foreach (Asset asset in assets)
+                entities.Add(asset);
 
         }
 
@@ -134,7 +145,7 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            level1 = new MapManager(Properties.Maps.Map1);
+            level1 = new MapManager(Properties.Maps.Mapateste);
             transformMap(level1, g);
             loadLists(level1);
 

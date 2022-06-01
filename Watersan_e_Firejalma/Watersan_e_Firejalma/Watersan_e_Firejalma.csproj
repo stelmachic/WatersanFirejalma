@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Asset.cs" />
     <Compile Include="CharacterHitBox.cs" />
-    <Compile Include="Box.cs" />
+    <Compile Include="Block.cs" />
     <Compile Include="CollisionInfo.cs" />
     <Compile Include="Brownie.cs" />
     <Compile Include="Entity.cs" />
@@ -155,7 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Arte\Assets\BrownieMove.png" />
-    <None Include="Arte\Assets\browniemove1.png" />
+    <Content Include="Arte\Assets\browniemove1.png" />
     <Content Include="Arte\Blocos\BlocoAgua.png" />
     <Content Include="Arte\Blocos\BlocoDiagInvDir.png" />
     <Content Include="Arte\Blocos\BlocoDiagInvEsq.png" />
@@ -180,7 +180,6 @@
     <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
-    <None Include="Resources\Design sem nome %282%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

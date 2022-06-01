@@ -15,7 +15,7 @@ namespace Watersan_e_Firejalma
         public virtual void DrawHitBox(Graphics g)
             => HitBox.Draw(g);
 
-        public void CheckCollision(Box box, Graphics g)
+        public void CheckCollision(Block box, Graphics g)
         {
             var info = HitBox.IsColliding(box.HitBox);
             if (info.IsColliding)

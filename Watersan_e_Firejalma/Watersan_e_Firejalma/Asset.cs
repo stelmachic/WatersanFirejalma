@@ -18,7 +18,8 @@ namespace Watersan_e_Firejalma
         public int spriteX { get; set; }
         public int spriteY { get; set; }
 
-
+        public int collumns;
+        public int lines;
 
 
         public Asset(Image spriteSheet, int posX, int posY) 
@@ -32,6 +33,8 @@ namespace Watersan_e_Firejalma
             this.posX = posX;
             this.posY = posY;
 
+            this.collumns = (spriteSheet.Width / resolutionX);
+            this.lines = (spriteSheet.Height / resolutionY);
 
             SplitSprites();
         }
@@ -47,7 +50,7 @@ namespace Watersan_e_Firejalma
             spriteY = 0;
 
             spriteX++;
-            if (spriteX == 8)
+            if (spriteX == collumns)
                 spriteX = 0;
 
             g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
@@ -60,8 +63,9 @@ namespace Watersan_e_Firejalma
 
         public void SplitSprites()
         {
-            int collumns = (spriteSheet.Width / resolutionX);
-            int lines = (spriteSheet.Height / resolutionY);
+            
+
+            sprites = new Image[collumns, lines];
 
             for (int i = 0; i < collumns; i++)
             {
