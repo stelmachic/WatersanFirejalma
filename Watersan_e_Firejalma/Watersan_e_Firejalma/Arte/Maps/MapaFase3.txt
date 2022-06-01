@@ -1,32 +1,32 @@
-a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a v v a v v v a
-a v v j v v v v a v v v v v a v v v v v a a a a a a v v v v v a v v v v v v v a
-a v v v v v v v a v v v v v a v v v v v a v v v v a v v v v v a v v v v v v v a
-a h v v v v v v a v v v v v a v v v v v a v v v v a v v v v v a v v v v v v v a
-a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a 
+a j v v v v k a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a h v v v v i j v v v v v v v v q v v v v v q v v v v v q v v v v v v v p v a
+a a a a a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v i a
+a j v v v v v v v i a a h v v v v v v v v v v v v v v v v v v v v i a a a a a
+a v v v v q v v i j v v k h v v v v v v h v v v v v h v v v v v i j v v v k a
+a v v v v v v i j v v v v k a e f f g a a e f f g a a e f f g a j v v v v v a
+a v v h a a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+a v v v v v v v v i a a k v v v q v v v v v v v v q v v v v v v v i a h v v a
+a v v v v v v v i a a a a k v v v v v v i a h v v v v i a a h v i j v a v v a
+a h v v v v v i a a a a a a v v v v v i a a a h v v i a a a a a j v v a q v a
+a a a a a a a a a a a a a a a e f g a a a a a a a a a a a a a t v v v a v v a
+a j v v v v v v v v v v v v v v v v v v v v v v v v v v v k a v v v v k v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k v v v v v v v a
+a v o v v v v v v v r v v v v v r v v v v v r v v v v v v v v k a i v v v i a
+a h v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a a a a 
+a a a a a h v v v v v v v v v v v v v v v v v v v v i a a k v v v v v v v k a
+a j v v v k h v v v v v v i v v v v v i v v v v v i j v v k h v r v v v v v a
+a v v v v v k a b c c d a a b c c d a a b c c d a j v v v v k h v v v v v v a
+a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v k a a a h v v a
+a v v i a i v v v v v v v v v v v v v v v v r v v v i a a h v v v v v v v v a
+a v v a v k i v i a a h v v v v i a h v v v v v v i a a a a h v v v v v v v a
+a v r a v v k a a a a a h v v i a a a h v v v v v a v v v v a h v v v v v i a
+a v v a v v v v a v v v a a a a a v v a a b c d a a v v v v v a a a a a a a a
+a v v j v v s v a v v v v v a v v v v v a a a a a a v v v v v a v v v v v v a
+a v v v v v v v a v v v v v a v v v v v a v v v v a v v v v v a v v v v v v a
+a h v v v v v v a v v v v v a v v v v v a v v v v a v v v v v a v v v v v v a
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
 
 
 
@@ -45,3 +45,11 @@ l-bloco esq morte
 m-bloco cent morte
 n-bloco dir morte
 v-vazio
+
+o-trevi
+p-ed
+
+q-brownie
+r-csharp
+s-porta trevi
+t-porta ed
