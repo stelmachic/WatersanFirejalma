@@ -121,6 +121,12 @@
   <data name="Map1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\map1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="MapaFase2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\maps\mapafase2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="MapaFase3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\maps\mapafase3.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Mapateste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\mapateste.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>

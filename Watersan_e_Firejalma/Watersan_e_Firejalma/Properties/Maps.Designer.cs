@@ -76,12 +76,46 @@ namespace Watersan_e_Firejalma.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a
-        ///a v v v v v v v v v a
-        ///a v v v v v v v v v a
-        ///a v v v v v v v v v a
-        ///a v v v v v v v v v a
-        ///a a a a a a a a a a a.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a a a a a a a a a a a a a a a a a a v v v v v a a a a a a a a a h v v v v v v a
+        ///a v v v v v v v v v v v v  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string MapaFase2 {
+            get {
+                return ResourceManager.GetString("MapaFase2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a 
+        ///a j v v v v k a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a h v v v v i j v v v v v v v v q v v v v v q v v v v v q v v v v v v v p v a
+        ///a a a a a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v i a
+        ///a j v v v v v v v i a a h v v v v v v v v v v v v v v v v v v v v i a a a a a
+        ///a v v v v q v v i j v v k h v v v v v [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string MapaFase3 {
+            get {
+                return ResourceManager.GetString("MapaFase3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a v v v v v v v v a a a a a a a a a a a a a a a
+        ///v v v v v v v v a v v v v v v v v v v v v v a
+        ///v v v v v v v v a v v v v v v v v v v v v v a
+        ///a a a a a a a a a v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v q v v v v a
+        ///a v o v v v v v v v v v v v a a a a a a a a a
+        ///a v v v v v v v v v v v v v a v v v v v v v a 
+        ///a a a a a a a b c d a a a a a a a a a a a a a .
         /// </summary>
         internal static string Mapateste {
             get {

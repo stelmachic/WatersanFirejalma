@@ -153,13 +153,11 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            level1 = new MapManager(Properties.Maps.Mapateste);
+            level1 = new MapManager(Properties.Maps.MapaFase3);
             transformMap(level1, g);
             loadLists(level1);
 
-
             tm.Start();
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

@@ -179,6 +179,7 @@ namespace Watersan_e_Firejalma
                                 break;
                             case "q":
                                 sprite = null;
+                                BlockType = 5;
                                 asset = new Brownie(currentPosX, currentPosY, BlockType);
                                 assets.Add(asset);
                                 break;

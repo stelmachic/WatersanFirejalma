@@ -155,7 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Arte\Assets\BrownieMove.png" />
-    <Content Include="Arte\Assets\browniemove1.png" />
+    <Content Include="Arte\Assets\CSharpMove.png" />
+    <Content Include="Arte\Assets\PortaEdjaminha.png" />
+    <Content Include="Arte\Assets\PortaTrevinho.png" />
     <Content Include="Arte\Blocos\BlocoAgua.png" />
     <Content Include="Arte\Blocos\BlocoDiagInvDir.png" />
     <Content Include="Arte\Blocos\BlocoDiagInvEsq.png" />
@@ -174,6 +176,8 @@
     <Content Include="Arte\Characters\EdWalk.wav" />
     <Content Include="Arte\Characters\trevWalk.wav" />
     <Content Include="Arte\Maps\Map1.txt" />
+    <Content Include="Arte\Maps\MapaFase2.txt" />
+    <Content Include="Arte\Maps\MapaFase3.txt" />
     <Content Include="Arte\Maps\Mapateste.txt" />
     <Content Include="Arte\Maps\senairio.png" />
     <Content Include="Arte\Maps\Senairio2.0.png" />
