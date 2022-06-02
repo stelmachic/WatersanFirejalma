@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="TrevDoor.cs" />
+    <Compile Include="EdDoor.cs" />
     <Compile Include="C_Sharp.cs" />
     <Compile Include="CharacterHitBox.cs" />
     <Compile Include="Block.cs" />

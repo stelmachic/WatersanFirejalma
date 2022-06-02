@@ -20,7 +20,12 @@ namespace Watersan_e_Firejalma
         List<Block> boxes = new List<Block>();
         List<Entity> entities = new List<Entity>();
         List<Asset> assets = new List<Asset>();
+        List<MapManager> levels = new List<MapManager>();
+        MapManager level0;
         MapManager level1;
+        MapManager level2;
+        MapManager level3;
+        int currentLevel = 1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
         public Form1()
@@ -31,12 +36,20 @@ namespace Watersan_e_Firejalma
             tm.Tick += delegate 
             {
 
-                if(assets.Count == 0)
+                if(assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
                 {
-                    this.Hide();
-                    Form1 telanova = new Form1();
-                    telanova.Show();
+
+
+                    clearLists();
+                    currentLevel++;
+
+                    untransformMap(levels[currentLevel-1], g);
+                    transformMap(levels[currentLevel], g);
+                    loadLists(levels[currentLevel]);
+                   
+
                 }
+               
 
                 frame++;
                 for (int i = 0; i < characters.Count; i++)
@@ -107,6 +120,13 @@ namespace Watersan_e_Firejalma
             };
         }
 
+        private void clearLists()
+        {
+            characters.Clear();
+            assets.Clear();
+            boxes.Clear();
+            entities.Clear();
+        }
         private void transformMap(MapManager mm, Graphics g)
         {
             float aw = this.Width / (float)mm.mapWidth,
@@ -156,10 +176,6 @@ namespace Watersan_e_Firejalma
             foreach (Asset asset in mm.assets)
                 assets.Add(asset);
 
-
-
-
-
             foreach (Character character in characters)
                 entities.Add(character);
 
@@ -173,12 +189,26 @@ namespace Watersan_e_Firejalma
 
         private void Form1_Load(object sender, EventArgs e)
         {  
+            currentLevel = 0;
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            level1 = new MapManager(Properties.Maps.Mapateste);
-            transformMap(level1, g);
-            loadLists(level1);
+            level0 = new MapManager(Properties.Maps.Mapateste);
+            //level1 = new MapManager(Properties.Maps.Map1);
+            level2 = new MapManager(Properties.Maps.MapaFase2);
+            level3 = new MapManager(Properties.Maps.MapaFase3);
+
+            levels.Add(level0);
+            //levels.Add(level1);
+            levels.Add(level2);
+            levels.Add(level3);
+
+            transformMap(levels[currentLevel], g);
+            loadLists(levels[currentLevel]);
+
+            //transformMap(level1, g);
+            //loadLists(level1);
+
 
             tm.Start();
         }

@@ -33,6 +33,7 @@ C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Deb
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.TelaMorte.resources
+<<<<<<< HEAD
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe.config
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.exe
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\Watersan_e_Firejalma.pdb
@@ -51,3 +52,6 @@ C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firej
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\Aluno\Documents\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
+=======
+C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.TelaMorte.resources
+>>>>>>> b7beb77e9f876f6bf5dbab8609e340b85cadbb0a

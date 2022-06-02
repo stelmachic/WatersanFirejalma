@@ -190,6 +190,18 @@ namespace Watersan_e_Firejalma
                                 asset = new C_Sharp(currentPosX, currentPosY, BlockType);
                                 assets.Add(asset);
                                 break;
+                            case "s":
+                                sprite = null;
+                                BlockType = 5;
+                                asset = new EdDoor(currentPosX, currentPosY, BlockType);
+                                assets.Add(asset);
+                                break;
+                            case "t":
+                                sprite = null;
+                                BlockType = 5;
+                                asset = new TrevDoor(currentPosX, currentPosY, BlockType);
+                                assets.Add(asset);
+                                break;
 
                             case "v":
                                 sprite = null;

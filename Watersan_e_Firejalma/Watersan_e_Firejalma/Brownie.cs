@@ -8,15 +8,10 @@ namespace Watersan_e_Firejalma
     {
         public Brownie(int posX, int posY, int BlockType) : base((Properties.Assets.BrownieMove), posX, posY, BlockType)
         {
- 
+            characterInteraction = CharacterInteraction.edjalma;
+            assetType = AssetType.collectible;
         }
 
-        public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
-        {
-            if (blockType == 0)
-                disappear = true;
-            else if (blockType == 1)
-                disappear = false;
-        }
+        
     }
 }

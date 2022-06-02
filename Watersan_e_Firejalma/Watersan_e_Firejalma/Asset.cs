@@ -4,6 +4,19 @@ using System.Drawing.Imaging;
 
 namespace Watersan_e_Firejalma
 {
+
+    public enum CharacterInteraction{ 
+        edjalma,
+        trevisan,
+        neutro
+    }
+
+    public enum AssetType
+    {
+        collectible,
+        door
+    }
+
     public class Asset : Entity
     {
         public Rectangle hitboxBox;
@@ -23,6 +36,11 @@ namespace Watersan_e_Firejalma
 
         public int blockType;
         public bool disappear = false;
+        public bool victory = false;
+        
+        public CharacterInteraction characterInteraction;
+        public AssetType assetType;
+
 
         public Asset(Image spriteSheet, int posX, int posY, int BlockType) 
             : base(null)
@@ -35,6 +53,8 @@ namespace Watersan_e_Firejalma
             this.posX = posX;
             this.posY = posY;
             this.blockType = blockType;
+
+
             this.collumns = (spriteSheet.Width / resolutionX);
             this.lines = (spriteSheet.Height / resolutionY);
 
@@ -43,7 +63,16 @@ namespace Watersan_e_Firejalma
 
 
 
-
+        public override void OnCollision(CollisionInfo info, Graphics g, int assetInteraction)
+        {
+            if(characterInteraction == (CharacterInteraction)assetInteraction)
+            {
+                if(assetType == AssetType.door)
+                    victory = true;
+                if (assetType == AssetType.collectible)
+                    disappear = true;
+            }
+        }
 
 
 
@@ -63,9 +92,8 @@ namespace Watersan_e_Firejalma
 
 
 
-        public void SplitSprites()
+        public virtual void SplitSprites()
         {
-            
             sprites = new Image[collumns, lines];
 
             for (int i = 0; i < collumns; i++)

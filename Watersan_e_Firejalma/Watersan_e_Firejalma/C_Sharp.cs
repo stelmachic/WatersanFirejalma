@@ -8,15 +8,10 @@ namespace Watersan_e_Firejalma
     {
         public C_Sharp(int posX, int posY, int BlockType) : base((Properties.Assets.CSharpMove), posX, posY, BlockType)
         {
- 
+            characterInteraction = CharacterInteraction.trevisan;
+            assetType = AssetType.collectible;
         }
 
-        public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
-        {
-            if (blockType == 1)
-                disappear = true;
-            else if (blockType == 0)
-                disappear = false;
-        }
+        
     }
 }
