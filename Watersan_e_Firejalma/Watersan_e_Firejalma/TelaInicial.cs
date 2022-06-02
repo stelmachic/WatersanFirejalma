@@ -43,6 +43,7 @@ namespace Watersan_e_Firejalma
                         
                         telanova.FormClosed += (s, args) => this.Close();
                         telanova.Show();
+                        this.Hide();
                     }
                 }
                 else
