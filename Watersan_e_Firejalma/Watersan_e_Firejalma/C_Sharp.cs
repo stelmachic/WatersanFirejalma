@@ -4,18 +4,18 @@ using System.Drawing.Imaging;
 
 namespace Watersan_e_Firejalma
 {
-    public class Brownie : Asset
+    public class C_Sharp : Asset
     {
-        public Brownie(int posX, int posY, int BlockType) : base((Properties.Assets.BrownieMove), posX, posY, BlockType)
+        public C_Sharp(int posX, int posY, int BlockType) : base((Properties.Assets.CSharpMove), posX, posY, BlockType)
         {
  
         }
 
         public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
         {
-            if (blockType == 0)
+            if (blockType == 1)
                 disappear = true;
-            else if (blockType == 1)
+            else if (blockType == 0)
                 disappear = false;
         }
     }

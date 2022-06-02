@@ -184,6 +184,13 @@ namespace Watersan_e_Firejalma
                                 assets.Add(asset);
                                 break;
 
+                            case "r":
+                                sprite = null;
+                                BlockType = 5;
+                                asset = new C_Sharp(currentPosX, currentPosY, BlockType);
+                                assets.Add(asset);
+                                break;
+
                             case "v":
                                 sprite = null;
                                 break;

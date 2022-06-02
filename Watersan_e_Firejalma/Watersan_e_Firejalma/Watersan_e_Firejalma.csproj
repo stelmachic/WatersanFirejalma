@@ -47,11 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="C_Sharp.cs" />
     <Compile Include="CharacterHitBox.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="CollisionInfo.cs" />
     <Compile Include="Brownie.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="TelaMorte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaMorte.Designer.cs">
+      <DependentUpon>TelaMorte.cs</DependentUpon>
+    </Compile>
     <Compile Include="HitBox.cs" />
     <Compile Include="MapManager.cs" />
     <Compile Include="Properties\Assets.Designer.cs">
@@ -137,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaMorte.resx">
+      <DependentUpon>TelaMorte.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Arte\Characters\Edjalma.ase" />
     <None Include="Arte\Characters\Trevisharp.ase" />

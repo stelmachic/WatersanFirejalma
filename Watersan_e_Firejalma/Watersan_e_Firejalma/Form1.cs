@@ -30,6 +30,14 @@ namespace Watersan_e_Firejalma
 
             tm.Tick += delegate 
             {
+
+                if(assets.Count == 0)
+                {
+                    this.Hide();
+                    Form1 telanova = new Form1();
+                    telanova.Show();
+                }
+
                 frame++;
                 for (int i = 0; i < characters.Count; i++)
                 {
@@ -39,6 +47,9 @@ namespace Watersan_e_Firejalma
                         entities.Remove(characters[i]);
                         characters.Remove(characters[i]);
                         i--;
+                        this.Hide();
+                        TelaMorte telanova = new TelaMorte();
+                        telanova.Show();
                     }
                 }
 
@@ -56,7 +67,7 @@ namespace Watersan_e_Firejalma
                 {
                     g.Clear(Color.Transparent);
 
-                    drawBackground(g, background);
+                    //drawBackground(g, background);
 
                     foreach (Entity entity in entities)
                     {

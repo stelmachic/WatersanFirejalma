@@ -58,13 +58,7 @@ namespace Watersan_e_Firejalma
             g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
         }
 
-        public override void OnCollision(CollisionInfo info, Graphics g, int blockType)
-        {
-            if(blockType == 0)
-                disappear = true;
-            else if(blockType == 1)
-                disappear = false;
-        }
+        
 
 
 
@@ -72,7 +66,6 @@ namespace Watersan_e_Firejalma
         public void SplitSprites()
         {
             
-
             sprites = new Image[collumns, lines];
 
             for (int i = 0; i < collumns; i++)
