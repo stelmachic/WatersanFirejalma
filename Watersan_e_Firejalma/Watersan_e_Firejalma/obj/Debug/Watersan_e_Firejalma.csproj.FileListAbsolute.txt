@@ -33,3 +33,4 @@ C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Deb
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
 C:\Users\Allan\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.TelaMorte.resources
+C:\Users\Aluno\Desktop\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.TelaMorte.resources
