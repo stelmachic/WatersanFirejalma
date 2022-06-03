@@ -102,18 +102,18 @@
       <DependentUpon>TelaInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Trevisan.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Game.Designer.cs">
+      <DependentUpon>Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="Edjalma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Assets.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -196,7 +196,8 @@
     <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
-    <None Include="Resources\Design sem nome %281%29.png" />
+    <Content Include="Resources\TelaInicio.jpg" />
+    <None Include="Resources\TelaMorte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,29 +63,29 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Design_sem_nome__1_ {
-            get {
-                object obj = ResourceManager.GetObject("Design sem nome (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Design_sem_nome__2_ {
-            get {
-                object obj = ResourceManager.GetObject("Design sem nome (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap SenairiodeFundoGame2_0 {
             get {
                 object obj = ResourceManager.GetObject("SenairiodeFundoGame2_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TelaInicio {
+            get {
+                object obj = ResourceManager.GetObject("TelaInicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TelaMorte {
+            get {
+                object obj = ResourceManager.GetObject("TelaMorte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

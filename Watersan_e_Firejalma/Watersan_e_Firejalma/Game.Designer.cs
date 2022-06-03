@@ -1,6 +1,6 @@
 ﻿namespace Watersan_e_Firejalma
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Variável de designer necessária.

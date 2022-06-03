@@ -28,45 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fundo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.fundo)).BeginInit();
+            this.FundoPb = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.FundoPb)).BeginInit();
             this.SuspendLayout();
             // 
-            // fundo
+            // FundoPb
             // 
-            this.fundo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.fundo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fundo.Image = global::Watersan_e_Firejalma.Properties.Resources.Design_sem_nome__2_;
-            this.fundo.Location = new System.Drawing.Point(0, 0);
-            this.fundo.Name = "fundo";
-            this.fundo.Size = new System.Drawing.Size(800, 450);
-            this.fundo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fundo.TabIndex = 0;
-            this.fundo.TabStop = false;
-            this.fundo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseDown);
-            this.fundo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseMove);
-            this.fundo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseUp);
+            this.FundoPb.BackColor = System.Drawing.Color.Transparent;
+            this.FundoPb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FundoPb.Location = new System.Drawing.Point(0, 0);
+            this.FundoPb.Name = "FundoPb";
+            this.FundoPb.Size = new System.Drawing.Size(800, 450);
+            this.FundoPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FundoPb.TabIndex = 0;
+            this.FundoPb.TabStop = false;
+            this.FundoPb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseDown);
+            this.FundoPb.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseMove);
+            this.FundoPb.MouseUp += new System.Windows.Forms.MouseEventHandler(this.fundo_MouseUp);
             // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.fundo);
+            this.Controls.Add(this.FundoPb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TelaInicial";
             this.Text = "TelaInicial";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaInicial_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TelaInicial_KeyUp_1);
-            ((System.ComponentModel.ISupportInitialize)(this.fundo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FundoPb)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox fundo;
+        private System.Windows.Forms.PictureBox FundoPb;
     }
 }

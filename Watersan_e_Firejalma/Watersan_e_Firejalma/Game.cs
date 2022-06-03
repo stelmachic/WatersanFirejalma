@@ -7,28 +7,35 @@ using System.Linq;
 
 namespace Watersan_e_Firejalma
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         Timer tm = new Timer();
         int frameRate = 2;
         int frame = 0;
+
         Bitmap bmp = null;
         Graphics g = null;
-        //Character edjalma = new Edjalma();
-        //Character trevisan = new Trevisan();
+
+
         List<Character> characters = new List<Character>();
         List<Block> boxes = new List<Block>();
         List<Entity> entities = new List<Entity>();
         List<Asset> assets = new List<Asset>();
         List<MapManager> levels = new List<MapManager>();
+
+
         MapManager level0;
         MapManager level1;
         MapManager level2;
         MapManager level3;
+
         int currentLevel = 1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
-        public Form1()
+
+
+
+        public Game()
         {
             InitializeComponent();
             tm.Interval = 25;
@@ -38,16 +45,12 @@ namespace Watersan_e_Firejalma
 
                 if(assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
                 {
-
-
                     clearLists();
                     currentLevel++;
 
                     untransformMap(levels[currentLevel-1], g);
                     transformMap(levels[currentLevel], g);
-                    loadLists(levels[currentLevel]);
-                   
-
+                    loadLists(levels[currentLevel]);     
                 }
                
 
@@ -127,6 +130,7 @@ namespace Watersan_e_Firejalma
             boxes.Clear();
             entities.Clear();
         }
+
         private void transformMap(MapManager mm, Graphics g)
         {
             float aw = this.Width / (float)mm.mapWidth,
@@ -190,8 +194,11 @@ namespace Watersan_e_Firejalma
         private void Form1_Load(object sender, EventArgs e)
         {  
             currentLevel = 0;
+
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
+
+
 
             level0 = new MapManager(Properties.Maps.Mapateste);
             //level1 = new MapManager(Properties.Maps.Map1);
