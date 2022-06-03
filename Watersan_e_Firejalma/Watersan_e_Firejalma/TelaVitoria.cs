@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace Watersan_e_Firejalma
 {
-    public partial class TelaMorte : Form
+    public partial class TelaVitoria : Form
     {
+
         Graphics g = null;
         Bitmap bmp = null;
         Timer tm = new Timer();
@@ -24,15 +25,16 @@ namespace Watersan_e_Firejalma
         bool down = false;
 
 
-        public TelaMorte()
+
+        public TelaVitoria()
         {
             InitializeComponent();
-
             tm.Interval = 25;
 
+
             tm.Tick += delegate
-            {
-                
+            { 
+
                 g.DrawImage(fundo, tela);
 
                 StringFormat sf = new StringFormat();
@@ -40,7 +42,7 @@ namespace Watersan_e_Firejalma
 
                 if (buttonPos.Contains(cursor))
                 {
-                    g.DrawString("voltar", new Font("Thayer Street NDP", 70f), Brushes.Goldenrod, buttonPos, sf);
+                    g.DrawString("Voltar", new Font("Thayer Street NDP", 70f), Brushes.Goldenrod, buttonPos, sf);
 
                     if (down)
                     {
@@ -53,52 +55,28 @@ namespace Watersan_e_Firejalma
                 }
                 else
                 {
-                    g.DrawString("voltar", new Font("Thayer Street NDP", 70f), Brushes.Red, buttonPos, sf);
+                    g.DrawString("Voltar", new Font("Thayer Street NDP", 70f), Brushes.Black, buttonPos, sf);
                 }
 
 
                 FundoPb.Image = bmp;
-
             };
         }
-   
 
-        private void TelaMorte_Load(object sender, EventArgs e)
+        private void TelaVitoria_Load(object sender, EventArgs e)
         {
             bmp = new Bitmap(this.Width, this.Height);
             g = Graphics.FromImage(bmp);
 
 
             buttonSize = new Size(300, 125);
-            buttonPos = new RectangleF((this.Width / 2) - (buttonSize.Width / 2) - 30, (this.Height / 2) - (buttonSize.Height / 2)-100, buttonSize.Width, buttonSize.Height);
+            buttonPos = new RectangleF((this.Width / 2) - (buttonSize.Width / 2) - 30, (this.Height / 2) - (buttonSize.Height / 2) + 100, buttonSize.Width, buttonSize.Height);
 
             tela = new RectangleF(0, 0, FundoPb.Width, FundoPb.Height);
 
-            fundo = Properties.Resources.TelaMorte;
+            fundo = Properties.Resources.TelaVitoria;
 
             tm.Start();
-        }
-
-
-
-        private void TelaMorte_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Escape:
-                    this.Close();
-                    break;
-            }
-        }
-
-        private void FundoPb_MouseDown(object sender, MouseEventArgs e)
-        {
-            down = true;
-        }
-
-        private void FundoPb_MouseMove(object sender, MouseEventArgs e)
-        {
-            cursor = e.Location;
         }
 
         private void FundoPb_MouseUp(object sender, MouseEventArgs e)
@@ -106,6 +84,25 @@ namespace Watersan_e_Firejalma
             down = false;
         }
 
-        
+        private void FundoPb_MouseMove(object sender, MouseEventArgs e)
+        {
+            cursor = e.Location;
+        }
+
+        private void FundoPb_MouseDown(object sender, MouseEventArgs e)
+        {
+            down = true;
+        }
+
+        private void TelaVitoria_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+
+                case Keys.Escape:
+                    Application.Exit();
+                    break;
+            }
+        }
     }
 }

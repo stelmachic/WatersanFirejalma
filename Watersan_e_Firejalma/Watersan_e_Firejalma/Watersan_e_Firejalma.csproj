@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="TelaVitoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaVitoria.Designer.cs">
+      <DependentUpon>TelaVitoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrevDoor.cs" />
     <Compile Include="EdDoor.cs" />
     <Compile Include="C_Sharp.cs" />
@@ -150,6 +156,9 @@
     <EmbeddedResource Include="TelaMorte.resx">
       <DependentUpon>TelaMorte.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelaVitoria.resx">
+      <DependentUpon>TelaVitoria.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Arte\Characters\Edjalma.ase" />
     <None Include="Arte\Characters\Trevisharp.ase" />
     <None Include="Properties\Settings.settings">
@@ -197,6 +206,7 @@
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
     <Content Include="Resources\TelaInicio.jpg" />
+    <Content Include="Resources\TelaVitoria.png" />
     <None Include="Resources\TelaMorte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

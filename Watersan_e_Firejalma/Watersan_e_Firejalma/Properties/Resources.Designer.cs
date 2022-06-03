@@ -89,5 +89,15 @@ namespace Watersan_e_Firejalma.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TelaVitoria {
+            get {
+                object obj = ResourceManager.GetObject("TelaVitoria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

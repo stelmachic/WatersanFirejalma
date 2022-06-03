@@ -45,12 +45,30 @@ namespace Watersan_e_Firejalma
 
                 if(assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
                 {
-                    clearLists();
-                    currentLevel++;
+                    if(currentLevel == levels.Count-1)
+                    {
+                        for (int i = 0; i < characters.Count; i++)
+                        {
+                            characters[i].walkSound.Stop();
+                            entities.Remove(characters[i]);
+                            characters.Remove(characters[i]);
+                        }
+                     
 
-                    untransformMap(levels[currentLevel-1], g);
-                    transformMap(levels[currentLevel], g);
-                    loadLists(levels[currentLevel]);     
+                        this.Close();
+                        tm.Stop();
+                        TelaVitoria telanova = new TelaVitoria();
+                        telanova.Show();
+                        return;
+                    }else
+                    {
+                        clearLists();
+                        currentLevel++;
+
+                        untransformMap(levels[currentLevel - 1], g);
+                        transformMap(levels[currentLevel], g);
+                        loadLists(levels[currentLevel]);
+                    }
                 }
                
 
@@ -63,9 +81,12 @@ namespace Watersan_e_Firejalma
                         entities.Remove(characters[i]);
                         characters.Remove(characters[i]);
                         i--;
-                        this.Hide();
+
+                        this.Close();
+                        tm.Stop();
                         TelaMorte telanova = new TelaMorte();
                         telanova.Show();
+                        return;
                     }
                 }
 
@@ -87,11 +108,8 @@ namespace Watersan_e_Firejalma
 
                     foreach (Entity entity in entities)
                     {
-
                         entity.Draw(g);
                         //entity.DrawHitBox(g);
-
-
                     }
                 }
 
@@ -198,24 +216,18 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-
-
             level0 = new MapManager(Properties.Maps.Mapateste);
-            //level1 = new MapManager(Properties.Maps.Map1);
+            level1 = new MapManager(Properties.Maps.Map1);
             level2 = new MapManager(Properties.Maps.MapaFase2);
             level3 = new MapManager(Properties.Maps.MapaFase3);
 
             levels.Add(level0);
-            //levels.Add(level1);
+            levels.Add(level1);
             levels.Add(level2);
             levels.Add(level3);
 
             transformMap(levels[currentLevel], g);
             loadLists(levels[currentLevel]);
-
-            //transformMap(level1, g);
-            //loadLists(level1);
-
 
             tm.Start();
         }

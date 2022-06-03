@@ -45,10 +45,12 @@ namespace Watersan_e_Firejalma
                     if (down)
                     {
                         Game telanova = new Game();
-
-                        telanova.FormClosed += (s, args) => this.Close();
                         telanova.Show();
-                        this.Hide();
+                        if (Application.OpenForms[0] == this)
+                            this.Hide();
+                        else this.Close();
+                        tm.Stop();
+                        return;
                     }
                 }
                 else
