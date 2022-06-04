@@ -63,6 +63,16 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_icon {
+            get {
+                object obj = ResourceManager.GetObject("close_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SenairiodeFundoGame2_0 {
             get {
                 object obj = ResourceManager.GetObject("SenairiodeFundoGame2_0", resourceCulture);
@@ -96,6 +106,16 @@ namespace Watersan_e_Firejalma.Properties {
         internal static System.Drawing.Bitmap TelaVitoria {
             get {
                 object obj = ResourceManager.GetObject("TelaVitoria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Voltar_fundo {
+            get {
+                object obj = ResourceManager.GetObject("Voltar_fundo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

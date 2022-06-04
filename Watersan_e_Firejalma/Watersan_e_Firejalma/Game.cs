@@ -21,8 +21,11 @@ namespace Watersan_e_Firejalma
         List<Block> boxes = new List<Block>();
         List<Entity> entities = new List<Entity>();
         List<Asset> assets = new List<Asset>();
+        List<Wall> walls = new List<Wall>();
         List<MapManager> levels = new List<MapManager>();
 
+        int brownies = 0;
+        int c_sharps = 0;
 
         MapManager level0;
         MapManager level1;
@@ -39,7 +42,7 @@ namespace Watersan_e_Firejalma
         {
             InitializeComponent();
             tm.Interval = 25;
-
+            Menu_Voltar.Hide();
             tm.Tick += delegate 
             {
 
@@ -94,6 +97,15 @@ namespace Watersan_e_Firejalma
                 {
                     if (assets[i].disappear)
                     {
+                        if (assets[i] is Brownie)
+                        {
+                            brownies++;
+                            label1.Text = brownies.ToString();
+                        }
+                        else if (assets[i] is C_Sharp) {
+                            c_sharps++;
+                            label2.Text = c_sharps.ToString();
+                        }
                         entities.Remove(assets[i]);
                         assets.Remove(assets[i]);
                         i--;
@@ -110,6 +122,10 @@ namespace Watersan_e_Firejalma
                     {
                         entity.Draw(g);
                         //entity.DrawHitBox(g);
+                    }
+                    foreach(Wall wall in walls)
+                    {
+                        wall.Draw(g);
                     }
                 }
 
@@ -145,6 +161,7 @@ namespace Watersan_e_Firejalma
         {
             characters.Clear();
             assets.Clear();
+            walls.Clear();
             boxes.Clear();
             entities.Clear();
         }
@@ -182,11 +199,6 @@ namespace Watersan_e_Firejalma
             }
         }
 
-        private void drawBackground(Graphics g, Image back)
-        {
-            g.DrawImage(back,0,0,this.Width, this.Height);
-        }
-
         private void loadLists(MapManager mm)
         {
             foreach (Character character in mm.characters)
@@ -198,6 +210,9 @@ namespace Watersan_e_Firejalma
             foreach (Asset asset in mm.assets)
                 assets.Add(asset);
 
+            foreach(Wall wall in mm.walls) 
+                walls.Add(wall);
+
             foreach (Character character in characters)
                 entities.Add(character);
 
@@ -206,13 +221,12 @@ namespace Watersan_e_Firejalma
 
             foreach (Asset asset in assets)
                 entities.Add(asset);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {  
             currentLevel = 0;
-
+            
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
@@ -229,6 +243,12 @@ namespace Watersan_e_Firejalma
             transformMap(levels[currentLevel], g);
             loadLists(levels[currentLevel]);
 
+            label1.Text = "0";
+            label2.Text = "0";
+
+            Menu_Voltar.Size = new Size(510,350);
+            Menu_Voltar.Location = new Point((this.Width / 2) - (Menu_Voltar.Width / 2) , (this.Height / 2) - (Menu_Voltar.Height / 2));
+
             tm.Start();
         }
 
@@ -244,8 +264,20 @@ namespace Watersan_e_Firejalma
         {
             switch (e.KeyCode)
             {
-             
+
                 case Keys.Escape:
+                    if (!Menu_Voltar.Visible)
+                    {
+                        Menu_Voltar.Show();
+                    }
+                    else
+                    {
+                        Menu_Voltar.Hide();
+                    }
+                   
+                    break;
+
+                case Keys.NumPad9:
                     Application.Exit();
                     break;
             }
@@ -255,6 +287,19 @@ namespace Watersan_e_Firejalma
             }
         }
 
+        private void Voltar_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            tm.Stop();
+            TelaInicial telanova = new TelaInicial();
+            telanova.Show();
+            return;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            Menu_Voltar.Hide();
+        }
     }
 
 }

@@ -18,7 +18,8 @@ namespace Watersan_e_Firejalma
         Timer tm = new Timer();
         Image fundo = null;
         RectangleF tela;
-        RectangleF buttonPos;
+        RectangleF PlayPos;
+        RectangleF ClosePos;
         Size buttonSize;
 
         Point cursor = Point.Empty;
@@ -38,9 +39,9 @@ namespace Watersan_e_Firejalma
                 StringFormat sf = new StringFormat();
                 sf.Alignment = StringAlignment.Center;
 
-                if (buttonPos.Contains(cursor))
+                if (PlayPos.Contains(cursor))
                 {
-                    g.DrawString("Play", new Font("Thayer Street NDP", 70f), Brushes.Goldenrod, buttonPos, sf);
+                    g.DrawString("Play", new Font("Thayer Street NDP", 70f), Brushes.Goldenrod, PlayPos, sf);
                 
                     if (down)
                     {
@@ -55,7 +56,22 @@ namespace Watersan_e_Firejalma
                 }
                 else
                 {
-                    g.DrawString("Play", new Font("Thayer Street NDP", 70f), Brushes.Black, buttonPos, sf);
+                    g.DrawString("Play", new Font("Thayer Street NDP", 70f), Brushes.Black, PlayPos, sf);
+                }
+
+
+                if (ClosePos.Contains(cursor))
+                {
+                    g.DrawString("Close", new Font("Thayer Street NDP", 70f), Brushes.Goldenrod, ClosePos, sf);
+
+                    if (down)
+                    {
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    g.DrawString("Close", new Font("Thayer Street NDP", 70f), Brushes.Black, ClosePos, sf);
                 }
 
 
@@ -72,7 +88,8 @@ namespace Watersan_e_Firejalma
 
 
             buttonSize = new Size(300, 125);
-            buttonPos = new RectangleF((this.Width / 2) - (buttonSize.Width / 2) - 30, (this.Height / 2) - (buttonSize.Height / 2) + 100, buttonSize.Width, buttonSize.Height);
+            PlayPos = new RectangleF((this.Width / 2) - (buttonSize.Width / 2) - 30, (this.Height / 2) - (buttonSize.Height / 2) + 100, buttonSize.Width, buttonSize.Height);
+            ClosePos = new RectangleF((this.Width / 2) - (buttonSize.Width / 2) - 30, (this.Height / 2) - (buttonSize.Height / 2) + 250, buttonSize.Width, buttonSize.Height);
 
             tela = new RectangleF(0, 0, FundoPb.Width, FundoPb.Height);
 
@@ -86,7 +103,7 @@ namespace Watersan_e_Firejalma
             switch (e.KeyCode)
             {
 
-                case Keys.Escape:
+                case Keys.NumPad9:
                     Application.Exit();
                     break;
             }

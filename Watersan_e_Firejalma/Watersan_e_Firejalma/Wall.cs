@@ -1,24 +1,15 @@
-﻿using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Watersan_e_Firejalma
 {
-
-    public enum CharacterInteraction{ 
-        edjalma,
-        trevisan,
-        neutro
-    }
-
-    public enum AssetType
+    public class Wall
     {
-        collectible,
-        door
-    }
 
-    public class Asset : Entity
-    {
         public Rectangle hitboxBox;
         public float posX { get; set; }
         public float posY { get; set; }
@@ -34,25 +25,14 @@ namespace Watersan_e_Firejalma
         public int collumns;
         public int lines;
 
-        public int blockType;
-        public bool disappear = false;
-        public bool victory = false;
-        
-        public CharacterInteraction characterInteraction;
-        public AssetType assetType;
 
-
-        public Asset(Image spriteSheet, int posX, int posY, int BlockType) 
-            : base(null)
+        public Wall(Image spriteSheet, int posX, int posY)
         {
 
-            this.hitboxBox = new Rectangle(posX, posY, resolutionX, resolutionX);
-            this.HitBox = HitBox.FromAsset(hitboxBox);
-
+       
             this.spriteSheet = spriteSheet;
             this.posX = posX;
             this.posY = posY;
-            this.blockType = blockType;
 
 
             this.collumns = (spriteSheet.Width / resolutionX);
@@ -62,20 +42,7 @@ namespace Watersan_e_Firejalma
         }
 
 
-
-        public override void OnCollision(CollisionInfo info, Graphics g, int assetInteraction)
-        {
-            if(characterInteraction == (CharacterInteraction)assetInteraction)
-            {
-                if(assetType == AssetType.door)
-                    victory = true;
-                if (assetType == AssetType.collectible)
-                    disappear = true;
-            }
-        }
-
-
-        public override void Draw(Graphics g)
+        public void Draw(Graphics g)
         {
             spriteY = 0;
 
@@ -86,8 +53,8 @@ namespace Watersan_e_Firejalma
             g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
         }
 
-        
-        public virtual void SplitSprites()
+
+        public void SplitSprites()
         {
             sprites = new Image[collumns, lines];
 
@@ -99,7 +66,5 @@ namespace Watersan_e_Firejalma
                 }
             }
         }
-
-
     }
 }

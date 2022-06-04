@@ -85,7 +85,7 @@ namespace Watersan_e_Firejalma
         {
             switch (e.KeyCode)
             {
-                case Keys.Escape:
+                case Keys.NumPad9:
                     this.Close();
                     break;
             }

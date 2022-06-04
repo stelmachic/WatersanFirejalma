@@ -118,6 +118,7 @@
     <Compile Include="Edjalma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wall.cs" />
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,22 +178,26 @@
   <ItemGroup>
     <Content Include="Arte\Assets\BrownieMove.png" />
     <Content Include="Arte\Assets\CSharpMove.png" />
+    <Content Include="Arte\Assets\Ed_Head.png" />
     <Content Include="Arte\Assets\PortaEdjaminha.png" />
     <Content Include="Arte\Assets\PortaTrevinho.png" />
-    <Content Include="Arte\Blocos\BlocoAgua.png" />
-    <Content Include="Arte\Blocos\BlocoDiagInvDir.png" />
-    <Content Include="Arte\Blocos\BlocoDiagInvEsq.png" />
-    <Content Include="Arte\Blocos\BlocoInteiro.png" />
-    <Content Include="Arte\Blocos\BlocoLava.png" />
-    <Content Include="Arte\Blocos\BlocoMorte.png" />
-    <Content Include="Arte\Blocos\CantoDirAgua.png" />
-    <Content Include="Arte\Blocos\CantoDirLava.png" />
-    <Content Include="Arte\Blocos\CantoDirMorte.png" />
-    <Content Include="Arte\Blocos\CantoEsqAgua.png" />
-    <Content Include="Arte\Blocos\CantoEsqLava.png" />
-    <Content Include="Arte\Blocos\CantoEsqMorte.png" />
-    <Content Include="Arte\Blocos\DiagonalDir.png" />
-    <Content Include="Arte\Blocos\DiagonalEsq.png" />
+    <Content Include="Arte\Assets\Trev_Head.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoAgua.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoColuna.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoDiagInvDir.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoDiagInvEsq.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoInteiro.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoLava.png" />
+    <Content Include="Arte\Blocos\Chao\BlocoMorte.png" />
+    <Content Include="Arte\Blocos\Chao\CantoDirAgua.png" />
+    <Content Include="Arte\Blocos\Chao\CantoDirLava.png" />
+    <Content Include="Arte\Blocos\Chao\CantoDirMorte.png" />
+    <Content Include="Arte\Blocos\Chao\CantoEsqAgua.png" />
+    <Content Include="Arte\Blocos\Chao\CantoEsqLava.png" />
+    <Content Include="Arte\Blocos\Chao\CantoEsqMorte.png" />
+    <Content Include="Arte\Blocos\Chao\DiagonalDir.png" />
+    <Content Include="Arte\Blocos\Chao\DiagonalEsq.png" />
+    <Content Include="Arte\Blocos\Parede\BlocoInteiro_parede.png" />
     <Content Include="Arte\Characters\Edjalma-sheet.png" />
     <Content Include="Arte\Characters\EdWalk.wav" />
     <Content Include="Arte\Characters\trevWalk.wav" />
@@ -205,8 +210,10 @@
     <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
+    <Content Include="Resources\close_icon.jpg" />
     <Content Include="Resources\TelaInicio.jpg" />
     <Content Include="Resources\TelaVitoria.png" />
+    <Content Include="Resources\Voltar_fundo.jpg" />
     <None Include="Resources\TelaMorte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
