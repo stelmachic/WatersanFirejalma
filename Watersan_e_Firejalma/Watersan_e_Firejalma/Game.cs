@@ -22,6 +22,7 @@ namespace Watersan_e_Firejalma
         List<Entity> entities = new List<Entity>();
         List<Asset> assets = new List<Asset>();
         List<Wall> walls = new List<Wall>();
+        List<BackgroundManager> backgrounds = new List<BackgroundManager>();
         List<MapManager> levels = new List<MapManager>();
 
         int brownies = 0;
@@ -31,6 +32,10 @@ namespace Watersan_e_Firejalma
         MapManager level1;
         MapManager level2;
         MapManager level3;
+        BackgroundManager background0;
+        BackgroundManager background1;
+        BackgroundManager background2;
+        BackgroundManager background3;
 
         int currentLevel = 1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
@@ -71,6 +76,7 @@ namespace Watersan_e_Firejalma
                         untransformMap(levels[currentLevel - 1], g);
                         transformMap(levels[currentLevel], g);
                         loadLists(levels[currentLevel]);
+                        loadBackgrounds(backgrounds[currentLevel]);
                     }
                 }
                
@@ -118,15 +124,16 @@ namespace Watersan_e_Firejalma
 
                     //drawBackground(g, background);
 
+                    foreach (Wall wall in walls)
+                    {
+                        wall.Draw(g);
+                    }
                     foreach (Entity entity in entities)
                     {
                         entity.Draw(g);
                         //entity.DrawHitBox(g);
                     }
-                    foreach(Wall wall in walls)
-                    {
-                        wall.Draw(g);
-                    }
+                    
                 }
 
                 foreach (Character character in characters)
@@ -199,6 +206,14 @@ namespace Watersan_e_Firejalma
             }
         }
 
+        private void loadBackgrounds(BackgroundManager bg)
+        {
+            foreach (Wall wall in bg.walls)
+            {
+                walls.Add(wall);
+            }
+        }
+
         private void loadLists(MapManager mm)
         {
             foreach (Character character in mm.characters)
@@ -230,18 +245,31 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
+            
+
             level0 = new MapManager(Properties.Maps.Mapateste);
-            level1 = new MapManager(Properties.Maps.Map1);
+            level1 = new MapManager(Properties.Maps.MapaFase1);
             level2 = new MapManager(Properties.Maps.MapaFase2);
             level3 = new MapManager(Properties.Maps.MapaFase3);
+
+            background0 = new BackgroundManager(Properties.Maps.fundoMapateste);
+            background1 = new BackgroundManager(Properties.Maps.fundoMapa1);
+            background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
+            background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
 
             levels.Add(level0);
             levels.Add(level1);
             levels.Add(level2);
             levels.Add(level3);
 
+            backgrounds.Add(background0);
+            backgrounds.Add(background1);
+            backgrounds.Add(background2);
+            backgrounds.Add(background3);
+
             transformMap(levels[currentLevel], g);
             loadLists(levels[currentLevel]);
+            loadBackgrounds(backgrounds[currentLevel]);
 
             label1.Text = "0";
             label2.Text = "0";
@@ -301,7 +329,6 @@ namespace Watersan_e_Firejalma
             Menu_Voltar.Hide();
         }
     }
-
 }
 
 

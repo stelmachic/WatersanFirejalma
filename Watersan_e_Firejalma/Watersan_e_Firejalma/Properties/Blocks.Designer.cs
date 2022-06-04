@@ -63,6 +63,26 @@ namespace Watersan_e_Firejalma.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap airCondLeft {
+            get {
+                object obj = ResourceManager.GetObject("airCondLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap airCondRight {
+            get {
+                object obj = ResourceManager.GetObject("airCondRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlocoAgua {
             get {
                 object obj = ResourceManager.GetObject("BlocoAgua", resourceCulture);
@@ -216,6 +236,26 @@ namespace Watersan_e_Firejalma.Properties {
         internal static System.Drawing.Bitmap DiagonalEsq {
             get {
                 object obj = ResourceManager.GetObject("DiagonalEsq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FireExtinguisher {
+            get {
+                object obj = ResourceManager.GetObject("FireExtinguisher", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parede_Detail {
+            get {
+                object obj = ResourceManager.GetObject("Parede_Detail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

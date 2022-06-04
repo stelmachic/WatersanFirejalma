@@ -62,16 +62,75 @@ namespace Watersan_e_Firejalma.Properties {
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v h a a a i v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v v k a a a i v v v v v v v v v v v h a a a i v v v v v v v v a
-        ///a v v v v v v v v v v a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
-        internal static string Map1 {
+        internal static string fundoMapa1 {
             get {
-                return ResourceManager.GetString("Map1", resourceCulture);
+                return ResourceManager.GetString("fundoMapa1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string fundoMapa2 {
+            get {
+                return ResourceManager.GetString("fundoMapa2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string fundoMapa3 {
+            get {
+                return ResourceManager.GetString("fundoMapa3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a v v v v v v v v v v v v v a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///v v v v v v v v v v v v v a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///v v v v v v v v v v v v v a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///v v v v v v v v v v v v v a d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a a a a a a a a a a a a a a a a a a a a a a a a [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string fundoMapateste {
+            get {
+                return ResourceManager.GetString("fundoMapateste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v q v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v h a a a i v v v v v v v v v v v v v v v v v v v v s v t v v a
+        ///a v v v v v v v v v k a a a i v v v v v r v v v v v h a a a i v v v v v v v v a
+        ///a v v r v v v v v v v a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string MapaFase1 {
+            get {
+                return ResourceManager.GetString("MapaFase1", resourceCulture);
             }
         }
         
@@ -80,9 +139,9 @@ namespace Watersan_e_Firejalma.Properties {
         ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
         ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
         ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v s v t v v v v v v v v v v v v v v v q r v v v v v v v v v v v v v v v v v a
         ///a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a a a a a a a a a a a a a a a a a a v v v v v a a a a a a a a a h v v v v v v a
-        ///a v v v v v v v v v v v v  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///a a a a a a a a a a a a a  [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string MapaFase2 {
             get {
@@ -92,12 +151,12 @@ namespace Watersan_e_Firejalma.Properties {
         
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a 
-        ///a j v v v v k a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
-        ///a h v v v v i j v v v v v v v v q v v v v v q v v v v v q v v v v v v v p v a
-        ///a a a a a a j v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v i a
-        ///a j v v v v v v v i a a h v v v v v v v v v v v v v v v v v v v v i a a a a a
-        ///a v v v v q v v i j v v k h v v v v v [o restante da cadeia de caracteres foi truncado]&quot;;.
+        ///a a v v v a a a a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v a a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a a v v v a a v v v v v v v v v q v v v v v q v v v v v q v v v v v v o v v a
+        ///a a a a a a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a a
+        ///a a v v v v v v v a a a a v v v v v v v v v v v v v v v v v v v v a a a a a a
+        ///a v v v v q v v a a a a a a v v v v v [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string MapaFase3 {
             get {
@@ -106,16 +165,12 @@ namespace Watersan_e_Firejalma.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a v v v v v v v v a a a a a a a a a a a a a a a
-        ///v v v v v v v v a v v v v v v v v v v v v v a
-        ///v v v v v v v v a v v v v v v v v v v v v v a
-        ///a a a a a a a a a v v v v v v v v v v v v v a
-        ///a v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v v v v v v v v v v v v v v a
-        ///a v v v v v v v v v v v v v v v v q v v v v a
-        ///a v o v v v v v v v v v v v a a a a a a a a a
-        ///a v v v v v v v v v v v v v a v v v v v v v a 
-        ///a a a a a a a b c d a a a a a a a a a a a a a .
+        ///   Consulta uma cadeia de caracteres localizada semelhante a v v v v v v v v v v v v v a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+        ///v v v v v v v v v v v v v a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///v v v v v v v v v v v v v a v v v v v v v v v r v v v v v v v v v v v r v v v v v v v v v a
+        ///v v v v v v v v v v v v v a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a a a a a a a a a a a a a a v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v v a
+        ///a v v v v v v v v v v v v v v v v v v v v v v v [o restante da cadeia de caracteres foi truncado]&quot;;.
         /// </summary>
         internal static string Mapateste {
             get {

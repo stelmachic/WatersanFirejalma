@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Watersan_e_Firejalma
 {
@@ -50,7 +52,13 @@ namespace Watersan_e_Firejalma
             if (spriteX == collumns)
                 spriteX = 0;
 
-            g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY));
+            g.InterpolationMode = InterpolationMode.NearestNeighbor;
+            ImageAttributes attributes = new ImageAttributes();
+            attributes.SetWrapMode(WrapMode.TileFlipY);
+
+            g.DrawImage(sprites[spriteX, spriteY], new Rectangle((int)posX, (int)posY, resolutionX, resolutionY), 0,0, resolutionX, resolutionY, GraphicsUnit.Pixel, attributes);
+
+            
         }
 
 

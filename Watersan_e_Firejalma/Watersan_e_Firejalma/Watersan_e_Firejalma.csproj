@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset.cs" />
+    <Compile Include="BackgroundManager.cs" />
     <Compile Include="TelaVitoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,11 +198,18 @@
     <Content Include="Arte\Blocos\Chao\CantoEsqMorte.png" />
     <Content Include="Arte\Blocos\Chao\DiagonalDir.png" />
     <Content Include="Arte\Blocos\Chao\DiagonalEsq.png" />
+    <Content Include="Arte\Blocos\Parede\airCondLeft.png" />
+    <Content Include="Arte\Blocos\Parede\airCondRight.png" />
     <Content Include="Arte\Blocos\Parede\BlocoInteiro_parede.png" />
+    <Content Include="Arte\Blocos\Parede\FireExtinguisher.png" />
+    <Content Include="Arte\Blocos\Parede\Parede_Detail.png" />
     <Content Include="Arte\Characters\Edjalma-sheet.png" />
     <Content Include="Arte\Characters\EdWalk.wav" />
     <Content Include="Arte\Characters\trevWalk.wav" />
-    <Content Include="Arte\Maps\Map1.txt" />
+    <Content Include="Arte\Maps\fundoMapa2.txt" />
+    <Content Include="Arte\Maps\fundoMapa3.txt" />
+    <Content Include="Arte\Maps\fundoMapateste.txt" />
+    <Content Include="Arte\Maps\MapaFase1.txt" />
     <Content Include="Arte\Maps\MapaFase2.txt" />
     <Content Include="Arte\Maps\MapaFase3.txt" />
     <Content Include="Arte\Maps\Mapateste.txt" />
@@ -210,6 +218,7 @@
     <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
+    <Content Include="Arte\Maps\fundoMapa1.txt" />
     <Content Include="Resources\close_icon.jpg" />
     <Content Include="Resources\TelaInicio.jpg" />
     <Content Include="Resources\TelaVitoria.png" />
