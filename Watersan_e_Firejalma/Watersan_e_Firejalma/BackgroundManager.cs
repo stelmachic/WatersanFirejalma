@@ -19,7 +19,12 @@ namespace Watersan_e_Firejalma
         public Image FireExt = Properties.Blocks.FireExtinguisher;      // f
         public Image AirLeft = Properties.Blocks.airCondLeft;           // g
         public Image AirRight = Properties.Blocks.airCondRight;         // h
-
+        public Image Projector = Properties.Blocks.Projetor;            // i
+        public List<Image> Puff = new List<Image>();                    // j
+        public Image Trash = Properties.Blocks.Lixo;                    // k
+        public Image RightSign = Properties.Blocks.PlacaDIreita;        // l
+       
+        Random random = new Random();
 
         Image sprite = null;
 
@@ -44,6 +49,13 @@ namespace Watersan_e_Firejalma
         public BackgroundManager(string mapLayout)
         {
 
+            Puff.Add(Properties.Blocks.PuffVermelho);
+            Puff.Add(Properties.Blocks.PuffVerde);
+            Puff.Add(Properties.Blocks.PuffAmarelo);
+            Puff.Add(Properties.Blocks.PuffAzul);
+            Puff.Add(Properties.Blocks.PuffAzulClaro);
+            Puff.Add(Properties.Blocks.PuffRoxo);
+            Puff.Add(Properties.Blocks.PuffPreto);
 
             this.mapLayout = mapLayout;
 
@@ -65,6 +77,7 @@ namespace Watersan_e_Firejalma
 
             GenerateMap();
         }
+
 
 
         public void GenerateMap()
@@ -102,6 +115,22 @@ namespace Watersan_e_Firejalma
 
                             case "h":
                                 sprite = AirRight;
+                                break;
+
+                            case "i":
+                                sprite = Projector;
+                                break;
+
+                            case "j":
+                                sprite = Puff[random.Next(0, 7)];
+                                break;
+
+                            case "k":
+                                sprite = Trash;
+                                break;
+
+                            case "l":
+                                sprite = RightSign;
                                 break;
 
                             case "v":

@@ -228,14 +228,16 @@ namespace Watersan_e_Firejalma
             foreach(Wall wall in mm.walls) 
                 walls.Add(wall);
 
+            foreach (Asset asset in assets)
+                entities.Add(asset);
+
             foreach (Character character in characters)
                 entities.Add(character);
 
             foreach (var block in boxes)
                 entities.Add(block);
 
-            foreach (Asset asset in assets)
-                entities.Add(asset);
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

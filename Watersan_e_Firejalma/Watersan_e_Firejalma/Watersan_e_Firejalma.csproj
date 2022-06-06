@@ -202,7 +202,17 @@
     <Content Include="Arte\Blocos\Parede\airCondRight.png" />
     <Content Include="Arte\Blocos\Parede\BlocoInteiro_parede.png" />
     <Content Include="Arte\Blocos\Parede\FireExtinguisher.png" />
+    <Content Include="Arte\Blocos\Parede\Lixo.png" />
     <Content Include="Arte\Blocos\Parede\Parede_Detail.png" />
+    <Content Include="Arte\Blocos\Parede\PlacaDIreita.png" />
+    <Content Include="Arte\Blocos\Parede\Projetor.png" />
+    <Content Include="Arte\Blocos\Parede\PuffAmarelo.png" />
+    <Content Include="Arte\Blocos\Parede\PuffAzul.png" />
+    <Content Include="Arte\Blocos\Parede\PuffAzulClaro.png" />
+    <Content Include="Arte\Blocos\Parede\PuffPreto.png" />
+    <Content Include="Arte\Blocos\Parede\PuffRoxo.png" />
+    <Content Include="Arte\Blocos\Parede\PuffVerde.png" />
+    <Content Include="Arte\Blocos\Parede\PuffVermelho.png" />
     <Content Include="Arte\Characters\Edjalma-sheet.png" />
     <Content Include="Arte\Characters\EdWalk.wav" />
     <Content Include="Arte\Characters\trevWalk.wav" />

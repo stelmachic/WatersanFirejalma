@@ -175,7 +175,37 @@
   <data name="FireExtinguisher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\parede\fireextinguisher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Lixo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\lixo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Parede_Detail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\blocos\parede\parede_detail.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlacaDIreita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\placadireita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Projetor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\projetor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffAmarelo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffamarelo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffAzul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffazul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffAzulClaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffazulclaro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffPreto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffpreto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffRoxo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffroxo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffverde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PuffVermelho" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\arte\blocos\parede\puffvermelho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
