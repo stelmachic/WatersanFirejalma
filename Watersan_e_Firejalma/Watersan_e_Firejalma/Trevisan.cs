@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.DirectX.AudioVideoPlayback;
+
 
 namespace Watersan_e_Firejalma
 {
@@ -47,7 +49,7 @@ namespace Watersan_e_Firejalma
                     break;
             }
 
-            var p1 = new System.Windows.Media.MediaPlayer();
+            //var p1 = new System.Windows.Media.MediaPlayer();
 
 
         }

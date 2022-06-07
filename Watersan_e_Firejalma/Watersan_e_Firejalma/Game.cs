@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using System.Linq;
+using Microsoft.DirectX.AudioVideoPlayback;
 
 namespace Watersan_e_Firejalma
 {
@@ -247,7 +248,14 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            
+
+
+            Audio theFirstFile = new Audio("Arte/Characters/EdWalk.wav");
+            Audio theSecondFile = new Audio("Arte/Characters/TrevWalk.wav");
+
+            theFirstFile.Play();
+            theSecondFile.Play();
+
 
             level0 = new MapManager(Properties.Maps.Mapateste);
             level1 = new MapManager(Properties.Maps.MapaFase1);
