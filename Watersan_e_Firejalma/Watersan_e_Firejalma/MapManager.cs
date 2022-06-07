@@ -39,6 +39,7 @@ namespace Watersan_e_Firejalma
 
         public Image TopRightDiagonal = Properties.Blocks.BlocoDiagInvDir;  // k
         public Image TopLeftDiagonal = Properties.Blocks.BlocoDiagInvEsq;   // j 
+        public Image Empty = Properties.Blocks.Vazio;                       // w
 
         private Character character;
         private Asset asset;
@@ -204,6 +205,11 @@ namespace Watersan_e_Firejalma
                                 BlockType = 5;
                                 asset = new TrevDoor(currentPosX, currentPosY, BlockType);
                                 assets.Add(asset);
+                                break;
+
+                            case "w":
+                                sprite = Empty;
+                                BlockType = 9;
                                 break;
 
                             case "v":

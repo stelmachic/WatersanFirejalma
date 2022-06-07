@@ -17,8 +17,8 @@ namespace Watersan_e_Firejalma
                     return new LiquidHitbox(rect);
                 case 2:
                     return new LiquidHitbox(rect);
-                case 6:
-                    return null;
+                case 9:
+                    return new ProtectionHitbox(rect); ;
                 default:
                     return new RectangleHitbox(rect);
             }

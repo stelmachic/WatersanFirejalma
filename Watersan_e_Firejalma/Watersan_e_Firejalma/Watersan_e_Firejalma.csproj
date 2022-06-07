@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Asset.cs" />
     <Compile Include="BackgroundManager.cs" />
+    <Compile Include="ProtectionHitbox.cs" />
     <Compile Include="TelaVitoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +216,7 @@
     <Content Include="Arte\Blocos\Parede\PuffRoxo.png" />
     <Content Include="Arte\Blocos\Parede\PuffVerde.png" />
     <Content Include="Arte\Blocos\Parede\PuffVermelho.png" />
+    <Content Include="Arte\Blocos\Chao\Vazio.png" />
     <Content Include="Arte\Characters\Edjalma-sheet.png" />
     <Content Include="Arte\Characters\EdWalk.wav" />
     <Content Include="Arte\Characters\trevWalk.wav" />
