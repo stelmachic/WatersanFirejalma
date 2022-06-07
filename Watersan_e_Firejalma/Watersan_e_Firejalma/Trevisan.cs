@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,8 @@ namespace Watersan_e_Firejalma
         public Trevisan(int posX, int posY) : base(Properties.Characters.Trevisharp_sheet, new System.Media.SoundPlayer(Properties.Audios.trevWalk), posX, posY)
         {
         }
+
+        
         public override bool Kill(int blockType)
         {
             if (blockType == 1)
@@ -22,21 +25,11 @@ namespace Watersan_e_Firejalma
 
             return false;
         }
+
+        private bool flag = true;
+        private Thread thread = null;
         public override void KeyCheck(Keys key, bool moving)
         {
-
-            if (!moving)
-            {
-                walkSound.Stop();
-            }
-            else
-            {
-                if (!isMoving)
-                {
-                    walkSound.PlayLooping();
-                }
-            }
-
             switch (key)
             {
                 case Keys.A:
@@ -52,9 +45,11 @@ namespace Watersan_e_Firejalma
                 case Keys.W:
                     isJumping = true;
                     break;
-
-    
             }
+
+            var p1 = new System.Windows.Media.MediaPlayer();
+
+
         }
     }
 }

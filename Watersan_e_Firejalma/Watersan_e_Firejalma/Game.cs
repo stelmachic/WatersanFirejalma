@@ -259,12 +259,12 @@ namespace Watersan_e_Firejalma
             background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
             background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
 
-            levels.Add(level0);
+            //levels.Add(level0);
             levels.Add(level1);
             levels.Add(level2);
             levels.Add(level3);
 
-            backgrounds.Add(background0);
+            //backgrounds.Add(background0);
             backgrounds.Add(background1);
             backgrounds.Add(background2);
             backgrounds.Add(background3);
