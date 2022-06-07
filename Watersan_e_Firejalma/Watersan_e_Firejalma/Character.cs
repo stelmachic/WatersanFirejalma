@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
 using System.Linq;
+using System.Threading;
 
 namespace Watersan_e_Firejalma
 {
@@ -42,20 +43,22 @@ namespace Watersan_e_Firejalma
         public bool animChosen = false;
         public int frame { get; set; }
 
-        public SoundPlayer walkSound;
+        
 
 
 
-        public Character(Image spriteSheet, SoundPlayer walkSound, int posX, int posY) : 
+        public Character(Image spriteSheet, int posX, int posY) : 
             base(null)
         {
             this.HitBox = HitBox.FromCharacter(this);
             this.spriteSheet = spriteSheet;
-            this.walkSound = walkSound;
+            
             this.posX = posX;
             this.posY = posY;
 
             
+            
+
             SplitSprites();
         }
 

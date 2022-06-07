@@ -12,7 +12,7 @@ namespace Watersan_e_Firejalma
 {
     public class Trevisan : Character
     {
-        public Trevisan(int posX, int posY) : base(Properties.Characters.Trevisharp_sheet, new System.Media.SoundPlayer(Properties.Audios.trevWalk), posX, posY)
+        public Trevisan(int posX, int posY) : base(Properties.Characters.Trevisharp_sheet, posX, posY)
         {
         }
 
@@ -28,8 +28,6 @@ namespace Watersan_e_Firejalma
             return false;
         }
 
-        private bool flag = true;
-        private Thread thread = null;
         public override void KeyCheck(Keys key, bool moving)
         {
             switch (key)
@@ -48,10 +46,6 @@ namespace Watersan_e_Firejalma
                     isJumping = true;
                     break;
             }
-
-            //var p1 = new System.Windows.Media.MediaPlayer();
-
-
         }
     }
 }

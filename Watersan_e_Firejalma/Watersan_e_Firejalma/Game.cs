@@ -41,6 +41,8 @@ namespace Watersan_e_Firejalma
         int currentLevel = 1;
         Image background = Properties.Maps.SenairiodeFundoGame2_0;
 
+        
+        public SoundPlayer walkSound = new System.Media.SoundPlayer(Properties.Audios.EdWalk);
 
 
 
@@ -51,14 +53,13 @@ namespace Watersan_e_Firejalma
             Menu_Voltar.Hide();
             tm.Tick += delegate 
             {
-
-                if(assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
+                
+                if (assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
                 {
                     if(currentLevel == levels.Count-1)
                     {
                         for (int i = 0; i < characters.Count; i++)
                         {
-                            characters[i].walkSound.Stop();
                             entities.Remove(characters[i]);
                             characters.Remove(characters[i]);
                         }
@@ -87,7 +88,7 @@ namespace Watersan_e_Firejalma
                 {
                     if (!characters[i].alive)
                     {
-                        characters[i].walkSound.Stop();
+               
                         entities.Remove(characters[i]);
                         characters.Remove(characters[i]);
                         i--;
@@ -149,6 +150,9 @@ namespace Watersan_e_Firejalma
                             character.CheckCollision(box, g);
                     }
                 }
+
+             
+
 
                 foreach (Asset asset in assets)
                 {
@@ -250,12 +254,6 @@ namespace Watersan_e_Firejalma
 
 
 
-            Audio theFirstFile = new Audio("Arte/Characters/EdWalk.wav");
-            Audio theSecondFile = new Audio("Arte/Characters/TrevWalk.wav");
-
-            theFirstFile.Play();
-            theSecondFile.Play();
-
 
             level0 = new MapManager(Properties.Maps.Mapateste);
             level1 = new MapManager(Properties.Maps.MapaFase1);
@@ -292,6 +290,7 @@ namespace Watersan_e_Firejalma
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+        
             foreach (Character character in characters)
             {
                 character.KeyCheck(e.KeyCode, true);
@@ -300,6 +299,7 @@ namespace Watersan_e_Firejalma
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+        
             switch (e.KeyCode)
             {
 
@@ -319,6 +319,7 @@ namespace Watersan_e_Firejalma
                     Application.Exit();
                     break;
             }
+            
             foreach (Character character in characters)
             {
                 character.KeyCheck(e.KeyCode, false);
