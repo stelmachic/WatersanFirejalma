@@ -94,3 +94,5 @@ C:\Users\Aluno\Desktop\gamejam\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma
 C:\Users\Aluno\Desktop\gamejam\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CoreCompileInputs.cache
 C:\Users\Aluno\Desktop\gamejam\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.exe
 C:\Users\Aluno\Desktop\gamejam\gamejam\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.pdb
+C:\Users\Aluno\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\bin\Debug\microsoft.directx.audiovideoplayback.dll
+C:\Users\Aluno\Desktop\WatersanFirejalma\Watersan_e_Firejalma\Watersan_e_Firejalma\obj\Debug\Watersan_e_Firejalma.csproj.CopyComplete
