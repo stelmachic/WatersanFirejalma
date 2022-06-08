@@ -68,15 +68,15 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            //levels.Add(level0);
+            levels.Add(level0);
             //levels.Add(level1);
             //levels.Add(level2);
-            levels.Add(level3);
+            //levels.Add(level3);
 
-            //backgrounds.Add(background0);
+            backgrounds.Add(background0);
             //backgrounds.Add(background1);
             //backgrounds.Add(background2);
-            backgrounds.Add(background3);
+            //backgrounds.Add(background3);
 
             transformMap(levels[currentLevel], g);
             loadLists(levels[currentLevel], backgrounds[currentLevel]);
