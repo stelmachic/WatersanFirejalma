@@ -28,14 +28,16 @@ namespace Watersan_e_Firejalma
         List<MapManager> levels = new List<MapManager>();
 
 
-        MapManager level0 = new MapManager(Properties.Maps.Mapateste);
+        MapManager level0 = new MapManager(Properties.Maps.MapaFase0);
         MapManager level1 = new MapManager(Properties.Maps.MapaFase1);
         MapManager level2 = new MapManager(Properties.Maps.MapaFase2);
         MapManager level3 = new MapManager(Properties.Maps.MapaFase3);
-        BackgroundManager background0 = new BackgroundManager(Properties.Maps.fundoMapateste);
+        MapManager level4 = new MapManager(Properties.Maps.MapaFase4);
+        BackgroundManager background0 = new BackgroundManager(Properties.Maps.fundoMapa0);
         BackgroundManager background1 = new BackgroundManager(Properties.Maps.fundoMapa1);
         BackgroundManager background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
         BackgroundManager background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
+        BackgroundManager background4 = new BackgroundManager(Properties.Maps.FundoMapa4);
 
 
         int currentLevel = 0;
@@ -68,15 +70,17 @@ namespace Watersan_e_Firejalma
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
-            levels.Add(level0);
+            //levels.Add(level0);
             //levels.Add(level1);
             //levels.Add(level2);
             //levels.Add(level3);
+            levels.Add(level4);
 
-            backgrounds.Add(background0);
+            //backgrounds.Add(background0);
             //backgrounds.Add(background1);
             //backgrounds.Add(background2);
             //backgrounds.Add(background3);
+            backgrounds.Add(background4);
 
             transformMap(levels[currentLevel], g);
             loadLists(levels[currentLevel], backgrounds[currentLevel]);

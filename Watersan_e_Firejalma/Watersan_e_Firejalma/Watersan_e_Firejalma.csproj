@@ -52,6 +52,11 @@
   <ItemGroup>
     <Compile Include="Asset.cs" />
     <Compile Include="BackgroundManager.cs" />
+    <Compile Include="Properties\Maps.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Maps.resx</DependentUpon>
+    </Compile>
     <Compile Include="ProtectionHitbox.cs" />
     <Compile Include="TelaVitoria.cs">
       <SubType>Form</SubType>
@@ -87,11 +92,6 @@
     </Compile>
     <Compile Include="Properties\Characters.Designer.cs">
       <DependentUpon>Characters.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Maps.Designer.cs">
-      <DependentUpon>Maps.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -140,8 +140,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Maps.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Maps.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Maps.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Blocks.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -222,17 +222,19 @@
     <Content Include="Arte\Characters\trevWalk.wav" />
     <Content Include="Arte\Maps\fundoMapa2.txt" />
     <Content Include="Arte\Maps\fundoMapa3.txt" />
-    <Content Include="Arte\Maps\fundoMapateste.txt" />
+    <Content Include="Arte\Maps\fundoMapa0.txt" />
+    <Content Include="Arte\Maps\FundoMapa4.txt" />
     <Content Include="Arte\Maps\MapaFase1.txt" />
     <Content Include="Arte\Maps\MapaFase2.txt" />
     <Content Include="Arte\Maps\MapaFase3.txt" />
-    <Content Include="Arte\Maps\Mapateste.txt" />
+    <Content Include="Arte\Maps\MapaFase0.txt" />
     <Content Include="Arte\Maps\senairio.png" />
     <Content Include="Arte\Maps\Senairio2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundo2.0.png" />
     <Content Include="Arte\Maps\SenairiodeFundoGame2.0.png" />
     <Content Include="Arte\Characters\Trevisharp-sheet.png" />
     <Content Include="Arte\Maps\fundoMapa1.txt" />
+    <Content Include="Arte\Maps\MapaFase4.txt" />
     <Content Include="Resources\close_icon.jpg" />
     <Content Include="Resources\TelaInicio.jpg" />
     <Content Include="Resources\TelaVitoria.png" />
