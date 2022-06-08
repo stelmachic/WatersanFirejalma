@@ -14,6 +14,7 @@ namespace Watersan_e_Firejalma
         int frameRate = 2;
         int frame = 0;
 
+
         Bitmap bmp = null;
         Graphics g = null;
 
@@ -26,147 +27,170 @@ namespace Watersan_e_Firejalma
         List<BackgroundManager> backgrounds = new List<BackgroundManager>();
         List<MapManager> levels = new List<MapManager>();
 
+
+        MapManager level0 = new MapManager(Properties.Maps.Mapateste);
+        MapManager level1 = new MapManager(Properties.Maps.MapaFase1);
+        MapManager level2 = new MapManager(Properties.Maps.MapaFase2);
+        MapManager level3 = new MapManager(Properties.Maps.MapaFase3);
+        BackgroundManager background0 = new BackgroundManager(Properties.Maps.fundoMapateste);
+        BackgroundManager background1 = new BackgroundManager(Properties.Maps.fundoMapa1);
+        BackgroundManager background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
+        BackgroundManager background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
+
+
+        int currentLevel = 0;
         int brownies = 0;
         int c_sharps = 0;
-
-        MapManager level0;
-        MapManager level1;
-        MapManager level2;
-        MapManager level3;
-        BackgroundManager background0;
-        BackgroundManager background1;
-        BackgroundManager background2;
-        BackgroundManager background3;
-
-        int currentLevel = 1;
-        Image background = Properties.Maps.SenairiodeFundoGame2_0;
-
-        
-        public SoundPlayer walkSound = new System.Media.SoundPlayer(Properties.Audios.EdWalk);
-
-
 
         public Game()
         {
             InitializeComponent();
             tm.Interval = 25;
             Menu_Voltar.Hide();
+
+
             tm.Tick += delegate 
             {
-                
-                if (assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
-                {
-                    if(currentLevel == levels.Count-1)
-                    {
-                        for (int i = 0; i < characters.Count; i++)
-                        {
-                            entities.Remove(characters[i]);
-                            characters.Remove(characters[i]);
-                        }
-                     
-
-                        this.Close();
-                        tm.Stop();
-                        TelaVitoria telanova = new TelaVitoria();
-                        telanova.Show();
-                        return;
-                    }else
-                    {
-                        clearLists();
-                        currentLevel++;
-
-                        untransformMap(levels[currentLevel - 1], g);
-                        transformMap(levels[currentLevel], g);
-                        loadLists(levels[currentLevel]);
-                        loadBackgrounds(backgrounds[currentLevel]);
-                    }
-                }
-               
-
                 frame++;
-                for (int i = 0; i < characters.Count; i++)
-                {
-                    if (!characters[i].alive)
-                    {
-               
-                        entities.Remove(characters[i]);
-                        characters.Remove(characters[i]);
-                        i--;
 
-                        this.Close();
-                        tm.Stop();
-                        TelaMorte telanova = new TelaMorte();
-                        telanova.Show();
-                        return;
-                    }
-                }
-
-                for (int i = 0; i < assets.Count; i++)
-                {
-                    if (assets[i].disappear)
-                    {
-                        if (assets[i] is Brownie)
-                        {
-                            brownies++;
-                            label1.Text = brownies.ToString();
-                        }
-                        else if (assets[i] is C_Sharp) {
-                            c_sharps++;
-                            label2.Text = c_sharps.ToString();
-                        }
-                        entities.Remove(assets[i]);
-                        assets.Remove(assets[i]);
-                        i--;
-                    }
-                }
-
-                if (frame % frameRate == 0)
-                {
-                    g.Clear(Color.Transparent);
-
-                    //drawBackground(g, background);
-
-                    foreach (Wall wall in walls)
-                    {
-                        wall.Draw(g);
-                    }
-                    foreach (Entity entity in entities)
-                    {
-                        entity.Draw(g);
-                        //entity.DrawHitBox(g);
-                    }
-                    
-                }
-
-                foreach (Character character in characters)
-                {
-                    character.Move();
-                    
-                    foreach (Block box in boxes)
-                    {
-                        float dx = box.box.X - character.posX;
-                        float dy = box.box.Y - character.posY;
-                        if (dx * dx + dy * dy <= 128 * 128)
-                            character.CheckCollision(box, g);
-                    }
-                }
-
-             
-
-
-                foreach (Asset asset in assets)
-                {
-                    foreach (Character character in characters)
-                    {
-                        float dx = asset.posX - character.posX;
-                        float dy = asset.posY - character.posY;
-                        if (dx * dx + dy * dy <= 128 * 128)
-                            asset.CheckCollision(character, g);
-                    }
-                }
+                checkVictory();
+                checkDeath();
+                collectPoints();
+                renderGame();
+                manageMovement();
 
                 pb.Image = bmp;
             };
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        { 
+            bmp = new Bitmap(pb.Width, pb.Height);
+            g = Graphics.FromImage(bmp);
+
+            //levels.Add(level0);
+            //levels.Add(level1);
+            //levels.Add(level2);
+            levels.Add(level3);
+
+            //backgrounds.Add(background0);
+            //backgrounds.Add(background1);
+            //backgrounds.Add(background2);
+            backgrounds.Add(background3);
+
+            transformMap(levels[currentLevel], g);
+            loadLists(levels[currentLevel], backgrounds[currentLevel]);
+
+            EdPoints.Text = "0";
+            TrevPoints.Text = "0";
+
+            Menu_Voltar.Size = new Size(510, 350);
+            Menu_Voltar.Location = new Point((this.Width / 2) - (Menu_Voltar.Width / 2), (this.Height / 2) - (Menu_Voltar.Height / 2));
+
+            tm.Start();
+        }
+
+        private void checkVictory()
+        {
+            if (assets.Where(c => c.assetType == AssetType.door).All(c => c.victory == true))
+            {
+                if (currentLevel == levels.Count - 1)
+                {
+                    for (int i = 0; i < characters.Count; i++)
+                    {
+                        entities.Remove(characters[i]);
+                        characters.Remove(characters[i]);
+                    }
+
+
+                    this.Close();
+                    tm.Stop();
+                    TelaVitoria telanova = new TelaVitoria();
+                    telanova.Show();
+                    return;
+                }
+                else
+                {
+                    clearLists();
+                    currentLevel++;
+
+                    untransformMap(levels[currentLevel - 1], g);
+                    transformMap(levels[currentLevel], g);
+                    loadLists(levels[currentLevel], backgrounds[currentLevel]);
+                }
+            }
+        }
+
+        private void checkDeath()
+        {
+            for (int i = 0; i < characters.Count; i++)
+            {
+                if (!characters[i].alive)
+                {
+
+                    entities.Remove(characters[i]);
+                    characters.Remove(characters[i]);
+                    i--;
+
+                    this.Close();
+                    tm.Stop();
+                    TelaMorte telanova = new TelaMorte();
+                    telanova.Show();
+                    return;
+                }
+            }
+        }
+
+        private void collectPoints()
+        {
+            foreach (Asset asset in assets)
+            {
+                foreach (Character character in characters)
+                {
+                    float dx = asset.posX - character.posX;
+                    float dy = asset.posY - character.posY;
+                    if (dx * dx + dy * dy <= 128 * 128)
+                        asset.CheckCollision(character, g);
+                }
+            }
+
+            for (int i = 0; i < assets.Count; i++)
+            {
+                if (assets[i].disappear)
+                {
+                    if (assets[i] is Brownie)
+                    {
+                        brownies++;
+                        EdPoints.Text = brownies.ToString();
+                    }
+                    else if (assets[i] is C_Sharp)
+                    {
+                        c_sharps++;
+                        TrevPoints.Text = c_sharps.ToString();
+                    }
+                    entities.Remove(assets[i]);
+                    assets.Remove(assets[i]);
+                    i--;
+                }
+            }
+        }
+
+        private void renderGame()
+        {
+            if (frame % frameRate == 0)
+            {
+                g.Clear(Color.Transparent);
+
+                foreach (Wall wall in walls)
+                {
+                    wall.Draw(g);
+                }
+                foreach (Entity entity in entities)
+                {
+                    entity.Draw(g);
+                    entity.DrawHitBox(g);
+                }
+            }
         }
 
         private void clearLists()
@@ -177,6 +201,24 @@ namespace Watersan_e_Firejalma
             boxes.Clear();
             entities.Clear();
         }
+
+        private void manageMovement()
+        {
+            foreach (Character character in characters)
+            {
+                character.Move();
+
+                foreach (Block box in boxes)
+                {
+                    float dx = box.box.X - character.posX;
+                    float dy = box.box.Y - character.posY;
+                    if (dx * dx + dy * dy <= 128 * 128)
+                        character.CheckCollision(box, g);
+                }
+            }
+        }
+
+
 
         private void transformMap(MapManager mm, Graphics g)
         {
@@ -211,15 +253,7 @@ namespace Watersan_e_Firejalma
             }
         }
 
-        private void loadBackgrounds(BackgroundManager bg)
-        {
-            foreach (Wall wall in bg.walls)
-            {
-                walls.Add(wall);
-            }
-        }
-
-        private void loadLists(MapManager mm)
+        private void loadLists(MapManager mm, BackgroundManager bg)
         {
             foreach (Character character in mm.characters)
                 characters.Add(character);
@@ -242,51 +276,16 @@ namespace Watersan_e_Firejalma
             foreach (var block in boxes)
                 entities.Add(block);
 
-            
+            foreach (Wall wall in bg.walls)
+            {
+                walls.Add(wall);
+            }
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {  
-            currentLevel = 0;
-            
-            bmp = new Bitmap(pb.Width, pb.Height);
-            g = Graphics.FromImage(bmp);
 
 
 
-
-            level0 = new MapManager(Properties.Maps.Mapateste);
-            level1 = new MapManager(Properties.Maps.MapaFase1);
-            level2 = new MapManager(Properties.Maps.MapaFase2);
-            level3 = new MapManager(Properties.Maps.MapaFase3);
-
-            background0 = new BackgroundManager(Properties.Maps.fundoMapateste);
-            background1 = new BackgroundManager(Properties.Maps.fundoMapa1);
-            background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
-            background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
-
-            //levels.Add(level0);
-            //levels.Add(level1);
-            levels.Add(level2);
-            levels.Add(level3);
-
-            //backgrounds.Add(background0);
-            //backgrounds.Add(background1);
-            backgrounds.Add(background2);
-            backgrounds.Add(background3);
-
-            transformMap(levels[currentLevel], g);
-            loadLists(levels[currentLevel]);
-            loadBackgrounds(backgrounds[currentLevel]);
-
-            label1.Text = "0";
-            label2.Text = "0";
-
-            Menu_Voltar.Size = new Size(510,350);
-            Menu_Voltar.Location = new Point((this.Width / 2) - (Menu_Voltar.Width / 2) , (this.Height / 2) - (Menu_Voltar.Height / 2));
-
-            tm.Start();
-        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {

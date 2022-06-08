@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.EdPoints = new System.Windows.Forms.Label();
+            this.TrevPoints = new System.Windows.Forms.Label();
             this.Menu_Voltar = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Voltar_Button = new System.Windows.Forms.Label();
@@ -47,27 +47,27 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // EdPoints
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MingLiU-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 48);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "0";
+            this.EdPoints.AutoSize = true;
+            this.EdPoints.BackColor = System.Drawing.Color.Transparent;
+            this.EdPoints.Font = new System.Drawing.Font("MingLiU-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EdPoints.Location = new System.Drawing.Point(75, 9);
+            this.EdPoints.Name = "EdPoints";
+            this.EdPoints.Size = new System.Drawing.Size(45, 48);
+            this.EdPoints.TabIndex = 1;
+            this.EdPoints.Text = "0";
             // 
-            // label2
+            // TrevPoints
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(259, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 48);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "0";
+            this.TrevPoints.AutoSize = true;
+            this.TrevPoints.BackColor = System.Drawing.Color.Transparent;
+            this.TrevPoints.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TrevPoints.Location = new System.Drawing.Point(259, 9);
+            this.TrevPoints.Name = "TrevPoints";
+            this.TrevPoints.Size = new System.Drawing.Size(45, 48);
+            this.TrevPoints.TabIndex = 2;
+            this.TrevPoints.Text = "0";
             // 
             // Menu_Voltar
             // 
@@ -151,15 +151,14 @@
             this.pb.Size = new System.Drawing.Size(800, 450);
             this.pb.TabIndex = 0;
             this.pb.TabStop = false;
-      
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Bisque;
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TrevPoints);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.EdPoints);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(323, 67);
@@ -197,8 +196,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pb;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label EdPoints;
+        private System.Windows.Forms.Label TrevPoints;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel Menu_Voltar;
