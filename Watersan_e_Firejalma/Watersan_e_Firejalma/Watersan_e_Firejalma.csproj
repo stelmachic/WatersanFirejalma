@@ -236,6 +236,8 @@
     <Content Include="Arte\Maps\fundoMapa1.txt" />
     <Content Include="Arte\Maps\MapaFase4.txt" />
     <Content Include="Resources\close_icon.jpg" />
+    <None Include="Resources\Design sem nome.png" />
+    <None Include="Resources\Fechar.png" />
     <Content Include="Resources\TelaInicio.jpg" />
     <Content Include="Resources\TelaVitoria.png" />
     <Content Include="Resources\Voltar_fundo.jpg" />

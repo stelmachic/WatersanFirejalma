@@ -31,28 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.EdPoints = new System.Windows.Forms.Label();
             this.TrevPoints = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Menu_Voltar = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Voltar_Button = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pb = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Menu_Voltar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.panel1.SuspendLayout();
+            this.Menu_Voltar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             this.SuspendLayout();
             // 
             // EdPoints
             // 
             this.EdPoints.AutoSize = true;
-            this.EdPoints.BackColor = System.Drawing.Color.Transparent;
+            this.EdPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(86)))));
             this.EdPoints.Font = new System.Drawing.Font("MingLiU-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EdPoints.Location = new System.Drawing.Point(75, 9);
+            this.EdPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.EdPoints.Location = new System.Drawing.Point(220, 28);
             this.EdPoints.Name = "EdPoints";
             this.EdPoints.Size = new System.Drawing.Size(45, 48);
             this.EdPoints.TabIndex = 1;
@@ -61,32 +66,57 @@
             // TrevPoints
             // 
             this.TrevPoints.AutoSize = true;
-            this.TrevPoints.BackColor = System.Drawing.Color.Transparent;
+            this.TrevPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(25)))));
             this.TrevPoints.Font = new System.Drawing.Font("MingLiU_HKSCS-ExtB", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TrevPoints.Location = new System.Drawing.Point(259, 9);
+            this.TrevPoints.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.TrevPoints.Location = new System.Drawing.Point(71, 28);
             this.TrevPoints.Name = "TrevPoints";
             this.TrevPoints.Size = new System.Drawing.Size(45, 48);
             this.TrevPoints.TabIndex = 2;
             this.TrevPoints.Text = "0";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Bisque;
+            this.panel1.Controls.Add(this.TrevPoints);
+            this.panel1.Controls.Add(this.EdPoints);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(285, 85);
+            this.panel1.TabIndex = 6;
+            // 
             // Menu_Voltar
             // 
             this.Menu_Voltar.BackColor = System.Drawing.Color.Silver;
             this.Menu_Voltar.BackgroundImage = global::Watersan_e_Firejalma.Properties.Resources.Voltar_fundo;
-            this.Menu_Voltar.Controls.Add(this.pictureBox3);
             this.Menu_Voltar.Controls.Add(this.Voltar_Button);
+            this.Menu_Voltar.Controls.Add(this.pictureBox3);
+            this.Menu_Voltar.Controls.Add(this.pictureBox5);
             this.Menu_Voltar.Controls.Add(this.label3);
-            this.Menu_Voltar.Location = new System.Drawing.Point(288, 101);
+            this.Menu_Voltar.Location = new System.Drawing.Point(299, 101);
             this.Menu_Voltar.Name = "Menu_Voltar";
-            this.Menu_Voltar.Size = new System.Drawing.Size(512, 349);
+            this.Menu_Voltar.Size = new System.Drawing.Size(501, 349);
             this.Menu_Voltar.TabIndex = 5;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Watersan_e_Firejalma.Properties.Resources.Fechar;
+            this.pictureBox5.Location = new System.Drawing.Point(0, -3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(512, 352);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 9;
+            this.pictureBox5.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(119)))));
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::Watersan_e_Firejalma.Properties.Resources.close_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(452, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(446, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 60);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -98,9 +128,9 @@
             // 
             this.Voltar_Button.BackColor = System.Drawing.Color.Maroon;
             this.Voltar_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Voltar_Button.Font = new System.Drawing.Font("MingLiU-ExtB", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Voltar_Button.Font = new System.Drawing.Font("Thayer Street NDP", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Voltar_Button.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Voltar_Button.Location = new System.Drawing.Point(142, 229);
+            this.Voltar_Button.Location = new System.Drawing.Point(127, 245);
             this.Voltar_Button.Name = "Voltar_Button";
             this.Voltar_Button.Size = new System.Drawing.Size(227, 64);
             this.Voltar_Button.TabIndex = 7;
@@ -120,16 +150,14 @@
             this.label3.Text = "Deseja Voltar para o menu?";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
+            // pictureBox4
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(185, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.pictureBox4.Image = global::Watersan_e_Firejalma.Properties.Resources.Design_sem_nome;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(285, 85);
+            this.pictureBox4.TabIndex = 5;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -142,6 +170,17 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(185, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
             // pb
             // 
             this.pb.BackColor = System.Drawing.Color.Transparent;
@@ -151,18 +190,6 @@
             this.pb.Size = new System.Drawing.Size(800, 450);
             this.pb.TabIndex = 0;
             this.pb.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Bisque;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.TrevPoints);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.EdPoints);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 67);
-            this.panel1.TabIndex = 6;
             // 
             // Game
             // 
@@ -182,13 +209,15 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            this.Menu_Voltar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.Menu_Voltar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,6 +234,8 @@
         private System.Windows.Forms.Label Voltar_Button;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 
