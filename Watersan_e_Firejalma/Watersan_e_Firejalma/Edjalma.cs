@@ -20,8 +20,6 @@ namespace Watersan_e_Firejalma
             return false;
         }
 
-        private bool flag = true;
-        private Thread thread = null;
         public override void KeyCheck(Keys key, bool moving)
         {  
             switch (key)

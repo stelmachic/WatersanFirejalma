@@ -142,7 +142,6 @@ namespace Watersan_e_Firejalma
             {
                 if (isGrounded)
                 {
-                    
                     speedY = jumpForce * -1;
                 }
                 isJumping = false;

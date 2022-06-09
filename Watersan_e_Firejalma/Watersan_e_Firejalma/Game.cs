@@ -32,12 +32,10 @@ namespace Watersan_e_Firejalma
         MapManager level1 = new MapManager(Properties.Maps.MapaFase1);
         MapManager level2 = new MapManager(Properties.Maps.MapaFase2);
         MapManager level3 = new MapManager(Properties.Maps.MapaFase3);
-        MapManager level4 = new MapManager(Properties.Maps.MapaFase4);
         BackgroundManager background0 = new BackgroundManager(Properties.Maps.fundoMapa0);
         BackgroundManager background1 = new BackgroundManager(Properties.Maps.fundoMapa1);
         BackgroundManager background2 = new BackgroundManager(Properties.Maps.fundoMapa2);
         BackgroundManager background3 = new BackgroundManager(Properties.Maps.fundoMapa3);
-        BackgroundManager background4 = new BackgroundManager(Properties.Maps.FundoMapa4);
 
 
         int currentLevel = 0;
@@ -74,15 +72,14 @@ namespace Watersan_e_Firejalma
             levels.Add(level1);
             levels.Add(level2);
             levels.Add(level3);
-            levels.Add(level4);
 
             backgrounds.Add(background0);
             backgrounds.Add(background1);
             backgrounds.Add(background2);
             backgrounds.Add(background3);
-            backgrounds.Add(background4);
 
             transformMap(levels[currentLevel], g);
+
             loadLists(levels[currentLevel], backgrounds[currentLevel]);
 
             EdPoints.Text = "0";
@@ -93,6 +90,8 @@ namespace Watersan_e_Firejalma
 
             tm.Start();
         }
+
+
 
         private void checkVictory()
         {
@@ -192,7 +191,7 @@ namespace Watersan_e_Firejalma
                 foreach (Entity entity in entities)
                 {
                     entity.Draw(g);
-                    entity.DrawHitBox(g);
+                    //entity.DrawHitBox(g);
                 }
             }
         }
@@ -228,6 +227,7 @@ namespace Watersan_e_Firejalma
         {
             float aw = this.Width / (float)mm.mapWidth,
                   ah = this.Height / (float)mm.mapHeight;
+
             if (aw > ah)
             {
                 g.ScaleTransform(ah, ah);
@@ -287,10 +287,6 @@ namespace Watersan_e_Firejalma
 
         }
 
-
-
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
         
@@ -338,6 +334,8 @@ namespace Watersan_e_Firejalma
             return;
         }
 
+
+        // botao de fechar menu
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             Menu_Voltar.Hide();

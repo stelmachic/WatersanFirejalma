@@ -21,7 +21,7 @@ namespace Watersan_e_Firejalma
         public string mapLayout;
 
         
-        public Image FullBlock = Properties.Blocks.BlocoInteiro;            // a
+        public List<Image> FullBlock = new List<Image>();            // a
         public Image FullWaterBlock = Properties.Blocks.BlocoAgua;          // c
         public Image FullLavaBlock = Properties.Blocks.BlocoLava;           // f
         public Image FullDeathBlock = Properties.Blocks.BlocoMorte;         // m
@@ -43,7 +43,6 @@ namespace Watersan_e_Firejalma
 
         private Character character;
         private Asset asset;
-        private Wall wall;
 
         private int BlockType;
 
@@ -67,12 +66,13 @@ namespace Watersan_e_Firejalma
         public int lines=0;
         public int columns=0;
         string strLine = string.Empty;
-
+        Random random = new Random();
 
 
         public MapManager(string mapLayout)
         {
-        
+
+            FullBlock.Add(Properties.Blocks.BlocoInteiro);
 
             this.mapLayout = mapLayout;
 
@@ -114,7 +114,7 @@ namespace Watersan_e_Firejalma
                         switch (strBlockChar)
                         {
                             case "a":
-                                sprite = FullBlock;
+                                sprite = FullBlock[random.Next(0, 1)];
                                 BlockType = 0;
                                 break;
                             case "b":
@@ -214,8 +214,6 @@ namespace Watersan_e_Firejalma
 
                             case "v":
                                 sprite = null;
-                                //wall = new Wall(FullWallBlock,currentPosX, currentPosY);
-                                //walls.Add(wall);
                                 break;
                         }
 
