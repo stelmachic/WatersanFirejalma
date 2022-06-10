@@ -17,7 +17,7 @@ namespace Watersan_e_Firejalma
 
         Bitmap bmp = null;
         Graphics g = null;
-
+        int currentTutorial=1;
 
         List<Character> characters = new List<Character>();
         List<Block> boxes = new List<Block>();
@@ -64,7 +64,8 @@ namespace Watersan_e_Firejalma
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
+            tutorial.Show();
             bmp = new Bitmap(pb.Width, pb.Height);
             g = Graphics.FromImage(bmp);
 
@@ -84,7 +85,7 @@ namespace Watersan_e_Firejalma
 
             EdPoints.Text = "0";
             TrevPoints.Text = "0";
-
+            tutorial.Location = new Point((this.Width / 2) - (tutorial.Width / 2), (this.Height / 2) - (tutorial.Height / 2));
             Menu_Voltar.Size = new Size(510, 350);
             Menu_Voltar.Location = new Point((this.Width / 2) - (Menu_Voltar.Width / 2), (this.Height / 2) - (Menu_Voltar.Height / 2));
 
@@ -221,7 +222,26 @@ namespace Watersan_e_Firejalma
             }
         }
 
-
+        private void Tutorial()
+        {
+            switch (currentTutorial)
+            {
+                case 1:
+                    labelTutorial.Text = "Firejalma e Watersan são grandes professores na terra de SenaiLandia, e a muito tempo eles descobriram que precisam trabalhar juntos para alcançar os melhores resultados, mas para se tornar o melhor professor, eles terao que passar por uma jornada sem igual, e apenas um sai com um titulo!";
+                    break;
+                case 2:
+                    labelTutorial.Text = "Watersan com os tempos de aula desenvolveu poderes de agua sendo extremamente sensivel a lava, então cuidado, e o Firejalma ao contrario, poderes de lava e extremamente sensivel a agua.";
+                    break;
+                case 3:
+                    labelTutorial.Text = "Watersan se move com os botões W, A, S, D e o Firejalma pelas setas.";
+                    break;
+                case 4:
+                    tutorial.Hide();
+                    break;
+            }
+            
+            
+        }
 
         private void transformMap(MapManager mm, Graphics g)
         {
@@ -339,6 +359,12 @@ namespace Watersan_e_Firejalma
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             Menu_Voltar.Hide();
+        }
+
+        private void buttonTutorial_Click(object sender, EventArgs e)
+        {
+            currentTutorial++;
+            Tutorial();
         }
     }
 }
