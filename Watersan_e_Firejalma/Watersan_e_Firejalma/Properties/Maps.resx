@@ -130,12 +130,6 @@
   <data name="fundoMapa3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\fundomapa3.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="FundoMapa4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\arte\maps\fundomapa4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="FundoMapa41" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\arte\maps\fundomapa4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="MapaFase0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\mapafase0.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -147,9 +141,6 @@
   </data>
   <data name="MapaFase3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\mapafase3.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="MapaFase4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\arte\maps\mapafase4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="senairio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\arte\maps\senairio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
